@@ -74,17 +74,6 @@ export default async function HomePage({
             <h1 className="display">{home.hero.title}</h1>
             <div className="home-hero__intro">
               <p className="hero__lead">{home.hero.lead}</p>
-              <div className="hero__actions">
-                <a href={home.hero.primaryCta.href} className="btn btn--primary">
-                  {home.hero.primaryCta.label}
-                </a>
-                <Link
-                  href={path(lang, home.hero.secondaryCta.route)}
-                  className="btn btn--ghost"
-                >
-                  {home.hero.secondaryCta.label}
-                </Link>
-              </div>
             </div>
             <CampaignImageSlot
               kind="home"
@@ -95,7 +84,7 @@ export default async function HomePage({
         </div>
       </div>
 
-      <Section variant="band">
+      <Section variant="band" className="home-stats">
         <div className="editorial-grid stats-layout">
           <Reveal className="editorial-grid__rail">
             <SectionHead block={home.statsBlock} />
@@ -115,7 +104,7 @@ export default async function HomePage({
 
       {/* The minister's own words, unedited. No commentary around them —
           the gap between the question and the answer is self-evident. */}
-      <Section size="air">
+      <Section size="air" className="home-quote">
         <Reveal className="pullquote">
           <div className="pullquote__copy">
             <blockquote className="pullquote__text">
@@ -141,7 +130,7 @@ export default async function HomePage({
         </Reveal>
       </Section>
 
-      <Section variant="band">
+      <Section variant="band" className="home-questions">
         <div className="editorial-grid">
           <Reveal className="editorial-grid__rail">
             <SectionHead block={home.questionsBlock} />
@@ -170,7 +159,7 @@ export default async function HomePage({
 
       {/* Three policy threads on one dark panel, because the argument is that
           they are one thing. Separating them visually would concede the point. */}
-      <Section variant="panel" size="air">
+      <Section variant="panel" size="air" className="home-convergence">
         <div className="editorial-grid">
           <Reveal className="editorial-grid__rail">
             <SectionHead block={home.convergence} />
@@ -193,7 +182,7 @@ export default async function HomePage({
         </div>
       </Section>
 
-      <Section size="tight">
+      <Section size="tight" className="home-record">
         <Reveal className="scope-statement editorial-grid">
           <div className="editorial-grid__rail">
             <SectionHead block={home.notWhat} />
@@ -207,7 +196,12 @@ export default async function HomePage({
         </Reveal>
       </Section>
 
-      <Section id="share" variant="band" size="tight">
+      <Section
+        id="share"
+        variant="band"
+        size="tight"
+        className="home-share"
+      >
         <div className="editorial-grid">
           <Reveal className="editorial-grid__rail">
             <SectionHead block={home.share} />

@@ -1,17 +1,20 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-25T21:17:42.000Z",
+  "generatedAt": "2026-07-25T22:30:00.000Z",
   "title": "Design System: Vem svarar för Acus?",
   "extensions": {
     "colorMeta": {
-      "paper": { "role": "neutral", "displayName": "Mist Paper", "canonical": "#f7fafc", "tonalRamp": ["#0a202b", "#0e2d3d", "#294857", "#4d6877", "#8aa4b0", "#c8d8e0", "#edf4f7", "#f7fafc"] },
-      "ink": { "role": "neutral", "displayName": "Harbour Ink", "canonical": "#0e2d3d", "tonalRamp": ["#0a202b", "#0e2d3d", "#18465d", "#294857", "#4d6877", "#8aa4b0", "#c8d8e0", "#f4f9fb"] },
-      "flag": { "role": "primary", "displayName": "Civic Signal Blue", "canonical": "#126886", "tonalRamp": ["#062837", "#0a3e54", "#0e5570", "#126886", "#2b84a2", "#67c6e6", "#b9e4f1", "#e8f6fa"] },
-      "panel": { "role": "neutral", "displayName": "Night Record", "canonical": "#0d3044", "tonalRamp": ["#0a202b", "#0b2634", "#0d3044", "#18465d", "#2b5265", "#587482", "#b8cad3", "#f5fafc"] }
+      "paper": { "role": "neutral", "displayName": "Editorial Paper", "canonical": "#f5efe6", "tonalRamp": ["#191611", "#3d3632", "#725f54", "#77675d", "#d5c8bb", "#e6ddd2", "#eee6dc", "#f5efe6"] },
+      "ink": { "role": "neutral", "displayName": "Midnight Ink", "canonical": "#101829", "tonalRamp": ["#080c15", "#101829", "#263148", "#3d465a", "#737b8d", "#aeb4c0", "#d9dce2", "#f8f2e9"] },
+      "flag": { "role": "primary", "displayName": "Civic Signal Teal", "canonical": "#1e6578", "tonalRamp": ["#09242c", "#103d49", "#185667", "#1e6578", "#3f8192", "#75adba", "#b9d7dc", "#e8f3f4"] },
+      "panel": { "role": "neutral", "displayName": "Night Record", "canonical": "#111827", "tonalRamp": ["#080c15", "#111827", "#263148", "#384052", "#6c7485", "#a9afba", "#d8dbe1", "#f8f2e9"] }
     },
     "typographyMeta": {
-      "display": { "displayName": "Public Question", "purpose": "Page-level questions and hero statements." },
-      "headline": { "displayName": "Argument Heading", "purpose": "Section arguments and major content headings." },
+      "display": { "displayName": "Editorial Question", "purpose": "Old-style serif for page-level questions and the centered home hero." },
+      "headline": { "displayName": "Chapter Heading", "purpose": "Old-style serif for section arguments and major content headings." },
+      "home-chapter": { "displayName": "Home Chapter", "purpose": "A restrained chapter scale for the figures section." },
+      "scope": { "displayName": "Scope Statement", "purpose": "A compact serif scale sized to hold the legal clarification in four deliberate lines." },
+      "download-title": { "displayName": "Download Heading", "purpose": "Introduces the full-width social artwork row." },
       "body": { "displayName": "Reading Text", "purpose": "Evidence-led prose, constrained to a readable measure." },
       "label": { "displayName": "Record Metadata", "purpose": "Dates, sources, statuses, and compact navigation labels." }
     },
@@ -19,17 +22,19 @@
       "grid": "12 columns above 840px; one reading column below",
       "gutter": "clamp(24px, 3vw, 40px)",
       "spacingScale": ["4px", "8px", "12px", "16px", "24px", "32px", "48px", "64px", "96px"],
-      "radiusScale": { "control": "4px", "frame": "8px", "artwork": "12px" },
+      "radiusScale": { "control": "0px", "frame": "0px", "artwork": "0px" },
       "compositions": ["shared route thesis", "evidence register", "bibliography", "timeline docket", "closing statement", "interruption"]
     },
-    "shadows": [],
+    "shadows": [
+      { "name": "document-ambient", "value": "0 32px 110px rgba(74,43,31,.11)", "purpose": "Separates the bounded publication canvas from the atmospheric field on wide screens only." }
+    ],
     "motion": [
       { "name": "control", "value": "140ms ease", "purpose": "Colour and border feedback on controls and links." },
       { "name": "reveal", "value": "520ms cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "One-time fade-and-rise reading cue; disabled for reduced motion." }
     ],
     "breakpoints": [
       { "name": "question-exchange", "value": "700px" },
-      { "name": "stat-columns", "value": "760px" },
+      { "name": "stat-columns", "value": "1080px" },
       { "name": "content-columns", "value": "840px" },
       { "name": "navigation", "value": "940px" }
     ]
@@ -41,7 +46,7 @@
       "refersTo": "button-primary",
       "description": "The direct action pattern for sharing or continuing to evidence, with a 44px minimum touch target.",
       "html": "<button class=\"ds-btn-primary\">Read the questions</button>",
-      "css": ".ds-btn-primary { display:inline-flex; align-items:center; min-height:44px; padding:12px 24px; border:1px solid transparent; border-radius:4px; background:#0e2d3d; color:#f8fbfc; font:500 .875rem/1.2 Geist Sans,ui-sans-serif,system-ui,sans-serif; letter-spacing:-.005em; cursor:pointer; transition:background-color 140ms ease; } .ds-btn-primary:hover { background:#18465d; } .ds-btn-primary:focus-visible { outline:2px solid #0b6685; outline-offset:3px; }"
+      "css": ".ds-btn-primary { display:inline-flex; align-items:center; min-height:44px; padding:12px 24px; border:1px solid transparent; border-radius:0; background:#101829; color:#fffaf4; font:500 .875rem/1.2 Geist Sans,ui-sans-serif,system-ui,sans-serif; letter-spacing:-.005em; cursor:pointer; transition:background-color 140ms ease; } .ds-btn-primary:hover { background:#263148; } .ds-btn-primary:focus-visible { outline:2px solid #1e6578; outline-offset:3px; }"
     },
     {
       "name": "Ghost Button",
@@ -49,7 +54,7 @@
       "refersTo": "button-ghost",
       "description": "The secondary action pattern, visibly available without competing with the primary action.",
       "html": "<button class=\"ds-btn-ghost\">View sources</button>",
-      "css": ".ds-btn-ghost { display:inline-flex; align-items:center; min-height:44px; padding:12px 24px; border:1px solid #c8d8e0; border-radius:4px; background:transparent; color:#0e2d3d; font:500 .875rem/1.2 Geist Sans,ui-sans-serif,system-ui,sans-serif; letter-spacing:-.005em; cursor:pointer; transition:background-color 140ms ease,border-color 140ms ease; } .ds-btn-ghost:hover { background:#e8f0f4; border-color:#8aa4b0; } .ds-btn-ghost:focus-visible { outline:2px solid #0b6685; outline-offset:3px; }"
+      "css": ".ds-btn-ghost { display:inline-flex; align-items:center; min-height:44px; padding:12px 24px; border:1px solid #d5c8bb; border-radius:0; background:transparent; color:#101829; font:500 .875rem/1.2 Geist Sans,ui-sans-serif,system-ui,sans-serif; letter-spacing:-.005em; cursor:pointer; transition:background-color 140ms ease,border-color 140ms ease; } .ds-btn-ghost:hover { background:#ebe2d8; border-color:#9b897c; } .ds-btn-ghost:focus-visible { outline:2px solid #1e6578; outline-offset:3px; }"
     },
     {
       "name": "Question Status Flag",
@@ -57,7 +62,7 @@
       "refersTo": "question-flag",
       "description": "A compact factual state marker for an unanswered question.",
       "html": "<span class=\"ds-flag\"><i></i> Unanswered</span>",
-      "css": ".ds-flag { display:inline-flex; align-items:center; gap:8px; padding:4px 8px; background:#dceef4; color:#126886; font:500 .6875rem/1.4 Geist Mono,ui-monospace,monospace; letter-spacing:.1em; text-transform:uppercase; } .ds-flag i { width:5px; height:5px; background:currentColor; }"
+      "css": ".ds-flag { display:inline-flex; align-items:center; gap:8px; padding:4px 8px; background:#dcebea; color:#1e6578; font:500 .6875rem/1.4 Geist Mono,ui-monospace,monospace; letter-spacing:.1em; text-transform:uppercase; } .ds-flag i { width:5px; height:5px; background:currentColor; }"
     },
     {
       "name": "Citation Link",
@@ -78,14 +83,14 @@
       "kind": "custom",
       "description": "A chaptered public-record chronology with a recurring date axis, selective turning-point emphasis, and one conclusive present-state plane.",
       "html": "<section class=\"ds-docket\"><header><h2>The unanswered exchange</h2><p>Parliament asks who authorised Acus. The answers stop short.</p></header><ol><li><time>6 November 2025</time><article><h3>Written question 2025/26:167</h3><p>The question enters the public record.</p></article></li><li class=\"is-turning\"><time>19 November 2025</time><article><h3>The minister answers — without answering</h3><p>The timing and storage questions are not addressed.</p></article></li></ol></section>",
-      "css": ".ds-docket { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); column-gap:clamp(24px,3vw,40px); padding:48px 0 96px; border-top:1px solid #0e2d3d; } .ds-docket>header { grid-column:1/5; } .ds-docket>ol { grid-column:5/-1; margin:0; padding:0; list-style:none; border-top:1px solid #c8d8e0; } .ds-docket li { display:grid; grid-template-columns:repeat(8,minmax(0,1fr)); column-gap:clamp(24px,3vw,40px); padding:32px 0; border-bottom:1px solid #c8d8e0; } .ds-docket time { grid-column:1/3; font:.8125rem/1.5 Geist Mono,ui-monospace,monospace; color:#0e2d3d; } .ds-docket article { grid-column:3/-1; } .ds-docket h2,.ds-docket h3,.ds-docket p { margin:0; } .ds-docket .is-turning { padding:48px 0; } @media(max-width:839px){.ds-docket{grid-template-columns:1fr;gap:32px}.ds-docket>header,.ds-docket>ol{grid-column:1}.ds-docket li{grid-template-columns:1fr;gap:12px;padding:24px 0}.ds-docket time,.ds-docket article{grid-column:1}}"
+      "css": ".ds-docket { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); column-gap:clamp(24px,3vw,40px); padding:48px 0 96px; border-top:1px solid #d5c8bb; } .ds-docket>header { grid-column:1/5; } .ds-docket>ol { grid-column:5/-1; margin:0; padding:0; list-style:none; border-top:1px solid #d5c8bb; } .ds-docket li { display:grid; grid-template-columns:repeat(8,minmax(0,1fr)); column-gap:clamp(24px,3vw,40px); padding:32px 0; border-bottom:1px solid #d5c8bb; } .ds-docket time { grid-column:1/3; font:.8125rem/1.5 Geist Mono,ui-monospace,monospace; color:#0e2d3d; } .ds-docket article { grid-column:3/-1; } .ds-docket h2,.ds-docket h3,.ds-docket p { margin:0; } .ds-docket .is-turning { padding:48px 0; } @media(max-width:839px){.ds-docket{grid-template-columns:1fr;gap:32px}.ds-docket>header,.ds-docket>ol{grid-column:1}.ds-docket li{grid-template-columns:1fr;gap:12px;padding:24px 0}.ds-docket time,.ds-docket article{grid-column:1}}"
     },
     {
       "name": "Documentary Pull Quote",
       "kind": "custom",
       "description": "A ministerial quotation paired with its documentary portrait; it stacks on narrow viewports and never crops the photograph.",
       "html": "<figure class=\"ds-quote\"><blockquote>The Police Authority decides for itself which IT services it procures and uses in its operations.</blockquote><img src=\"/press/gunnar-strommer.png\" alt=\"Minister for Justice Gunnar Strömmer\"></figure>",
-      "css": ".ds-quote { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr); align-items:center; gap:clamp(32px,5vw,72px); margin:0; padding-top:clamp(28px,3.5vw,44px); border-top:2px solid #0e2d3d; } .ds-quote blockquote { margin:0; color:#0e2d3d; font:500 clamp(1.5rem,3.2vw,2.375rem)/1.24 Geist Sans,ui-sans-serif,system-ui,sans-serif; letter-spacing:-.022em; } .ds-quote img { display:block; width:100%; height:auto; overflow:hidden; border:1px solid #c8d8e0; border-radius:12px; filter:saturate(.9) contrast(.98); } @media(max-width:819px){.ds-quote{grid-template-columns:1fr;}}"
+      "css": ".ds-quote { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr); align-items:center; gap:clamp(32px,5vw,72px); margin:0; padding-top:clamp(28px,3.5vw,44px); border-top:1px solid #d5c8bb; } .ds-quote blockquote { margin:0; color:#0e2d3d; font:500 clamp(1.5rem,3.2vw,2.375rem)/1.24 Geist Sans,ui-sans-serif,system-ui,sans-serif; letter-spacing:-.022em; } .ds-quote img { display:block; width:100%; height:auto; overflow:hidden; border:1px solid #d5c8bb; border-radius:12px; filter:saturate(.9) contrast(.98); } @media(max-width:819px){.ds-quote{grid-template-columns:1fr;}}"
     },
     {
       "name": "Press Card",
@@ -99,14 +104,14 @@
       "name": "Campaign Artwork Placeholder",
       "kind": "custom",
       "description": "A localized neutral-gray frame that reserves the final campaign artwork's exact aspect ratio and displays its recommended export dimensions.",
-      "html": "<figure class=\"ds-art-slot\"><figcaption><span>Primary campaign artwork</span><strong>1600 × 2000 px</strong><small>4:5</small></figcaption></figure>",
-      "css": ".ds-art-slot { display:grid; place-items:center; aspect-ratio:4/5; min-width:0; margin:0; overflow:hidden; border:1px solid #c8d8e0; border-radius:12px; background:#d7dcdf; color:#34444c; } .ds-art-slot figcaption { display:grid; justify-items:center; gap:4px; padding:24px; text-align:center; } .ds-art-slot span { font:400 .9375rem/1.45 Geist Sans,ui-sans-serif,system-ui,sans-serif; } .ds-art-slot strong { font:500 .8125rem/1.4 Geist Mono,ui-monospace,monospace; } .ds-art-slot small { font:400 .75rem/1.4 Geist Sans,ui-sans-serif,system-ui,sans-serif; }"
+      "html": "<figure class=\"ds-art-slot\"><figcaption><span>Primary campaign artwork</span><strong>1800 × 1000 px</strong><small>9:5</small></figcaption></figure>",
+      "css": ".ds-art-slot { display:grid; place-items:center; aspect-ratio:9/5; min-width:0; margin:0; overflow:hidden; border:1px solid #d5c8bb; border-radius:0; background:#d8cdbf; color:#493f39; } .ds-art-slot figcaption { display:grid; justify-items:center; gap:4px; padding:24px; text-align:center; } .ds-art-slot span { font:400 .9375rem/1.45 Geist Sans,ui-sans-serif,system-ui,sans-serif; } .ds-art-slot strong { font:500 .8125rem/1.4 Geist Mono,ui-monospace,monospace; } .ds-art-slot small { font:400 .75rem/1.4 Geist Sans,ui-sans-serif,system-ui,sans-serif; }"
     }
   ],
   "narrative": {
-    "northStar": "The Public Record",
-    "overview": "A calm, evidentiary campaign system that reads like a well-kept public file rather than a political poster. North Sea blues, structural hairlines, source-level metadata, and restrained photography make claims easy to read and check.",
-    "keyCharacteristics": ["Documentary rather than party-political.", "A recurring 12-column evidence grid establishes recognizable alignment.", "Standard route heroes share one compact title-and-lead baseline.", "Evidence figures and sources read as horizontal public-record registers rather than dashboards or list dumps.", "A large Night Record footer turns the campaign question into the final statement.", "Clear blue communicates action and unresolved state.", "Three purposeful campaign-artwork slots reserve key visual moments without interrupting evidence.", "Press coverage uses static photographic records with approved SVG marks and complete copy."],
+    "northStar": "The Public Record, Reframed",
+    "overview": "A calm evidentiary campaign presented as one bounded editorial publication. Warm paper, old-style serif headlines, structural hairlines, source-level metadata and broad artwork fields make the unanswered questions feel civic, legible and difficult to ignore.",
+    "keyCharacteristics": ["Editorial rather than party-political.", "A bounded paper canvas sits inside a restrained atmospheric field.", "The home hero centers one large serif question above a wide 9:5 campaign artwork stage.", "A recurring 12-column evidence grid establishes recognizable alignment after the centered opening.", "Evidence figures and sources remain verifiable public-record registers rather than dashboards.", "A large Night Record footer turns the campaign question into the final statement.", "Press coverage uses static photographic records with approved SVG marks and complete copy."],
     "rules": [
       { "name": "The Calm Signal Rule", "body": "Stronger blue communicates action or unresolved state without performing alarm. It may be used for links and focus, but never as decorative noise.", "section": "colors" },
       { "name": "The Evidence Hierarchy Rule", "body": "A claim is sans; the evidence that locates it is mono. Do not reverse this relationship.", "section": "typography" },
@@ -114,7 +119,7 @@
       { "name": "The Plain Heading Rule", "body": "Page and section headings stand on their own. Do not add eyebrow labels, decorative section numbers, or ornamental arrows.", "section": "typography" }
       ,{ "name": "The Shared Axis Rule", "body": "Narrow prose may retain a readable measure, but it sits asymmetrically inside the evidence grid rather than floating between full-width sections.", "section": "layout" }
     ],
-    "dos": ["Do use blue-tinted hairlines, measured whitespace, and a maximum content width of 1180px to make long material easy to verify.", "Do align heroes, section rails, evidence fields, and press introductions to the shared 12-column grid.", "Do use the 4pt component spacing scale, the 4/8/12px radius scale, and role-based section padding.", "Do preserve the 4:5 Home and Questions slots, the 3:2 Acus slot, and both share-export ratios when replacing placeholders.", "Do use the stronger blue consistently for actions, focus, unanswered questions, and the current political state.", "Do show every press article with a photograph, approved SVG publisher mark, complete description, and direct external link.", "Do keep Home's press register compact and About's press archive complete.", "Do let headlines and summaries wrap to their full length at every viewport.", "Do keep compact controls at least 44px.", "Do honour reduced motion: reveal content must be visible without animation and instantly readable for reduced-motion users."],
+    "dos": ["Do use warm hairlines, measured whitespace, and a maximum content width of 1180px to make long material easy to verify.", "Do center only the home opening; align route heroes, section rails, evidence fields, and press introductions to the shared 12-column grid.", "Do use the 4pt component spacing scale, square structural edges, and role-based section padding.", "Do preserve the 9:5 Home slot, 4:5 Questions slot, 3:2 Acus slot, and both share-export ratios when replacing placeholders.", "Do use the stronger teal consistently for actions, focus, unanswered questions, and the current political state.", "Do show every press article with a photograph, approved SVG publisher mark, complete description, and direct external link.", "Do keep Home's press register compact and About's press archive complete.", "Do let headlines and summaries wrap to their full length at every viewport.", "Do keep compact controls at least 44px.", "Do honour reduced motion: reveal content must be visible without animation and instantly readable for reduced-motion users."],
     "donts": ["Don't make it look like party-political propaganda.", "Don't add social-justice-warrior signalling, moralising iconography, or outrage-first visual treatment.", "Don't use sensational tabloid styling.", "Don't use the visual language of a SaaS technology company.", "Don't invite whistleblowing, leaked information, source submissions, or private contact anywhere on the site.", "Don't turn press coverage into a carousel or moving rail.", "Don't use eyebrow labels, decorative 01/02/03 numbering, ornamental arrows, or text truncation.", "Don't stack two full section paddings between adjacent modules.", "Don't default unrelated content to equal-width compartments.", "Don't add campaign-artwork placeholders to Known, Timeline, or About, and don't round structural record rows."]
   }
 }

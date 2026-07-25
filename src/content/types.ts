@@ -141,8 +141,6 @@ export type Dict = {
     hero: {
       title: string;
       lead: string;
-      primaryCta: { href: string; label: string };
-      secondaryCta: { route: RouteKey; label: string };
     };
     statsBlock: Block;
     stats: Stat[];

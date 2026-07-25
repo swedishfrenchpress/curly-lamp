@@ -17,9 +17,9 @@ const SPECS: Record<
   }
 > = {
   home: {
-    width: 1600,
-    height: 2000,
-    ratio: "4:5",
+    width: 1800,
+    height: 1000,
+    ratio: "9:5",
     label: {
       sv: "Huvudmotiv för kampanjen",
       en: "Primary campaign artwork",

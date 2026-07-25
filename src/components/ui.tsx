@@ -88,17 +88,20 @@ export function Section({
   size = "default",
   id,
   narrow = false,
+  className = "",
 }: {
   children: ReactNode;
   variant?: "band" | "panel";
   size?: "default" | "tight" | "air";
   id?: string;
   narrow?: boolean;
+  className?: string;
 }) {
   const classes = [
     "section",
     size !== "default" ? `section--${size}` : "",
     variant ? `section--${variant}` : "",
+    className,
   ]
     .filter(Boolean)
     .join(" ");

@@ -43,13 +43,11 @@ const en: Dict = {
     },
     hero: {
       title: "Who answers for Acus?",
-      lead: "Swedish police have reportedly used Acus, an analysis platform built with Palantir technology, for at least five years. The supplier's staff work inside police headquarters. The police will not confirm the relationship, and the Justice Minister says IT procurement is the authority's responsibility. The unanswered questions are basic: what does Acus do, where is the data stored, and who examined the system?",
-      primaryCta: { href: "#share", label: "Share the question" },
-      secondaryCta: { route: "known", label: "What we know" },
+      lead: "Swedish police have reportedly used Acus for at least five years. What does it do, where is the data stored, and who examined the system?",
     },
 
     statsBlock: {
-      title: "Four numbers",
+      title: "Acus has operated for years. Public scrutiny has not kept pace.",
       lead: "Not one of them has been confirmed by a public authority. That is the point.",
     },
     stats: [

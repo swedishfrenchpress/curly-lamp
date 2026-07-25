@@ -48,13 +48,11 @@ const sv: Dict = {
     },
     hero: {
       title: "Vem svarar för Acus?",
-      lead: "Svensk polis har enligt publicerad granskning använt Acus, en analysplattform byggd med Palantirs teknik, i minst fem år. Leverantörens personal arbetar inne i polishuset. Polisen bekräftar inte relationen och justitieministern hänvisar IT-upphandlingen till myndigheten. De obesvarade frågorna är grundläggande: vad gör Acus, var lagras datan och vem har granskat systemet?",
-      primaryCta: { href: "#share", label: "Dela frågan" },
-      secondaryCta: { route: "known", label: "Vad vi vet" },
+      lead: "Svensk polis har enligt publicerad granskning använt Acus i minst fem år. Vad gör systemet, var lagras datan och vem har granskat det?",
     },
 
     statsBlock: {
-      title: "Fyra siffror",
+      title: "Acus har använts i åratal. Insynen har inte hängt med.",
       lead: "Ingen av dem är bekräftad av en myndighet. Det är själva poängen.",
     },
     stats: [
