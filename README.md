@@ -36,6 +36,9 @@ src/
   components/
     site-header.tsx   nav + language toggle + theme toggle
     site-footer.tsx
+    press-section.tsx full About grid + compact Home register
+    share-panel.tsx   native share, copy-link fallback, asset downloads
+    data-flow.tsx     reported Acus data relationship
     ui.tsx            Cites, SectionHead, ClaimList, Section, PageHero
     reveal.tsx        one-shot fade-in on first scroll into view
     theme-toggle.tsx
@@ -47,9 +50,11 @@ src/
     [lang]/timeline/
     [lang]/acus/          plain-language explainer
     [lang]/questions/     the five unanswered questions + open research + FOIA
-    [lang]/tips/          source guidance (channels not yet live)
-    [lang]/about/         method, corrections, full source list
+    [lang]/about/         method, press coverage, corrections, full source list
 ```
+
+Downloadable social images and their editable SVG sources live in
+`public/share/`. OpenGraph and Twitter metadata use the 1200 × 630 PNGs.
 
 ## Editing copy
 
@@ -63,10 +68,12 @@ a reader can tell a riksdag document from a newspaper at a glance.
 
 ## Design
 
-Greyscale plus exactly one accent (`--flag`), which marks **only** an
-unanswered question. If it ever appears on anything else the signal is spent.
-Structure comes from hairlines and spacing, not boxes and colour. Full notes at
-the top of `src/app/globals.css`.
+A restrained deep-blue palette makes the campaign feel credible and calm.
+The stronger blue (`--flag`) marks unanswered questions and unresolved states;
+tinted surfaces and hairlines carry the rest of the hierarchy. A shared
+12-column evidence grid creates the recurring title rail, reading field, and
+asymmetric hero compositions. Full notes live in `DESIGN.md` and at the top of
+`src/app/globals.css`.
 
 Layout and tonal-ramp approach are adapted from
 [cashu.space-website](https://github.com/swedishfrenchpress/cashu.space-website).
@@ -74,5 +81,4 @@ Typeface is Geist (the reference site's GT Standard is a licensed trial font).
 
 ## Before launch
 
-See **[CONTENT.md](CONTENT.md)** — facts to verify, decisions still open, and
-what needs to happen before the tipline goes live.
+See **[CONTENT.md](CONTENT.md)** — facts to verify and decisions still open.

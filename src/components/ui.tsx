@@ -20,8 +20,6 @@ export function Cites({ ids, label }: { ids?: SourceId[]; label: string }) {
             key={id}
             href={source.url}
             className="cite"
-            target="_blank"
-            rel="noopener noreferrer"
             title={source.title}
           >
             {source.publisher}
@@ -41,7 +39,6 @@ export function SectionHead({
 }) {
   return (
     <div className={`block-head ${className}`.trim()}>
-      {block.eyebrow ? <span className="eyebrow">{block.eyebrow}</span> : null}
       <h2 className="section-title">{block.title}</h2>
       {block.lead ? <p className="lead">{block.lead}</p> : null}
     </div>
@@ -113,22 +110,24 @@ export function Section({
   );
 }
 
-export function PageHero({ block }: { block: Block }) {
+export function PageHero({
+  block,
+  variant = "default",
+  media,
+}: {
+  block: Block;
+  variant?: "default" | "known" | "timeline" | "acus" | "questions" | "about";
+  media?: ReactNode;
+}) {
   return (
-    <div className="hero">
+    <div className={`hero hero--page hero--${variant}`}>
       <div className="shell">
-        {block.eyebrow ? <span className="eyebrow">{block.eyebrow}</span> : null}
-        <h1 className="display">{block.title}</h1>
-        {block.lead ? <p className="hero__lead">{block.lead}</p> : null}
+        <div className="page-hero__grid">
+          <h1 className="display">{block.title}</h1>
+          {block.lead ? <p className="hero__lead">{block.lead}</p> : null}
+          {media}
+        </div>
       </div>
     </div>
-  );
-}
-
-export function Arrow() {
-  return (
-    <span className="btn__arrow" aria-hidden="true">
-      →
-    </span>
   );
 }

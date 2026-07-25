@@ -8,7 +8,7 @@ export default function NotFound() {
 
   return (
     <main className="shell" style={{ paddingBlock: "18vh 12vh" }}>
-      <h1 className="display" style={{ fontSize: "clamp(2rem, 5vw, 3.25rem)" }}>
+      <h1 className="display">
         {sv.ui.notFoundTitle}
       </h1>
       <p className="lead">{sv.ui.notFoundBody}</p>
@@ -17,10 +17,10 @@ export default function NotFound() {
       </p>
       <p className="hero__actions">
         <Link href="/sv/" className="btn btn--primary">
-          {sv.ui.backHome} <span aria-hidden="true">→</span>
+          {sv.ui.backHome}
         </Link>
         <Link href="/en/" className="btn btn--ghost">
-          {en.ui.backHome} <span aria-hidden="true">→</span>
+          {en.ui.backHome}
         </Link>
       </p>
     </main>

@@ -6,6 +6,7 @@ type RevealProps = {
   children: ReactNode;
   as?: ElementType;
   className?: string;
+  id?: string;
   /** Skip the observer — for content already above the fold. */
   immediate?: boolean;
   delay?: number;
@@ -21,6 +22,7 @@ export default function Reveal({
   children,
   as: Tag = "div",
   className = "",
+  id,
   immediate = false,
   delay = 0,
 }: RevealProps) {
@@ -60,6 +62,7 @@ export default function Reveal({
   return (
     <Tag
       ref={ref}
+      id={id}
       className={`reveal ${className}`.trim()}
       data-shown={shown ? "true" : "false"}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}

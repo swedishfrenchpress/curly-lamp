@@ -5,12 +5,13 @@ import "./globals.css";
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0b" },
+    { media: "(prefers-color-scheme: light)", color: "#f7fafc" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a202b" },
   ],
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://vemsvararforacus.se"),
   title: "Vem svarar för Acus? / Who Answers for Acus?",
   description:
     "Svensk polis har enligt uppgift använt Palantirs analysplattform i minst fem år. Ingen ansvarig vill förklara hur den fungerar.",
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="sv"
       className={`${GeistSans.variable} ${GeistMono.variable}`}
+      data-scroll-behavior="smooth"
       style={
         {
           "--font-geist-sans": "var(--font-geist-sans)",

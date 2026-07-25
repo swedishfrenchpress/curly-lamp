@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import PressSection from "@/components/press-section";
 import Reveal from "@/components/reveal";
-import { PageHero, Prose, Section, SectionHead } from "@/components/ui";
+import { PageHero, Prose, Section } from "@/components/ui";
 import { getDict, isLang } from "@/content";
 import { sourcesOfKind, type SourceKind } from "@/content/sources";
 import { langStaticParams, pageMetadata } from "@/lib/page";
@@ -16,7 +17,7 @@ export function generateMetadata({
   return pageMetadata(params, "about", "about");
 }
 
-const KIND_ORDER: SourceKind[] = ["primary", "reporting", "advocacy"];
+const KIND_ORDER: SourceKind[] = ["primary", "advocacy"];
 
 export default async function AboutPage({
   params,
@@ -29,19 +30,17 @@ export default async function AboutPage({
 
   return (
     <>
-      <PageHero block={about.hero} />
+      <PageHero block={about.hero} variant="about" />
 
-      <Section narrow>
-        {about.sections.map((section, i) => (
-          <Reveal key={section.title}>
-            <div style={{ marginTop: i === 0 ? 0 : "clamp(44px, 5.5vw, 72px)" }}>
-              <h2 className="sub-title" style={{ marginBottom: 16 }}>
-                {section.title}
-              </h2>
+      <Section>
+        <div className="about-register">
+          {about.sections.map((section) => (
+            <Reveal key={section.title} className="about-register__row">
+              <h2 className="sub-title">{section.title}</h2>
               <Prose body={section.body} />
-            </div>
-          </Reveal>
-        ))}
+            </Reveal>
+          ))}
+        </div>
       </Section>
 
       {/* Sources are grouped by kind rather than listed flat, so the reader can
@@ -49,7 +48,20 @@ export default async function AboutPage({
           how much on journalism we have not independently verified. */}
       <Section variant="band">
         <Reveal>
-          <SectionHead block={about.sourcesBlock} />
+          <PressSection block={about.pressBlock} lang={lang} />
+        </Reveal>
+
+        <hr className="rule sources-rule" />
+
+        <Reveal className="source-directory__intro editorial-grid">
+          <div className="editorial-grid__rail">
+            <h2 className="section-title">{about.sourcesBlock.title}</h2>
+          </div>
+          <div className="editorial-grid__body">
+            {about.sourcesBlock.lead ? (
+              <p className="lead">{about.sourcesBlock.lead}</p>
+            ) : null}
+          </div>
         </Reveal>
 
         {KIND_ORDER.map((kind) => {
@@ -58,33 +70,22 @@ export default async function AboutPage({
           return (
             <Reveal key={kind} className="src-group">
               <div className="src-group__head">
-                <span className="src-group__title">{about.kindLabels[kind]}</span>
-                <span className="src-group__note">{about.kindNotes[kind]}</span>
+                <h3 className="src-group__title">{about.kindLabels[kind]}</h3>
+                <p className="src-group__note">{about.kindNotes[kind]}</p>
               </div>
-              {group.map((source) => (
-                <a
-                  key={source.id}
-                  href={source.url}
-                  className="src"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="src__pub">{source.publisher}</span>
-                  <br />
-                  <span className="src__title">{source.title}</span>
-                  <span className="src__meta" style={{ display: "block" }}>
-                    {source.date}
-                    {source.unverified ? (
-                      <>
-                        {" · "}
-                        <span className="src__unverified">
-                          {about.unverifiedLabel}
-                        </span>
-                      </>
-                    ) : null}
-                  </span>
-                </a>
-              ))}
+              <div className="src-group__items">
+                {group.map((source, index) => (
+                  <a
+                    key={source.id}
+                    href={source.url}
+                    className={`src ${index === 0 ? "src--lead" : ""}`.trim()}
+                  >
+                    <span className="src__pub">{source.publisher}</span>
+                    <span className="src__title">{source.title}</span>
+                    <span className="src__meta">{source.date}</span>
+                  </a>
+                ))}
+              </div>
             </Reveal>
           );
         })}

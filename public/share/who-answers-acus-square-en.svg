@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Who answers for Acus?</title>
+  <desc id="desc">Square campaign image with the unanswered questions about the Swedish police analysis platform Acus.</desc>
+  <rect width="1080" height="1080" fill="#0d3044"/>
+  <rect x="84" y="84" width="10" height="912" fill="#67c6e6"/>
+  <text x="154" y="260" fill="#f5fafc" font-family="Arial, Helvetica, sans-serif" font-size="88" font-weight="700" letter-spacing="-3">
+    <tspan x="154" dy="0">Who answers</tspan>
+    <tspan x="154" dy="102">for Acus?</tspan>
+  </text>
+  <line x1="154" y1="456" x2="936" y2="456" stroke="#315b70"/>
+  <text x="154" y="558" fill="#c4d7df" font-family="Arial, Helvetica, sans-serif" font-size="38">
+    <tspan x="154" dy="0">What does it do?</tspan>
+    <tspan x="154" dy="86">Where is the data stored?</tspan>
+    <tspan x="154" dy="86">Who examined the system?</tspan>
+  </text>
+  <text x="154" y="884" fill="#9bb8c5" font-family="Arial, Helvetica, sans-serif" font-size="28">
+    <tspan x="154" dy="0">The questions were put in parliament.</tspan>
+    <tspan x="154" dy="40">They remain unanswered.</tspan>
+  </text>
+  <text x="936" y="996" fill="#67c6e6" font-family="Arial, Helvetica, sans-serif" font-size="26" text-anchor="end">vemsvararforacus.se</text>
+</svg>

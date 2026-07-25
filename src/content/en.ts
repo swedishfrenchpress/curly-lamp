@@ -26,7 +26,6 @@ const en: Dict = {
       { route: "timeline", label: "Timeline" },
       { route: "acus", label: "What is Acus?" },
       { route: "questions", label: "The questions" },
-      { route: "tips", label: "Contact" },
       { route: "about", label: "About" },
     ],
     langSwitch: "På svenska",
@@ -43,15 +42,13 @@ const en: Dict = {
         "Swedish police have reportedly used Palantir's analysis platform for at least five years. It is called Acus. The Justice Minister has been asked twice in parliament — and answered that it is not his department.",
     },
     hero: {
-      eyebrow: "Swedish Police Authority · Palantir Technologies · Acus",
       title: "Who answers for Acus?",
-      lead: "According to reporting by Dagens ETC, the Swedish Police Authority has used an analysis platform from the American company Palantir Technologies for at least five years. It is called Acus. The company's staff work inside police headquarters at Kungsholmen in Stockholm. The police will neither confirm nor deny that the relationship exists. The Justice Minister has been asked about it twice in parliament — and answered that it is not his department.",
-      primaryCta: { route: "known", label: "What we know — and don't" },
-      secondaryCta: { route: "timeline", label: "See the timeline" },
+      lead: "Swedish police have reportedly used Acus, an analysis platform built with Palantir technology, for at least five years. The supplier's staff work inside police headquarters. The police will not confirm the relationship, and the Justice Minister says IT procurement is the authority's responsibility. The unanswered questions are basic: what does Acus do, where is the data stored, and who examined the system?",
+      primaryCta: { href: "#share", label: "Share the question" },
+      secondaryCta: { route: "known", label: "What we know" },
     },
 
     statsBlock: {
-      eyebrow: "Where things stand",
       title: "Four numbers",
       lead: "Not one of them has been confirmed by a public authority. That is the point.",
     },
@@ -83,24 +80,20 @@ const en: Dict = {
     ],
 
     questionsBlock: {
-      eyebrow: "The core",
       title: "Five questions nobody has answered",
       lead: "They are not rhetorical. They were put by a member of parliament who also sits on the Police Authority's own supervisory board, through two formal procedures, and they remain open.",
     },
     questionsCta: { route: "questions", label: "Read the questions in full" },
 
     quote: {
-      text: "The Police Authority decides for itself which IT services it procures.",
+      text: "The Police Authority decides for itself which IT services it procures and uses in its operations.",
       attribution: "Gunnar Strömmer (M), Minister for Justice",
       context:
         "Answer to written question 2025/26:167, 19 November 2025. The questions concerned when the arrangement with Palantir began and where the analysed data is stored — in Sweden, within the EU, or in Palantir's cloud services outside the union. Neither was answered.",
       cite: ["fraga-167"],
-      unverifiedNote:
-        "Translated from the Swedish original. Check against the source document before publication.",
     },
 
     convergence: {
-      eyebrow: "Why now",
       title: "Three things happened at once",
       lead: "Separately they are policy. Together they are an infrastructure — and it was finished while the underlying question went unanswered.",
       steps: [
@@ -128,7 +121,6 @@ const en: Dict = {
     },
 
     notWhat: {
-      eyebrow: "To be clear",
       title: "This is not an allegation that the police broke the law",
       body: [
         "We are not claiming that the Police Authority has acted unlawfully. We do not know that. It is entirely possible that Acus was lawfully procured, properly regulated and carefully supervised.",
@@ -137,13 +129,34 @@ const en: Dict = {
       ],
     },
 
+    pressBlock: {
+      title: "In the press",
+      lead: "Read the newsrooms' own reporting on Acus, Palantir, and the Swedish police.",
+    },
+
     share: {
-      eyebrow: "What you can do",
       title: "Pass the question on",
-      lead: "This site runs no petition and collects nothing about you. The most useful thing you can do is make sure more people know the question was asked and not answered — and that it gets asked again.",
-      cta: [
-        { route: "known", label: "Read the summary" },
-        { route: "tips", label: "Do you know something?" },
+      lead: "Share the public question, copy a direct link, or download a ready-made image. This site runs no petition and collects nothing about you.",
+      shareLabel: "Share",
+      copyLabel: "Copy link",
+      copiedLabel: "Link copied",
+      errorLabel: "The link could not be copied. Copy it from your browser instead.",
+      downloadLabel: "Download campaign images",
+      sourceLabel: "View every source",
+      sourceRoute: "about",
+      shareText:
+        "Who answers for Acus? The Swedish police's analysis platform has been questioned in parliament, but basic questions remain unanswered.",
+      assets: [
+        {
+          href: "/share/who-answers-acus-landscape-en.png",
+          label: "Landscape image",
+          meta: "PNG · 1200 × 630",
+        },
+        {
+          href: "/share/who-answers-acus-square-en.png",
+          label: "Square image",
+          meta: "PNG · 1080 × 1080",
+        },
       ],
     },
   },
@@ -155,13 +168,11 @@ const en: Dict = {
         "Separating what has been reported and documented from what remains unknown about the Swedish police's use of Palantir's analysis platform Acus.",
     },
     hero: {
-      eyebrow: "Summary",
       title: "What we know — and what we don't",
-      lead: "The left column rests on published journalism and public parliamentary documents. The right column is questions that were asked and not answered. We keep them apart deliberately.",
+      lead: "First, the claims supported by published journalism and public parliamentary documents. Then, in a separate register, the questions that were asked and not answered.",
     },
 
     knownBlock: {
-      eyebrow: "Documented",
       title: "This has been reported or is on the public record",
     },
     knownItems: [
@@ -190,7 +201,7 @@ const en: Dict = {
         cite: ["fraga-167", "realtid"],
       },
       {
-        text: "On 19 November 2025 Strömmer answered that the Police Authority decides for itself which IT services it procures, that its operations are covered by extensive regulation and oversight, and directed questions about procurement to the authority.",
+        text: "On 19 November 2025 Strömmer answered that the Police Authority decides for itself which IT services it procures and uses in its operations, that those operations are covered by extensive regulation and oversight, and directed questions about procurement to the authority.",
         cite: ["fraga-167"],
       },
       {
@@ -204,7 +215,6 @@ const en: Dict = {
     ],
 
     unknownBlock: {
-      eyebrow: "Unanswered",
       title: "This we still do not know",
     },
     unknownItems: [
@@ -238,12 +248,11 @@ const en: Dict = {
     ],
 
     method: {
-      eyebrow: "On the evidence",
       title: "How we handle what we cannot verify",
       body: [
-        "The left column comes from published journalism and public parliamentary documents. We have not independently verified the journalism and do not claim to have done so. Where a claim comes from reporting, we say so.",
+        "The first register comes from published journalism and public parliamentary documents. We have not independently verified the journalism and do not claim to have done so. Where a claim comes from reporting, we say so.",
         "The parliamentary documents are primary sources and are linked directly. Read them yourself — the minister's answers are stronger in the original than in our summary.",
-        "If you find an error, we want to know. Corrections are published openly.",
+        "Corrections supported by public statements or official records are published openly.",
       ],
     },
   },
@@ -255,10 +264,40 @@ const en: Dict = {
         "From the 2025 investigation to the real-time facial recognition law of 1 July 2026 — and the questions asked in between without being answered.",
     },
     hero: {
-      eyebrow: "Chronology",
       title: "What happened, and in what order",
       lead: "The order is the whole point. The question of what the state already had was asked before parliament decided what the state should additionally get. It was unanswered then. It is unanswered now.",
     },
+    chapters: [
+      {
+        title: "From internal system to public record",
+        lead:
+          "Work is reported to have begun years before Acus becomes public.",
+        entryDates: ["2020", "2025"],
+      },
+      {
+        title: "The unanswered exchange",
+        lead:
+          "Parliament asks who authorised Acus, when it began and where the data is stored. The answers stop short.",
+        entryDates: [
+          "2025-11-06",
+          "2025-11-19",
+          "2026-01-23",
+          "2026-02-16",
+        ],
+      },
+      {
+        title: "A separate power is legislated",
+        lead:
+          "While Acus remains undescribed, parliament creates rules for real-time facial recognition.",
+        entryDates: ["2026-03", "2026-05-21", "2026-05-26", "2026-07-01"],
+      },
+      {
+        title: "Where the record stands",
+        lead:
+          "The new law is in force. The earlier questions about Acus remain open.",
+        entryDates: ["2026-07-25"],
+      },
+    ],
     entries: [
       {
         date: "2020",
@@ -279,6 +318,7 @@ const en: Dict = {
         title: "Dagens ETC publishes its investigation",
         body: "The existence of Acus, the presence of Palantir staff inside police headquarters at Kungsholmen, and the secrecy conditions become public. The Police Authority reportedly spent eight months neither confirming nor denying the relationship, citing danger to national security. The reporting is picked up by Göteborgs-Posten and Realtid among others.",
         cite: ["etc-granskning", "realtid", "gp"],
+        emphasis: "turning-point",
       },
       {
         date: "2025-11-06",
@@ -295,8 +335,9 @@ const en: Dict = {
         kind: "parliament",
         kindLabel: "Parliament",
         title: "The minister answers — without answering",
-        body: "Strömmer replies that the Police Authority decides for itself which IT services it procures, that its operations are covered by extensive regulation and oversight, and that questions about procurement should go to the authority. The questions of timing and storage location are not addressed.",
+        body: "Strömmer replies that the Police Authority decides for itself which IT services it procures and uses in its operations, that those operations are covered by extensive regulation and oversight, and that questions about procurement should go to the authority. The questions of timing and storage location are not addressed.",
         cite: ["fraga-167"],
+        emphasis: "turning-point",
       },
       {
         date: "2026-01-23",
@@ -362,6 +403,7 @@ const en: Dict = {
         title: "The questions from November 2025 remain unanswered",
         body: "How long Acus has been in use, where the data is stored, how the system was procured, and why no Swedish or European supplier was chosen — none of it has been answered publicly. Meanwhile the Moderate Party has pledged to double the police camera surveillance target to 10,000 cameras by the end of 2029.",
         cite: ["m-kameror"],
+        emphasis: "current",
       },
     ],
     closing: {
@@ -380,7 +422,6 @@ const en: Dict = {
         "A plain-language explanation of what Palantir's Gotham platform does, what the Swedish version Acus is reported to do, and why the difference between 'database' and 'AI system' matters.",
     },
     hero: {
-      eyebrow: "Explainer",
       title: "What is Acus, actually?",
       lead: "Short answer: we do not know for certain, and that is itself the problem. Here is what has been reported, what Palantir's platform generally does, and where the line between the two sits.",
     },
@@ -427,7 +468,6 @@ const en: Dict = {
     ],
 
     dataBlock: {
-      eyebrow: "According to the reporting",
       title: "Data the system is said to work with",
       lead: "This list comes from published journalism, not from an official description. We have not seen system documentation and do not claim the list is complete or final.",
     },
@@ -437,9 +477,19 @@ const en: Dict = {
       { text: "Data from mobile operators", cite: ["realtid", "gp"] },
       { text: "Social media accounts and content", cite: ["realtid", "gp"] },
     ],
+    dataFlow: {
+      systemTitle: "Acus, the reported analysis layer",
+      systemBody:
+        "The reporting describes a Swedish platform based on Palantir Gotham that makes differently structured records searchable together.",
+      useTitle: "An investigator's view",
+      useBody:
+        "The reported result is a combined profile assembled from several sources. The public record does not show which joins, searches, or safeguards are enabled in Sweden.",
+      note:
+        "This is a map of the reported data relationship, not a technical diagram of the Swedish installation.",
+      cite: ["realtid", "gp"],
+    },
 
     caveat: {
-      eyebrow: "Where the line sits",
       title: "What this page is not",
       body: [
         "The sections on what Palantir's platform generally does draw on the company's own product descriptions and on public documentation from other countries where the system has been used. They do not necessarily describe the Swedish installation.",
@@ -456,14 +506,12 @@ const en: Dict = {
         "The specific questions put to the Swedish government about police use of Palantir, what was actually answered, and what remains under investigation.",
     },
     hero: {
-      eyebrow: "The questions",
       title: "Asked. Not answered.",
       lead: "Every question below was put formally, in parliament, by a member who also sits on the Police Authority's supervisory board. We set out what was asked and what was answered, and leave the distance between them to the reader.",
     },
     openQuestions: [
       {
         id: "duration",
-        number: "01",
         question: "How long has Acus been in use, and who decided on it?",
         why: "A system that has run for five years has had time to shape how the police work. If nobody can say when it started, nobody can say what decision it rests on.",
         askedLabel: "Asked",
@@ -471,14 +519,13 @@ const en: Dict = {
           "Written question 2025/26:167, 6 November 2025, and interpellation 2025/26:301, 23 January 2026.",
         responseLabel: "The answer",
         response:
-          "The Justice Minister stated that the Police Authority decides for itself which IT services it procures, and that this is not something he or the government approves or receives special information about. Timing was not addressed.",
+          "The Justice Minister stated that the Police Authority decides for itself which IT services it procures and uses in its operations, and that this is not something he or the government approves or receives special information about. Timing was not addressed.",
         status: "unanswered",
         statusLabel: "Unanswered",
         cite: ["fraga-167", "ip-301"],
       },
       {
         id: "storage",
-        number: "02",
         question:
           "Where is the data stored — in Sweden, within the EU, or in Palantir's cloud outside the union?",
         why: "The answer determines which law governs the data, who can in practice reach it, and what happens to it if the relationship with the supplier changes.",
@@ -493,7 +540,6 @@ const en: Dict = {
       },
       {
         id: "procurement",
-        number: "03",
         question: "How was the system procured?",
         why: "Public procurement is public for a reason. If there was a tender it should be describable: what was required, who bid, how bids were evaluated, and what the contract is worth.",
         askedLabel: "Asked",
@@ -507,7 +553,6 @@ const en: Dict = {
       },
       {
         id: "vendor",
-        number: "04",
         question:
           "Why an American military and intelligence supplier rather than a Swedish or European one?",
         why: "Sweden has a substantial defence and security industry and a functioning software sector. If no domestic or European supplier was considered viable, that is a remarkable statement in itself. If they were considered and ruled out, the reasoning should be capable of being set out.",
@@ -523,7 +568,6 @@ const en: Dict = {
       },
       {
         id: "oversight",
-        number: "05",
         question: "Which supervisory body has actually examined Acus in operation?",
         why: "Pointing out that oversight exists is not the same as oversight having been exercised. According to the investigation, neither the supervisory board, nor IMY, nor the Commission on Security and Integrity Protection had been informed.",
         askedLabel: "Asked",
@@ -539,9 +583,8 @@ const en: Dict = {
     ],
 
     researchBlock: {
-      eyebrow: "In progress",
       title: "What we are working on finding out",
-      lead: "We publish this openly rather than waiting until everything is complete. If you hold something that belongs under any of these headings, we would like to hear from you.",
+      lead: "We publish the research agenda openly and work only from public records, published reporting, and documentation available for scrutiny.",
     },
     research: [
       {
@@ -591,58 +634,13 @@ const en: Dict = {
     ],
 
     foia: {
-      eyebrow: "Freedom of information",
-      title: "We are requesting documents — and so can you",
+      title: "How public-document requests work",
       body: [
         "Sweden's principle of public access gives anyone the right to request official documents from public authorities. You do not have to say who you are or why you are asking. The authority must respond promptly, and if it refuses it must state the ground for secrecy — a decision that can be appealed to the administrative court of appeal.",
         "A refusal is not a defeat. A written refusal citing a specific ground is itself information: it shows what the authority believes it needs to protect and under what legal basis. Several refusals pointing in different directions are more informative still.",
-        "We will publish our own requests and the responses we receive, whatever the outcome. If you have already requested something in this matter, we would like to see the reply.",
+        "We will publish our own requests and the responses we receive, whatever the outcome.",
       ],
     },
-  },
-
-  tips: {
-    meta: {
-      title: "Contact",
-      description:
-        "Do you know something about Acus, the procurement, or how the system is used? Read this first — the risks are real and we are not going to downplay them.",
-    },
-    hero: {
-      eyebrow: "Contact",
-      title: "Do you know something?",
-      lead: "Read this entire page before contacting us. We are not going to soften the risks to make getting in touch feel easier.",
-    },
-
-    riskBlock: {
-      eyebrow: "Read first",
-      title: "Before you get in touch",
-    },
-    riskItems: [
-      "Never use a work computer, work phone, work email account or work network. That includes simply reading this page.",
-      "Assume your employer can see which network resources you use, and that access logs in internal systems are retained and can be reviewed after the fact.",
-      "Do not tell colleagues you are considering getting in touch. Most leaks are traced through who knew, not through technology.",
-      "If you are bound by secrecy or a duty of confidentiality, disclosure may carry legal consequences. The constitutional protections for informants in Swedish press and expression law are far-reaching but not unlimited, and the exceptions are real.",
-      "We are not lawyers and cannot give you legal advice. If you are considering disclosing information covered by secrecy, speak to a lawyer, or to an established newsroom with source protection, before you speak to us.",
-      "Consider whether a newsroom is the right recipient rather than us. Dagens ETC has already investigated this and enjoys constitutional source protection in a way that we do not. That is often the better choice, and we would rather say so than not.",
-    ],
-
-    channelsBlock: {
-      eyebrow: "Channels",
-      title: "How to reach us",
-    },
-    channelsPending:
-      "We will not publish contact routes until they are properly set up. Posting an address before the practices around it work would be asking people to take a risk we cannot yet handle. Channels will appear here when they are ready.",
-
-    cannotBlock: {
-      eyebrow: "Honesty",
-      title: "What we cannot promise you",
-    },
-    cannotItems: [
-      "We are not a constitutionally protected newsroom. We are not covered by the source protection that applies to publications with a legally responsible editor.",
-      "We cannot protect you from metadata generated by your operator, your employer or your internet provider before a message reaches us.",
-      "We cannot guarantee that we will be able to reply, publish, or act on what you send.",
-      "We can promise that we will not publish anything that identifies you without checking with you first, and that we would rather drop a claim than expose a source.",
-    ],
   },
 
   about: {
@@ -652,7 +650,6 @@ const en: Dict = {
         "Who is behind this site, how we handle sources, and how to correct us.",
     },
     hero: {
-      eyebrow: "About",
       title: "About this site",
       lead: "A site with a single purpose: to keep an unanswered question open until it is answered.",
     },
@@ -670,13 +667,13 @@ const en: Dict = {
         body: [
           "Published journalism is attributed to the newsroom that did the work. We write “according to the investigation”, not “it is confirmed”, because we have not verified it independently.",
           "Parliamentary and government documents are primary sources and are linked directly, so you can read what was actually said rather than our summary of it.",
-          "Where we do not know something, we write that we do not know it. Where a date or a quotation has not yet been checked against the original, we mark it.",
+          "Where we do not know something, we write that we do not know it. Quotations are checked against the linked original before publication.",
         ],
       },
       {
         title: "Corrections",
         body: [
-          "If something here is wrong we want to know, and we correct openly rather than quietly. That applies also — especially — if the correction comes from the Police Authority or the Government Offices.",
+          "Corrections are published openly rather than made silently. This applies especially to corrections supplied through public statements or official records by the Police Authority or the Government Offices.",
           "Any answer to any of the questions on this site will be published in full, in the original.",
         ],
       },
@@ -689,10 +686,14 @@ const en: Dict = {
       },
     ],
 
+    pressBlock: {
+      title: "In the press",
+      lead: "Every piece of journalism cited by the campaign, collected in one place.",
+    },
+
     sourcesBlock: {
-      eyebrow: "Sources",
       title: "Everything we rely on",
-      lead: "The complete list. Please read them yourself — the parliamentary documents especially.",
+      lead: "Journalism is collected above. Below are every public and advocacy source used by the campaign, with direct links to the originals.",
     },
     kindLabels: {
       primary: "Primary source",
@@ -707,7 +708,6 @@ const en: Dict = {
       advocacy:
         "Written from a position. Listed for completeness, never the sole basis for a claim.",
     },
-    unverifiedLabel: "Date or wording not yet checked against the original",
   },
 
   footer: {
@@ -725,10 +725,9 @@ const en: Dict = {
         ],
       },
       {
-        title: "Act",
+        title: "Explore",
         items: [
           { route: "questions", label: "The questions" },
-          { route: "tips", label: "Contact" },
           { route: "about", label: "About" },
         ],
       },

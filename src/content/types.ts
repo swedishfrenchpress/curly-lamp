@@ -16,7 +16,6 @@ export const ROUTES = {
   timeline: "timeline",
   acus: "acus",
   questions: "questions",
-  tips: "tips",
   about: "about",
 } as const;
 
@@ -49,7 +48,6 @@ export type AnswerStatus = "unanswered" | "partial" | "answered";
  */
 export type OpenQuestion = {
   id: string;
-  number: string;
   question: string;
   /** Why this question matters to someone who is not a privacy specialist. */
   why: string;
@@ -72,12 +70,19 @@ export type TimelineEntry = {
   title: string;
   body: string;
   cite?: SourceId[];
+  /** Gives only genuine turning points more visual weight in the chronology. */
+  emphasis?: "turning-point" | "current";
   /** Rendered as an editorial aside beneath the entry. Use sparingly. */
   aside?: string;
 };
 
+export type TimelineChapter = {
+  title: string;
+  lead: string;
+  entryDates: string[];
+};
+
 export type Block = {
-  eyebrow?: string;
   title: string;
   lead?: string;
   body?: string[];
@@ -89,6 +94,24 @@ export type ResearchItem = {
   status: "open" | "in-progress" | "answered";
   statusLabel: string;
   detail: string;
+};
+
+export type ShareAsset = {
+  href: string;
+  label: string;
+  meta: string;
+};
+
+export type ShareBlock = Block & {
+  shareLabel: string;
+  copyLabel: string;
+  copiedLabel: string;
+  errorLabel: string;
+  downloadLabel: string;
+  sourceLabel: string;
+  sourceRoute: RouteKey;
+  shareText: string;
+  assets: ShareAsset[];
 };
 
 export type Dict = {
@@ -116,10 +139,9 @@ export type Dict = {
   home: {
     meta: { title: string; description: string };
     hero: {
-      eyebrow: string;
       title: string;
       lead: string;
-      primaryCta: { route: RouteKey; label: string };
+      primaryCta: { href: string; label: string };
       secondaryCta: { route: RouteKey; label: string };
     };
     statsBlock: Block;
@@ -131,14 +153,14 @@ export type Dict = {
       attribution: string;
       context: string;
       cite: SourceId[];
-      unverifiedNote?: string;
     };
     convergence: Block & {
       steps: { label: string; title: string; body: string; cite?: SourceId[] }[];
       closing: string;
     };
     notWhat: Block;
-    share: Block & { cta: { route: RouteKey; label: string }[] };
+    pressBlock: Block;
+    share: ShareBlock;
   };
 
   known: {
@@ -154,6 +176,7 @@ export type Dict = {
   timeline: {
     meta: { title: string; description: string };
     hero: Block;
+    chapters: TimelineChapter[];
     entries: TimelineEntry[];
     closing: Block;
   };
@@ -164,6 +187,14 @@ export type Dict = {
     sections: Block[];
     dataBlock: Block;
     dataSources: Claim[];
+    dataFlow: {
+      systemTitle: string;
+      systemBody: string;
+      useTitle: string;
+      useBody: string;
+      note: string;
+      cite: SourceId[];
+    };
     caveat: Block;
   };
 
@@ -176,25 +207,14 @@ export type Dict = {
     foia: Block;
   };
 
-  tips: {
-    meta: { title: string; description: string };
-    hero: Block;
-    riskBlock: Block;
-    riskItems: string[];
-    channelsBlock: Block;
-    channelsPending: string;
-    cannotBlock: Block;
-    cannotItems: string[];
-  };
-
   about: {
     meta: { title: string; description: string };
     hero: Block;
     sections: Block[];
+    pressBlock: Block;
     sourcesBlock: Block;
     kindLabels: Record<"primary" | "reporting" | "advocacy", string>;
     kindNotes: Record<"primary" | "reporting" | "advocacy", string>;
-    unverifiedLabel: string;
   };
 
   footer: {

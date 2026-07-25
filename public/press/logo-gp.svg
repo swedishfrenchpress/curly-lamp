@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 48" role="img" aria-labelledby="title">
+  <title id="title">Göteborgs-Posten</title>
+  <rect width="180" height="48" rx="2" fill="#fff"/>
+  <circle cx="28" cy="24" r="18" fill="#123c55"/>
+  <text x="13" y="32" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="900">GP</text>
+  <text x="54" y="29" fill="#123c55" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">GÖTEBORGS-POSTEN</text>
+</svg>

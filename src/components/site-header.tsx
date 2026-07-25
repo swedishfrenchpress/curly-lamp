@@ -94,11 +94,19 @@ export default function SiteHeader({ dict }: { dict: Dict }) {
         <div className="site-nav__panel" id="nav-panel" data-open={open}>
           <div className="site-nav__panel-inner">
             <ul>
-              {dict.nav.items.map((item) => (
-                <li key={item.route}>
-                  <Link href={path(dict.lang, item.route)}>{item.label}</Link>
-                </li>
-              ))}
+              {dict.nav.items.map((item) => {
+                const href = path(dict.lang, item.route);
+                return (
+                  <li key={item.route}>
+                    <Link
+                      href={href}
+                      aria-current={isCurrent(href) ? "page" : undefined}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>

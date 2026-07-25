@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Reveal from "@/components/reveal";
-import { Cites, PageHero, Prose, Section, SectionHead } from "@/components/ui";
+import { Cites, PageHero, Prose, Section } from "@/components/ui";
 import { getDict, isLang } from "@/content";
 import { langStaticParams, pageMetadata } from "@/lib/page";
 
@@ -23,45 +23,77 @@ export default async function TimelinePage({
   const { lang } = await params;
   if (!isLang(lang)) notFound();
   const { timeline, ui } = getDict(lang);
+  const entriesByDate = new Map(
+    timeline.entries.map((entry) => [entry.date, entry]),
+  );
 
   return (
     <>
-      <PageHero block={timeline.hero} />
+      <PageHero block={timeline.hero} variant="timeline" />
 
-      <Section>
-        <ol className="timeline" style={{ listStyle: "none", margin: 0, padding: 0 }}>
-          {timeline.entries.map((entry) => (
+      <Section size="tight">
+        <ol className="timeline">
+          {timeline.chapters.map((chapter, chapterIndex) => (
             <Reveal
-              key={entry.date + entry.title}
+              key={chapter.title}
               as="li"
-              className="tl-entry"
+              className={`timeline-chapter ${
+                chapterIndex === timeline.chapters.length - 1
+                  ? "timeline-chapter--current"
+                  : ""
+              }`.trim()}
             >
-              {/* data-kind drives the one colour shift in the list: the final
-                  "where we are" entry. Everything else stays greyscale. */}
-              <div className="tl-entry__meta" data-kind={entry.kind}>
-                <time className="tl-entry__date" dateTime={entry.date}>
-                  {entry.dateLabel}
-                </time>
-                <span className="tl-entry__kind">{entry.kindLabel}</span>
-              </div>
-              <div>
-                <h2 className="tl-entry__title">{entry.title}</h2>
-                <p className="tl-entry__body">{entry.body}</p>
-                {entry.aside ? (
-                  <p className="tl-entry__aside">{entry.aside}</p>
-                ) : null}
-                <Cites ids={entry.cite} label={ui.sources} />
-              </div>
+              <header className="timeline-chapter__intro">
+                <h2 className="timeline-chapter__title">{chapter.title}</h2>
+                <p className="timeline-chapter__lead">{chapter.lead}</p>
+              </header>
+
+              <ol className="timeline-chapter__entries">
+                {chapter.entryDates.map((date) => {
+                  const entry = entriesByDate.get(date);
+                  if (!entry) return null;
+
+                  return (
+                    <li
+                      key={entry.date + entry.title}
+                      className={`tl-entry ${
+                        entry.emphasis
+                          ? `tl-entry--${entry.emphasis}`
+                          : ""
+                      }`.trim()}
+                      id={`event-${entry.date}`}
+                    >
+                      <div className="tl-entry__meta">
+                        <time className="tl-entry__date" dateTime={entry.date}>
+                          {entry.dateLabel}
+                        </time>
+                      </div>
+                      <div className="tl-entry__content">
+                        <h3 className="tl-entry__title">
+                          <a href={`#event-${entry.date}`}>{entry.title}</a>
+                        </h3>
+                        <p className="tl-entry__body">{entry.body}</p>
+                        {entry.aside ? (
+                          <p className="tl-entry__aside">{entry.aside}</p>
+                        ) : null}
+                        <Cites ids={entry.cite} label={ui.sources} />
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
+
+              {chapterIndex === timeline.chapters.length - 1 ? (
+                <div className="timeline-conclusion">
+                  <h2 className="timeline-conclusion__title">
+                    {timeline.closing.title}
+                  </h2>
+                  <Prose body={timeline.closing.body} />
+                </div>
+              ) : null}
             </Reveal>
           ))}
         </ol>
-      </Section>
-
-      <Section variant="band" narrow size="tight">
-        <Reveal>
-          <SectionHead block={timeline.closing} />
-          <Prose body={timeline.closing.body} />
-        </Reveal>
       </Section>
     </>
   );

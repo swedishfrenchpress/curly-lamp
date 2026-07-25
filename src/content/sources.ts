@@ -23,8 +23,12 @@ export type Source = {
   date: string;
   kind: SourceKind;
   lang: "sv" | "en";
-  /** True when we still need to confirm the date or the exact wording. */
-  unverified?: boolean;
+  /** Press-card media. Only journalism displayed in the press sections uses these. */
+  image?: string;
+  imageAlt?: Record<"sv" | "en", string>;
+  imageCredit?: string;
+  logo?: string;
+  summary?: Record<"sv" | "en", string>;
 };
 
 export const SOURCES = {
@@ -93,27 +97,46 @@ export const SOURCES = {
     date: "2026",
     kind: "primary",
     lang: "sv",
-    unverified: true,
   },
   "etc-granskning": {
     id: "etc-granskning",
     publisher: "Dagens ETC",
     title: "Granskning: Polisens användning av Palantir",
-    url: "https://www.etc.se/inrikes/efter-dagens-etc-s-palantir-granskning-stroemmer-kraevs-paa-svar",
-    date: "2025",
+    url: "https://www.etc.se/story/dagens-etc-avsloejar-polisens-hemliga-samarbete-med-spionbolaget-palantir",
+    date: "2025-11-03",
     kind: "reporting",
     lang: "sv",
-    unverified: true,
+    image: "/press/palantir-gp.jpg",
+    imageAlt: {
+      sv: "Palantirs vd Alex Karp under ett offentligt framträdande.",
+      en: "Palantir CEO Alex Karp during a public appearance.",
+    },
+    imageCredit: "Foto: Thibault Camus / AP / TT",
+    logo: "/press/logo-etc.svg",
+    summary: {
+      sv: "Granskningen som först beskrev polisens femåriga användning av Acus och myndighetens vägran att svara.",
+      en: "The investigation that first described the police's five-year use of Acus and the authority's refusal to answer.",
+    },
   },
   "etc-stroemmer": {
     id: "etc-stroemmer",
     publisher: "Dagens ETC",
     title: "Gunnar Strömmer om Palantir: Inte mitt ansvar — fråga polisen",
     url: "https://www.etc.se/inrikes/gunnar-stroemmer-om-palantir-inte-mitt-ansvar-fraaga-polisen",
-    date: "2025",
+    date: "2025-11-19",
     kind: "reporting",
     lang: "sv",
-    unverified: true,
+    image: "/press/palantir-realtid.jpg",
+    imageAlt: {
+      sv: "Ett montage med Palantirs vd Alex Karp och svensk polis.",
+      en: "A montage featuring Palantir CEO Alex Karp and Swedish police.",
+    },
+    imageCredit: "Foto: Francois Mori / Fredrik Sandberg / TT",
+    logo: "/press/logo-etc.svg",
+    summary: {
+      sv: "Justitieministern kommenterar uppgifterna men hänvisar ansvaret för IT-tjänsterna till Polismyndigheten.",
+      en: "The Minister for Justice comments on the reports but refers responsibility for IT services to the Police Authority.",
+    },
   },
   "etc-ai-realtid": {
     id: "etc-ai-realtid",
@@ -123,27 +146,57 @@ export const SOURCES = {
     date: "2026",
     kind: "reporting",
     lang: "sv",
-    unverified: true,
+    image: "/press/palantir-gp.jpg",
+    imageAlt: {
+      sv: "Palantirs vd Alex Karp under ett offentligt framträdande.",
+      en: "Palantir CEO Alex Karp during a public appearance.",
+    },
+    imageCredit: "Foto: Thibault Camus / AP / TT",
+    logo: "/press/logo-etc.svg",
+    summary: {
+      sv: "Dagens ETC rapporterar om den nya lagen för AI-baserad ansiktsigenkänning i realtid.",
+      en: "Dagens ETC reports on the new law allowing AI-based facial recognition in real time.",
+    },
   },
   realtid: {
     id: "realtid",
     publisher: "Realtid",
     title: "Palantir jobbar från svenska polishuset — i hemlighet",
     url: "https://www.realtid.se/it-tech/palantir-jobbar-fran-svenska-polishuset-i-hemlighet/",
-    date: "2025",
+    date: "2025-11-14",
     kind: "reporting",
     lang: "sv",
-    unverified: true,
+    image: "/press/palantir-realtid.jpg",
+    imageAlt: {
+      sv: "Ett montage med Palantirs vd Alex Karp och svensk polis.",
+      en: "A montage featuring Palantir CEO Alex Karp and Swedish police.",
+    },
+    imageCredit: "Foto: Francois Mori / Fredrik Sandberg / TT",
+    logo: "/press/logo-realtid.svg",
+    summary: {
+      sv: "Realtid sammanfattar uppgifterna om Palantir-kodare i polishuset och de tillsynsorgan som inte informerats.",
+      en: "Realtid summarises reports of Palantir developers inside police headquarters and oversight bodies left uninformed.",
+    },
   },
   gp: {
     id: "gp",
     publisher: "Göteborgs-Posten",
     title: "Uppgifter: Polisen använder kontroversiellt AI-program",
     url: "https://www.gp.se/nyheter/sverige/uppgifter-polisen-anvander-kontroversiellt-ai-program.5147f47f-74fc-5456-98cf-d25f9d9da7ee",
-    date: "2025",
+    date: "2025-11-03",
     kind: "reporting",
     lang: "sv",
-    unverified: true,
+    image: "/press/palantir-gp.jpg",
+    imageAlt: {
+      sv: "Palantirs vd Alex Karp under ett offentligt framträdande.",
+      en: "Palantir CEO Alex Karp during a public appearance.",
+    },
+    imageCredit: "Foto: Thibault Camus / AP / TT",
+    logo: "/press/logo-gp.svg",
+    summary: {
+      sv: "Göteborgs-Posten återger TT:s rapportering om Acus och polisens besked att relationen inte kan bekräftas eller förnekas.",
+      en: "Göteborgs-Posten carries TT's report on Acus and the police statement that the relationship can neither be confirmed nor denied.",
+    },
   },
   femtejuli: {
     id: "femtejuli",
@@ -163,3 +216,20 @@ export const sourceList: Source[] = Object.values(SOURCES);
 export function sourcesOfKind(kind: SourceKind): Source[] {
   return sourceList.filter((s) => s.kind === kind);
 }
+
+export type PressSource = Source &
+  Required<
+    Pick<Source, "image" | "imageAlt" | "imageCredit" | "logo" | "summary">
+  >;
+
+export const pressSources: PressSource[] = sourceList.filter(
+  (source): source is PressSource =>
+    source.kind === "reporting" &&
+    Boolean(
+      source.image &&
+        source.imageAlt &&
+        source.imageCredit &&
+        source.logo &&
+        source.summary,
+    ),
+);

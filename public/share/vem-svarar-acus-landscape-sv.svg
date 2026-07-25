@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Vem svarar för Acus?</title>
+  <desc id="desc">Kampanjbild med den obesvarade frågan om polisens analysplattform Acus.</desc>
+  <rect width="1200" height="630" fill="#0d3044"/>
+  <rect x="70" y="70" width="8" height="490" fill="#67c6e6"/>
+  <text x="126" y="175" fill="#f5fafc" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" letter-spacing="-2">
+    <tspan x="126" dy="0">Vem svarar</tspan>
+    <tspan x="126" dy="78">för Acus?</tspan>
+  </text>
+  <line x1="660" y1="118" x2="660" y2="504" stroke="#315b70"/>
+  <text x="714" y="170" fill="#c4d7df" font-family="Arial, Helvetica, sans-serif" font-size="28">
+    <tspan x="714" dy="0">Vad gör systemet?</tspan>
+    <tspan x="714" dy="72">Var lagras datan?</tspan>
+    <tspan x="714" dy="72">Vem har granskat det?</tspan>
+  </text>
+  <text x="126" y="530" fill="#9bb8c5" font-family="Arial, Helvetica, sans-serif" font-size="22">Frågorna är ställda i riksdagen. De är fortfarande obesvarade.</text>
+  <text x="1034" y="560" fill="#67c6e6" font-family="Arial, Helvetica, sans-serif" font-size="22" text-anchor="end">vemsvararforacus.se</text>
+</svg>

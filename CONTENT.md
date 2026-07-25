@@ -1,24 +1,30 @@
 # Content status, verification queue, open decisions
 
 Everything on the site is either sourced to a public document, attributed to a
-newsroom, or explicitly marked unknown. This file tracks what still needs
-checking and what is still undecided.
+newsroom, or explicitly marked unknown. This internal file tracks what still
+needs checking and what is still undecided. Editorial verification notes never
+render on the public site.
 
 ---
 
 ## 1. Must verify before launch
 
-These are marked `unverified: true` in `src/content/sources.ts`, which renders a
-red note on the About page. Clear the flag as each is confirmed.
+Year-only dates in `src/content/sources.ts` are intentional when the exact day
+is not stated by the linked source. They are not presented as exact dates.
 
 | # | Item | Why it matters | Where |
 |---|---|---|---|
 | 1 | **Exact publication date and URL of the original Dagens ETC investigation.** I only have the follow-up articles; the primary piece is cited generically. | It is the load-bearing source for the whole site. | `SOURCES["etc-granskning"]` |
-| 2 | **The Strömmer quote, verbatim in Swedish.** Currently `"Polismyndigheten avgör själv vilka IT-tjänster som myndigheten upphandlar."` | It is the hero pull quote. A misquoted minister hands the government a free rebuttal. Read [written question 2025/26:167](https://www.riksdagen.se/sv/dokument-och-lagar/dokument/skriftlig-fraga/polisens-anvandning-av-analys-och_hd11167/) and copy the exact sentence. | `sv.home.quote.text`, `en.home.quote.text` |
-| 3 | **The "8 months" figure.** Reported as how long police declined to confirm or deny to ETC. | It is one of four headline numbers. | `sv.home.stats[1]` |
-| 4 | **The "at least five years" phrasing** and whether ETC pinned a start year. | The timeline's first entry is labelled "Cirka 2020" and says openly that the year is inferred, not confirmed. If ETC gave a year, use it and drop the caveat. | `sv.timeline.entries[0]` |
-| 5 | **Moderaterna's camera pledge date.** I have the pledge (5,000 by 2027 → 10,000 by 2029) but not the announcement date. | Cited on the landing page and the timeline. | `SOURCES["m-kameror"]` |
-| 6 | **Whether all three oversight bodies were uninformed**, and as of when. | Named specifically: insynsrådet, IMY, SIN. A specific claim about named public bodies needs a solid citation. | `sv.known.knownItems[4]` |
+| 2 | **The "8 months" figure.** Reported as how long police declined to confirm or deny to ETC. | It is one of four headline numbers. | `sv.home.stats[1]` |
+| 3 | **The "at least five years" phrasing** and whether ETC pinned a start year. | The timeline's first entry is labelled "Cirka 2020" and says openly that the year is inferred, not confirmed. If ETC gave a year, use it and drop the caveat. | `sv.timeline.entries[0]` |
+| 4 | **Moderaterna's camera pledge date.** The linked party page confirms the pledge but does not expose an exact publication day in its page text. The public source directory therefore shows only `2026`. | Cited on the landing page and the timeline. | `SOURCES["m-kameror"]` |
+| 5 | **Whether all three oversight bodies were uninformed**, and as of when. | Named specifically: insynsrådet, IMY, SIN. A specific claim about named public bodies needs a solid citation. | `sv.known.knownItems[4]` |
+
+### Verified
+
+- On 25 July 2026, the Strömmer pull quote was checked against written question
+  2025/26:167 and corrected to the full sentence: “Polismyndigheten avgör själv
+  vilka IT-tjänster som myndigheten upphandlar och använder i sin verksamhet.”
 
 ## 2. Read the interpellation debate
 
@@ -53,17 +59,6 @@ which is a better story.
 
 ## 4. Open decisions
 
-**Tipline channels** — `sv.tips.channelsPending` currently says, honestly, that
-no channels exist yet. Before publishing any:
-
-- Decide Signal vs. Proton+PGP vs. both.
-- Note that the risk page already tells sources that Dagens ETC has
-  constitutional source protection that this campaign does not, and that a
-  newsroom may be the better recipient. Keep that. It costs tips and buys
-  credibility, and it is true.
-- Nothing on the site should invite contact until the routes and the handling
-  practice behind them both work.
-
 **Domain** — copy assumes the campaign name, not a domain. `SITE_URL` in
 `src/content/index.ts` is a placeholder (`vemsvararforacus.se`). Candidates:
 `vemsvararforacus.se`, `acus.se`, `vadaracus.se`.
@@ -74,13 +69,12 @@ Swedish slugs (`/sv/vad-vi-vet/`) would read better and help Swedish search, but
 need a slug map plus per-language `generateStaticParams`. Worth doing before
 any significant promotion.
 
-**OG images** — none yet. `src/lib/page.ts` sets OpenGraph title/description but
-no image. The quote card idea from the notes (the minister's own words, no
-editorialising) would work as the default share image.
+**OG images** — completed. Both languages use a 1200 × 630 campaign image, and
+the Home share panel also offers landscape and square PNG downloads.
 
 **Native Swedish review** — the Swedish copy is the primary version and should
-get a native pass before launch, particularly the legal phrasing on the tips
-page (meddelarfrihet / anskaffarfrihet) and on the FOIA section.
+get a native pass before launch, particularly the legal phrasing in the FOIA
+section.
 
 ## 5. Where Amel's research lands
 

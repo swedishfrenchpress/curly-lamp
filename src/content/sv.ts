@@ -31,7 +31,6 @@ const sv: Dict = {
       { route: "timeline", label: "Tidslinje" },
       { route: "acus", label: "Vad är Acus?" },
       { route: "questions", label: "Frågorna" },
-      { route: "tips", label: "Tipsa oss" },
       { route: "about", label: "Om sidan" },
     ],
     langSwitch: "In English",
@@ -48,15 +47,13 @@ const sv: Dict = {
         "Svensk polis har enligt Dagens ETC:s granskning använt Palantirs analysplattform i minst fem år. Systemet heter Acus. Justitieministern har fått frågan två gånger i riksdagen — och svarat att det inte är hans bord.",
     },
     hero: {
-      eyebrow: "Polismyndigheten · Palantir Technologies · Acus",
       title: "Vem svarar för Acus?",
-      lead: "Svensk polis har enligt Dagens ETC:s granskning använt ett analyssystem från det amerikanska företaget Palantir Technologies i minst fem år. Systemet heter Acus. Företagets anställda arbetar inne i polishuset på Kungsholmen. Polisen vill varken bekräfta eller förneka att samarbetet existerar. Justitieministern har fått frågan två gånger i riksdagen — och svarat att det inte är hans bord.",
-      primaryCta: { route: "known", label: "Vad vi vet — och inte vet" },
-      secondaryCta: { route: "timeline", label: "Se tidslinjen" },
+      lead: "Svensk polis har enligt publicerad granskning använt Acus, en analysplattform byggd med Palantirs teknik, i minst fem år. Leverantörens personal arbetar inne i polishuset. Polisen bekräftar inte relationen och justitieministern hänvisar IT-upphandlingen till myndigheten. De obesvarade frågorna är grundläggande: vad gör Acus, var lagras datan och vem har granskat systemet?",
+      primaryCta: { href: "#share", label: "Dela frågan" },
+      secondaryCta: { route: "known", label: "Vad vi vet" },
     },
 
     statsBlock: {
-      eyebrow: "Utgångsläget",
       title: "Fyra siffror",
       lead: "Ingen av dem är bekräftad av en myndighet. Det är själva poängen.",
     },
@@ -88,24 +85,20 @@ const sv: Dict = {
     ],
 
     questionsBlock: {
-      eyebrow: "Kärnan",
       title: "Fem frågor som ingen har svarat på",
       lead: "De är inte retoriska. De ställdes av en riksdagsledamot som dessutom sitter i Polismyndighetens insynsråd, i två formella processer, och de är fortfarande öppna.",
     },
     questionsCta: { route: "questions", label: "Läs frågorna i sin helhet" },
 
     quote: {
-      text: "Polismyndigheten avgör själv vilka IT-tjänster som myndigheten upphandlar.",
+      text: "Polismyndigheten avgör själv vilka IT-tjänster som myndigheten upphandlar och använder i sin verksamhet.",
       attribution: "Gunnar Strömmer (M), justitieminister",
       context:
         "Svar på skriftlig fråga 2025/26:167, den 19 november 2025. Frågorna gällde när samarbetet med Palantir inleddes och var den analyserade datan lagras — i Sverige, inom EU, eller i Palantirs molntjänster utanför unionen. Ingen av dem besvarades.",
       cite: ["fraga-167"],
-      unverifiedNote:
-        "Citatet ska kontrolleras mot originaldokumentet före publicering.",
     },
 
     convergence: {
-      eyebrow: "Varför nu",
       title: "Tre saker hände samtidigt",
       lead: "Var för sig är de politik. Tillsammans är de en infrastruktur — och den byggdes klart medan grundfrågan låg obesvarad.",
       steps: [
@@ -133,7 +126,6 @@ const sv: Dict = {
     },
 
     notWhat: {
-      eyebrow: "För tydlighetens skull",
       title: "Det här är inte ett påstående om att polisen begått brott",
       body: [
         "Vi påstår inte att Polismyndigheten har brutit mot lagen. Vi vet inte det. Det är möjligt att Acus är helt lagligt upphandlat, korrekt reglerat och noggrant granskat.",
@@ -142,13 +134,34 @@ const sv: Dict = {
       ],
     },
 
+    pressBlock: {
+      title: "I pressen",
+      lead: "Läs redaktionernas egen rapportering om Acus, Palantir och svensk polis.",
+    },
+
     share: {
-      eyebrow: "Vad du kan göra",
       title: "Sprid frågan vidare",
-      lead: "Den här sidan har ingen namninsamling och samlar inte in dina uppgifter. Det mest användbara du kan göra är att se till att fler känner till att frågan ställts och inte besvarats — och att den ställs igen.",
-      cta: [
-        { route: "known", label: "Läs sammanfattningen" },
-        { route: "tips", label: "Har du information?" },
+      lead: "Dela den offentliga frågan, kopiera en direktlänk eller ladda ner en färdig bild. Sidan har ingen namninsamling och samlar inte in dina uppgifter.",
+      shareLabel: "Dela",
+      copyLabel: "Kopiera länk",
+      copiedLabel: "Länken är kopierad",
+      errorLabel: "Länken kunde inte kopieras. Kopiera den från webbläsaren i stället.",
+      downloadLabel: "Ladda ner kampanjbilder",
+      sourceLabel: "Se alla källor",
+      sourceRoute: "about",
+      shareText:
+        "Vem svarar för Acus? Riksdagen har frågat om polisens analysplattform, men grundläggande frågor är fortfarande obesvarade.",
+      assets: [
+        {
+          href: "/share/vem-svarar-acus-landscape-sv.png",
+          label: "Liggande bild",
+          meta: "PNG · 1200 × 630",
+        },
+        {
+          href: "/share/vem-svarar-acus-square-sv.png",
+          label: "Kvadratisk bild",
+          meta: "PNG · 1080 × 1080",
+        },
       ],
     },
   },
@@ -160,13 +173,11 @@ const sv: Dict = {
         "En sida som skiljer det som är rapporterat och dokumenterat från det som fortfarande är okänt om polisens användning av Palantirs analysplattform Acus.",
     },
     hero: {
-      eyebrow: "Sammanfattning",
       title: "Vad vi vet — och vad vi inte vet",
-      lead: "Den vänstra spalten bygger på publicerad journalistik och offentliga riksdagsdokument. Den högra är frågor som ställts och inte besvarats. Vi håller isär dem medvetet.",
+      lead: "Först kommer påståenden som stöds av publicerad journalistik och offentliga riksdagsdokument. Därefter, i ett separat register, frågorna som ställts och inte besvarats.",
     },
 
     knownBlock: {
-      eyebrow: "Dokumenterat",
       title: "Det här är rapporterat eller offentligt",
     },
     knownItems: [
@@ -195,7 +206,7 @@ const sv: Dict = {
         cite: ["fraga-167", "realtid"],
       },
       {
-        text: "Strömmer svarade den 19 november 2025 att Polismyndigheten själv avgör vilka IT-tjänster myndigheten upphandlar, att verksamheten omfattas av omfattande regelverk och tillsyn, och hänvisade frågor om upphandlingen till myndigheten.",
+        text: "Strömmer svarade den 19 november 2025 att Polismyndigheten själv avgör vilka IT-tjänster myndigheten upphandlar och använder i sin verksamhet, att verksamheten omfattas av omfattande regelverk och tillsyn, och hänvisade frågor om upphandlingen till myndigheten.",
         cite: ["fraga-167"],
       },
       {
@@ -209,7 +220,6 @@ const sv: Dict = {
     ],
 
     unknownBlock: {
-      eyebrow: "Obesvarat",
       title: "Det här vet vi fortfarande inte",
     },
     unknownItems: [
@@ -243,12 +253,11 @@ const sv: Dict = {
     ],
 
     method: {
-      eyebrow: "Om underlaget",
       title: "Hur vi hanterar det vi inte kan verifiera",
       body: [
-        "Uppgifterna i vänsterspalten kommer från publicerad journalistik och från offentliga riksdagsdokument. Vi har inte oberoende verifierat journalistiken och påstår inte att vi har det. Där en uppgift kommer från rapportering skriver vi ut det.",
+        "Uppgifterna i det första registret kommer från publicerad journalistik och från offentliga riksdagsdokument. Vi har inte oberoende verifierat journalistiken och påstår inte att vi har det. Där en uppgift kommer från rapportering skriver vi ut det.",
         "Riksdagsdokumenten är primärkällor och länkas direkt. Läs dem gärna själv — ministerns svar är starkare i original än i vår sammanfattning.",
-        "Hittar du ett fel vill vi veta det. Rättelser publiceras öppet.",
+        "Rättelser som stöds av offentliga uttalanden eller allmänna handlingar publiceras öppet.",
       ],
     },
   },
@@ -260,10 +269,40 @@ const sv: Dict = {
         "Från granskningen 2025 till lagen om ansiktsigenkänning i realtid den 1 juli 2026 — och de frågor som ställdes däremellan utan att besvaras.",
     },
     hero: {
-      eyebrow: "Kronologi",
       title: "Vad som hände, och i vilken ordning",
       lead: "Ordningen är hela poängen. Frågan om vad staten redan har ställdes innan riksdagen beslutade om vad staten skulle få därutöver. Den var obesvarad då. Den är obesvarad nu.",
     },
+    chapters: [
+      {
+        title: "Från internt system till offentlig uppgift",
+        lead:
+          "Arbetet uppges ha börjat flera år innan Acus blev offentligt känt.",
+        entryDates: ["2020", "2025"],
+      },
+      {
+        title: "Frågorna som inte får svar",
+        lead:
+          "Riksdagen frågar vem som godkände Acus, när arbetet började och var datan lagras. Svaren stannar före sakfrågorna.",
+        entryDates: [
+          "2025-11-06",
+          "2025-11-19",
+          "2026-01-23",
+          "2026-02-16",
+        ],
+      },
+      {
+        title: "En annan befogenhet blir lag",
+        lead:
+          "Medan Acus fortfarande är obeskrivet beslutar riksdagen om regler för ansiktsigenkänning i realtid.",
+        entryDates: ["2026-03", "2026-05-21", "2026-05-26", "2026-07-01"],
+      },
+      {
+        title: "Här står frågan nu",
+        lead:
+          "Den nya lagen har trätt i kraft. De tidigare frågorna om Acus är fortfarande öppna.",
+        entryDates: ["2026-07-25"],
+      },
+    ],
     entries: [
       {
         date: "2020",
@@ -284,6 +323,7 @@ const sv: Dict = {
         title: "Dagens ETC publicerar granskningen",
         body: "Uppgifterna om Acus, om Palantir-personal inne i polishuset på Kungsholmen och om sekretessvillkoren blir offentliga. Polismyndigheten uppges under åtta månader varken ha bekräftat eller förnekat relationen, med hänvisning till fara för rikets säkerhet. Uppgifterna plockas upp av bland andra Göteborgs-Posten och Realtid.",
         cite: ["etc-granskning", "realtid", "gp"],
+        emphasis: "turning-point",
       },
       {
         date: "2025-11-06",
@@ -300,8 +340,9 @@ const sv: Dict = {
         kind: "parliament",
         kindLabel: "Riksdagen",
         title: "Ministern svarar — utan att svara",
-        body: "Strömmer hänvisar till att Polismyndigheten själv avgör vilka IT-tjänster den upphandlar, att verksamheten omfattas av omfattande regelverk och tillsyn, och att frågor om upphandlingen bör ställas till myndigheten. Frågorna om tidpunkt och lagringsplats berörs inte.",
+        body: "Strömmer hänvisar till att Polismyndigheten själv avgör vilka IT-tjänster den upphandlar och använder i sin verksamhet, att verksamheten omfattas av omfattande regelverk och tillsyn, och att frågor om upphandlingen bör ställas till myndigheten. Frågorna om tidpunkt och lagringsplats berörs inte.",
         cite: ["fraga-167"],
+        emphasis: "turning-point",
       },
       {
         date: "2026-01-23",
@@ -367,6 +408,7 @@ const sv: Dict = {
         title: "Frågorna från november 2025 är fortfarande obesvarade",
         body: "Hur länge Acus har använts, var datan lagras, hur systemet upphandlades och varför ingen svensk eller europeisk leverantör valdes — inget av detta har besvarats offentligt. Under tiden har Moderaterna lovat att fördubbla målet för polisens kameraövervakning till 10 000 kameror till utgången av 2029.",
         cite: ["m-kameror"],
+        emphasis: "current",
       },
     ],
     closing: {
@@ -385,7 +427,6 @@ const sv: Dict = {
         "En förklaring på vanlig svenska av vad Palantirs Gotham-plattform gör, vad den svenska versionen Acus uppges göra, och varför skillnaden mellan ”databas” och ”AI-system” har betydelse.",
     },
     hero: {
-      eyebrow: "Förklaring",
       title: "Vad är Acus, egentligen?",
       lead: "Kort svar: vi vet inte säkert, och det är ett problem i sig. Här är vad som är rapporterat, vad Palantirs plattform generellt gör, och var gränsen går mellan de två.",
     },
@@ -432,7 +473,6 @@ const sv: Dict = {
     ],
 
     dataBlock: {
-      eyebrow: "Enligt granskningen",
       title: "Uppgifter systemet uppges arbeta med",
       lead: "Den här listan kommer från publicerad journalistik, inte från en officiell beskrivning. Vi har inte sett en systemdokumentation och påstår inte att listan är fullständig eller slutgiltig.",
     },
@@ -442,9 +482,19 @@ const sv: Dict = {
       { text: "Uppgifter från mobiloperatörer", cite: ["realtid", "gp"] },
       { text: "Konton och innehåll i sociala medier", cite: ["realtid", "gp"] },
     ],
+    dataFlow: {
+      systemTitle: "Acus, det uppgivna analyslagret",
+      systemBody:
+        "Rapporteringen beskriver en svensk plattform baserad på Palantir Gotham som gör olika strukturerade register sökbara tillsammans.",
+      useTitle: "Utredarens vy",
+      useBody:
+        "Det uppgivna resultatet är en samlad profil från flera källor. Offentliga handlingar visar inte vilka kopplingar, sökningar eller spärrar som är aktiva i Sverige.",
+      note:
+        "Detta är en karta över det rapporterade datasambandet, inte ett tekniskt schema över den svenska installationen.",
+      cite: ["realtid", "gp"],
+    },
 
     caveat: {
-      eyebrow: "Var gränsen går",
       title: "Vad den här sidan inte är",
       body: [
         "Avsnitten om vad Palantirs plattform generellt gör bygger på företagets egna produktbeskrivningar och på offentlig dokumentation från andra länder där systemet använts. De beskriver inte nödvändigtvis den svenska installationen.",
@@ -461,28 +511,25 @@ const sv: Dict = {
         "De konkreta frågor som ställts till regeringen om polisens användning av Palantir, vad som faktiskt svarades, och vad som fortfarande utreds.",
     },
     hero: {
-      eyebrow: "Frågorna",
       title: "Ställda. Inte besvarade.",
       lead: "Varje fråga nedan har ställts formellt, i riksdagen, av en ledamot som dessutom sitter i Polismyndighetens insynsråd. Vi återger vad som frågades och vad som svarades, och låter läsaren bedöma avståndet däremellan.",
     },
     openQuestions: [
       {
         id: "duration",
-        number: "01",
         question: "Hur länge har Acus använts, och vem beslutade om det?",
         why: "Ett system som varit i drift i fem år har hunnit forma hur polisen arbetar. Om ingen kan säga när det började kan ingen heller säga vilket beslut som låg till grund för det.",
         askedLabel: "Ställd",
         asked: "Skriftlig fråga 2025/26:167, 6 november 2025, och interpellation 2025/26:301, 23 januari 2026.",
         responseLabel: "Svaret",
         response:
-          "Justitieministern uppgav att Polismyndigheten själv avgör vilka IT-tjänster den upphandlar, och att detta inte är något som han eller regeringen godkänner eller får särskild information om. Tidpunkten berördes inte.",
+          "Justitieministern uppgav att Polismyndigheten själv avgör vilka IT-tjänster den upphandlar och använder i sin verksamhet, och att detta inte är något som han eller regeringen godkänner eller får särskild information om. Tidpunkten berördes inte.",
         status: "unanswered",
         statusLabel: "Obesvarad",
         cite: ["fraga-167", "ip-301"],
       },
       {
         id: "storage",
-        number: "02",
         question:
           "Var lagras datan — i Sverige, inom EU, eller i Palantirs moln utanför unionen?",
         why: "Svaret avgör vilken lagstiftning som gäller för uppgifterna, vem som i praktiken kan komma åt dem, och vad som händer med dem om relationen till leverantören förändras.",
@@ -497,7 +544,6 @@ const sv: Dict = {
       },
       {
         id: "procurement",
-        number: "03",
         question: "Hur upphandlades systemet?",
         why: "Offentlig upphandling är offentlig av ett skäl. Om det fanns en anbudsprocess bör den gå att beskriva: vilka krav som ställdes, vilka som lämnade anbud, hur de utvärderades och vad avtalet är värt.",
         askedLabel: "Ställd",
@@ -511,7 +557,6 @@ const sv: Dict = {
       },
       {
         id: "vendor",
-        number: "04",
         question:
           "Varför en amerikansk militär- och underrättelseleverantör, och inte en svensk eller europeisk?",
         why: "Sverige har en betydande försvars- och säkerhetsindustri och en fungerande mjukvarusektor. Om ingen inhemsk eller europeisk leverantör bedömdes vara möjlig är det ett anmärkningsvärt besked. Om de bedömdes och valdes bort bör grunderna kunna redovisas.",
@@ -527,7 +572,6 @@ const sv: Dict = {
       },
       {
         id: "oversight",
-        number: "05",
         question: "Vilket tillsynsorgan har faktiskt granskat Acus i drift?",
         why: "Att peka på att det finns tillsyn är inte samma sak som att tillsyn har utövats. Enligt granskningen hade varken insynsrådet, Integritetsskyddsmyndigheten eller Säkerhets- och integritetsskyddsnämnden informerats.",
         askedLabel: "Ställd",
@@ -543,9 +587,8 @@ const sv: Dict = {
     ],
 
     researchBlock: {
-      eyebrow: "Pågående",
       title: "Det vi håller på att ta reda på",
-      lead: "Vi publicerar det här öppet i stället för att vänta tills allt är klart. Om du sitter på något som hör hemma under någon av punkterna vill vi gärna höra från dig.",
+      lead: "Vi publicerar forskningsagendan öppet och arbetar enbart med allmänna handlingar, publicerad journalistik och dokumentation som kan granskas.",
     },
     research: [
       {
@@ -595,58 +638,13 @@ const sv: Dict = {
     ],
 
     foia: {
-      eyebrow: "Offentlighetsprincipen",
-      title: "Vi begär ut handlingar — och du kan göra det också",
+      title: "Så fungerar en begäran om allmän handling",
       body: [
         "Offentlighetsprincipen ger var och en rätt att begära ut allmänna handlingar hos svenska myndigheter. Du behöver inte uppge vem du är eller varför du frågar. Myndigheten ska svara skyndsamt, och om den avslår din begäran ska den ange på vilken sekretessgrund — ett beslut som går att överklaga till kammarrätten.",
         "Ett avslag är inte ett nederlag. Ett skriftligt avslag med angiven sekretessgrund är i sig information: det visar vad myndigheten anser sig behöva skydda och med vilket lagstöd. Flera avslag som pekar åt olika håll är ännu mer informativa.",
-        "Vi kommer att publicera våra egna begäranden och de svar vi får, oavsett utfall. Har du redan begärt ut något i det här ärendet vill vi gärna se svaret.",
+        "Vi kommer att publicera våra egna begäranden och de svar vi får, oavsett utfall.",
       ],
     },
-  },
-
-  tips: {
-    meta: {
-      title: "Tipsa oss",
-      description:
-        "Har du information om Acus, om upphandlingen eller om hur systemet används? Läs det här först — riskerna är verkliga och vi tänker inte tona ned dem.",
-    },
-    hero: {
-      eyebrow: "Kontakt",
-      title: "Har du information?",
-      lead: "Läs hela den här sidan innan du kontaktar oss. Vi tänker inte tona ned riskerna för att göra det bekvämare att höra av sig.",
-    },
-
-    riskBlock: {
-      eyebrow: "Läs först",
-      title: "Innan du hör av dig",
-    },
-    riskItems: [
-      "Använd aldrig en arbetsdator, arbetstelefon, arbetsmejl eller ett arbetsnätverk. Det gäller även om du bara läser den här sidan.",
-      "Utgå från att din arbetsgivare kan se vilka nätverksresurser du använder, och att åtkomstloggar i interna system sparas och kan granskas i efterhand.",
-      "Berätta inte för kollegor att du överväger att höra av dig. De flesta läckor spåras genom vem som visste, inte genom teknik.",
-      "Om du är bunden av sekretess eller tystnadsplikt kan ett röjande få rättsliga följder. Meddelarfriheten och anskaffarfriheten i tryckfrihetsförordningen och yttrandefrihetsgrundlagen ger ett långtgående men inte obegränsat skydd, och undantagen är verkliga.",
-      "Vi är inte jurister och kan inte ge dig juridisk rådgivning. Överväger du att lämna uppgifter som omfattas av sekretess bör du tala med en jurist, eller med en etablerad redaktion som har källskydd, innan du talar med oss.",
-      "Överväg om en redaktion är rätt mottagare i stället för oss. Dagens ETC har redan granskat det här och omfattas av grundlagsskyddat källskydd på ett sätt som vi inte gör. Det är ofta det bättre valet, och vi säger det hellre än att låta bli.",
-    ],
-
-    channelsBlock: {
-      eyebrow: "Kanaler",
-      title: "Så når du oss",
-    },
-    channelsPending:
-      "Vi publicerar inga kontaktvägar förrän de är korrekt uppsatta. Att lägga upp en adress innan rutinerna kring den fungerar vore att be människor ta en risk vi ännu inte kan hantera. Kanalerna läggs upp här när de är klara.",
-
-    cannotBlock: {
-      eyebrow: "Ärlighet",
-      title: "Vad vi inte kan lova dig",
-    },
-    cannotItems: [
-      "Vi är inte en grundlagsskyddad redaktion. Vi omfattas inte av det källskydd som gäller för utgivare med ansvarig utgivare.",
-      "Vi kan inte skydda dig mot metadata som uppstår hos din operatör, din arbetsgivare eller din internetleverantör innan ett meddelande når oss.",
-      "Vi kan inte garantera att vi kan svara, publicera eller agera på det du skickar.",
-      "Vi kan lova att vi inte publicerar något som pekar ut dig utan att först ha stämt av det med dig, och att vi hellre avstår från en uppgift än utsätter en källa.",
-    ],
   },
 
   about: {
@@ -656,7 +654,6 @@ const sv: Dict = {
         "Vem som står bakom den här sidan, hur vi arbetar med källor, och hur du rättar oss.",
     },
     hero: {
-      eyebrow: "Om",
       title: "Om den här sidan",
       lead: "En sida med ett enda syfte: att hålla en obesvarad fråga öppen tills den besvaras.",
     },
@@ -674,13 +671,13 @@ const sv: Dict = {
         body: [
           "Publicerad journalistik attribueras till den redaktion som gjort arbetet. Vi skriver ”enligt granskningen”, inte ”det är bekräftat”, eftersom vi inte har verifierat den självständigt.",
           "Riksdagens och regeringens dokument är primärkällor och länkas direkt, så att du kan läsa vad som faktiskt sades i stället för vår sammanfattning av det.",
-          "Där vi inte vet något skriver vi att vi inte vet det. Där ett datum eller ett citat ännu inte kontrollerats mot originalet markerar vi det.",
+          "Där vi inte vet något skriver vi att vi inte vet det. Citat kontrolleras mot det länkade originalet före publicering.",
         ],
       },
       {
         title: "Rättelser",
         body: [
-          "Om något på den här sidan är fel vill vi veta det, och vi rättar öppet snarare än tyst. Det gäller även — särskilt — om rättelsen kommer från Polismyndigheten eller Regeringskansliet.",
+          "Rättelser publiceras öppet i stället för att göras i det tysta. Det gäller särskilt rättelser som lämnas genom offentliga uttalanden eller allmänna handlingar från Polismyndigheten eller Regeringskansliet.",
           "Ett svar på någon av frågorna på den här sidan publicerar vi i sin helhet, i original.",
         ],
       },
@@ -693,10 +690,14 @@ const sv: Dict = {
       },
     ],
 
+    pressBlock: {
+      title: "I pressen",
+      lead: "Alla journalistiska artiklar som kampanjen hänvisar till, samlade på ett ställe.",
+    },
+
     sourcesBlock: {
-      eyebrow: "Källor",
       title: "Allt vi bygger på",
-      lead: "Fullständig förteckning. Läs gärna själv — särskilt riksdagsdokumenten.",
+      lead: "Journalistiken finns samlad ovan. Nedan listas varje offentlig källa och opinionskälla som kampanjen använder, med direktlänkar till originalen.",
     },
     kindLabels: {
       primary: "Primärkälla",
@@ -710,7 +711,6 @@ const sv: Dict = {
       advocacy:
         "Skrivet från en position. Redovisas för fullständighetens skull, används aldrig som ensam grund för ett påstående.",
     },
-    unverifiedLabel: "Datum eller ordalydelse ännu inte kontrollerad mot originalet",
   },
 
   footer: {
@@ -728,10 +728,9 @@ const sv: Dict = {
         ],
       },
       {
-        title: "Agera",
+        title: "Fördjupa",
         items: [
           { route: "questions", label: "Frågorna" },
-          { route: "tips", label: "Tipsa oss" },
           { route: "about", label: "Om sidan" },
         ],
       },

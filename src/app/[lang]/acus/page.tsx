@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import CampaignImageSlot from "@/components/campaign-image-slot";
 import Reveal from "@/components/reveal";
+import DataFlow from "@/components/data-flow";
 import {
-  ClaimList,
   PageHero,
   Prose,
   Section,
@@ -32,31 +33,34 @@ export default async function AcusPage({
 
   return (
     <>
-      <PageHero block={acus.hero} />
+      <PageHero block={acus.hero} variant="acus" />
 
-      {/* Narrow measure — this is the one page people will actually read
-          straight through, and 68ch beats a two-column grid for that. */}
-      <Section narrow>
-        {acus.sections.map((section, i) => (
-          <Reveal key={section.title}>
-            <div style={{ marginTop: i === 0 ? 0 : "clamp(48px, 6vw, 80px)" }}>
-              <h2 className="sub-title" style={{ marginBottom: 18 }}>
+      <Section>
+        <div className="article-register">
+          {acus.sections.map((section) => (
+            <Reveal key={section.title} className="article-register__row">
+              <h2 className="sub-title">
                 {section.title}
               </h2>
               <Prose body={section.body} />
-            </div>
-          </Reveal>
-        ))}
+            </Reveal>
+          ))}
+        </div>
       </Section>
 
       <Section variant="band">
-        <Reveal>
-          <SectionHead block={acus.dataBlock} />
-        </Reveal>
-        <Reveal>
-          <ClaimList
+        <div className="editorial-grid acus-data__intro">
+          <Reveal className="editorial-grid__rail">
+            <SectionHead block={acus.dataBlock} />
+          </Reveal>
+          <Reveal className="editorial-grid__body">
+            <CampaignImageSlot kind="acus" lang={lang} />
+          </Reveal>
+        </div>
+        <Reveal className="acus-data__map">
+          <DataFlow
             items={acus.dataSources}
-            variant="known"
+            flow={acus.dataFlow}
             sourcesLabel={ui.sources}
           />
         </Reveal>
@@ -65,10 +69,14 @@ export default async function AcusPage({
       {/* Load-bearing disclaimer: the sections above describe the platform in
           general, not the Swedish installation. Burying this would make the
           page do exactly what we accuse the government of. */}
-      <Section narrow size="tight">
-        <Reveal>
-          <SectionHead block={acus.caveat} />
-          <Prose body={acus.caveat.body} />
+      <Section size="tight">
+        <Reveal className="editorial-grid">
+          <div className="editorial-grid__rail">
+            <SectionHead block={acus.caveat} />
+          </div>
+          <div className="editorial-grid__body">
+            <Prose body={acus.caveat.body} />
+          </div>
         </Reveal>
       </Section>
     </>

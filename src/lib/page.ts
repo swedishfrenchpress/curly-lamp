@@ -9,7 +9,7 @@ export function langStaticParams() {
 
 type MetaKey = Extract<
   keyof Dict,
-  "home" | "known" | "timeline" | "acus" | "questions" | "tips" | "about"
+  "home" | "known" | "timeline" | "acus" | "questions" | "about"
 >;
 
 /**
@@ -29,6 +29,10 @@ export async function pageMetadata(
   const meta = dict[key].meta;
   const slug = ROUTES[route];
   const suffix = slug ? `/${slug}/` : "/";
+  const socialImage =
+    lang === "sv"
+      ? "/share/vem-svarar-acus-landscape-sv.png"
+      : "/share/who-answers-acus-landscape-en.png";
 
   return {
     title: `${meta.title} — ${dict.site.name}`,
@@ -45,6 +49,20 @@ export async function pageMetadata(
       siteName: dict.site.name,
       locale: lang === "sv" ? "sv_SE" : "en_GB",
       type: "article",
+      images: [
+        {
+          url: socialImage,
+          width: 1200,
+          height: 630,
+          alt: dict.site.name,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.title,
+      description: meta.description,
+      images: [socialImage],
     },
   };
 }

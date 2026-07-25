@@ -32,15 +32,14 @@ export default async function KnownPage({
 
   return (
     <>
-      <PageHero block={known.hero} />
+      <PageHero block={known.hero} variant="known" />
 
-      {/* Two columns that must never blur into one another. The left is
-          sourced; the right is absence. Presenting them in a single list
-          would let a reader carry the authority of the first into the second. */}
       <Section>
-        <div className="split">
-          <Reveal>
-            <SectionHead block={known.knownBlock} />
+        <div className="known-register">
+          <Reveal className="known-register__part">
+            <div>
+              <SectionHead block={known.knownBlock} />
+            </div>
             <ClaimList
               items={known.knownItems}
               variant="known"
@@ -48,8 +47,10 @@ export default async function KnownPage({
             />
           </Reveal>
 
-          <Reveal delay={80}>
-            <SectionHead block={known.unknownBlock} />
+          <Reveal className="known-register__part known-register__part--unknown">
+            <div>
+              <SectionHead block={known.unknownBlock} />
+            </div>
             <ClaimList
               items={known.unknownItems}
               variant="unknown"
@@ -59,10 +60,14 @@ export default async function KnownPage({
         </div>
       </Section>
 
-      <Section variant="band" narrow size="tight">
-        <Reveal>
-          <SectionHead block={known.method} />
-          <Prose body={known.method.body} />
+      <Section variant="band" size="tight">
+        <Reveal className="editorial-grid">
+          <div className="editorial-grid__rail">
+            <SectionHead block={known.method} />
+          </div>
+          <div className="editorial-grid__body">
+            <Prose body={known.method.body} />
+          </div>
         </Reveal>
       </Section>
     </>
