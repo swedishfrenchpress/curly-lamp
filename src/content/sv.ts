@@ -19,9 +19,9 @@ const sv: Dict = {
 
   site: {
     name: "Vem svarar för Acus?",
-    tagline: "En granskning av tystnaden kring Palantir hos svensk polis",
+    tagline: "En granskning av det offentliga underlaget om Palantir hos svensk polis",
     description:
-      "Svensk polis har enligt uppgift använt ett analyssystem från Palantir Technologies i minst fem år. Systemet heter Acus. Ingen ansvarig vill förklara hur det fungerar, hur länge det använts eller var svenskarnas data lagras.",
+      "Svensk polis har enligt uppgift använt ett analyssystem från Palantir Technologies i minst fem år. Systemet heter Acus. Ingen myndighet har publicerat en fullständig beskrivning av vad det gör, när det började användas eller var datan lagras.",
   },
 
   nav: {
@@ -33,7 +33,7 @@ const sv: Dict = {
       { route: "questions", label: "Frågorna" },
       { route: "about", label: "Om sidan" },
     ],
-    langSwitch: "In English",
+    langSwitch: "Byt till engelska",
     themeToggle: "Växla mellan ljust och mörkt läge",
     skipToContent: "Hoppa till innehåll",
     menu: "Meny",
@@ -44,7 +44,7 @@ const sv: Dict = {
     meta: {
       title: "Vem svarar för Acus?",
       description:
-        "Svensk polis har enligt Dagens ETC:s granskning använt Palantirs analysplattform i minst fem år. Systemet heter Acus. Justitieministern har fått frågan två gånger i riksdagen — och svarat att det inte är hans bord.",
+        "Svensk polis har enligt Dagens ETC:s granskning använt Palantirs analysplattform i minst fem år. Systemet heter Acus. Justitieministern har frågats ut två gånger i riksdagen. Han hänvisar valet av IT-tjänster till Polismyndigheten.",
     },
     hero: {
       title: "Vem svarar för Acus?",
@@ -52,8 +52,8 @@ const sv: Dict = {
     },
 
     statsBlock: {
-      title: "Acus har använts i åratal. Insynen har inte hängt med.",
-      lead: "Ingen av dem är bekräftad av en myndighet. Det är själva poängen.",
+      title: "Acus har använts i åratal. Grundläggande fakta saknas.",
+      lead: "Siffrorna kommer från publicerad rapportering och riksdagens handlingar. Polismyndigheten har inte besvarat frågorna bakom dem offentligt.",
     },
     stats: [
       {
@@ -84,7 +84,7 @@ const sv: Dict = {
 
     questionsBlock: {
       title: "Fem frågor som ingen har svarat på",
-      lead: "De är inte retoriska. De ställdes av en riksdagsledamot som dessutom sitter i Polismyndighetens insynsråd, i två formella processer, och de är fortfarande öppna.",
+      lead: "En riksdagsledamot som sitter i Polismyndighetens insynsråd ställde dem i en skriftlig fråga och en interpellation. De är fortfarande obesvarade.",
     },
     questionsCta: { route: "questions", label: "Läs frågorna i sin helhet" },
 
@@ -92,13 +92,12 @@ const sv: Dict = {
       text: "Polismyndigheten avgör själv vilka IT-tjänster som myndigheten upphandlar och använder i sin verksamhet.",
       attribution: "Gunnar Strömmer (M), justitieminister",
       context:
-        "Svar på skriftlig fråga 2025/26:167, den 19 november 2025. Frågorna gällde när samarbetet med Palantir inleddes och var den analyserade datan lagras — i Sverige, inom EU, eller i Palantirs molntjänster utanför unionen. Ingen av dem besvarades.",
+        "Svar på skriftlig fråga 2025/26:167, den 19 november 2025. Frågorna gällde när samarbetet med Palantir inleddes och var den analyserade datan lagras: i Sverige, inom EU eller i Palantirs molntjänster utanför unionen. Ingen av dem besvarades.",
       cite: ["fraga-167"],
     },
 
     convergence: {
-      title: "Tre saker hände samtidigt",
-      lead: "Var för sig är de politik. Tillsammans är de en infrastruktur — och den byggdes klart medan grundfrågan låg obesvarad.",
+      title: "Tre utvecklingar möts",
       steps: [
         {
           label: "Sedan cirka 2020",
@@ -120,14 +119,14 @@ const sv: Dict = {
         },
       ],
       closing:
-        "Kameror som ser. Ansiktsigenkänning som identifierar. En analysplattform som kopplar ihop det som identifierats med allt annat staten vet om dig. Varje del har behandlats som en egen fråga. Ingen har behandlat dem som en helhet — och den enda delen som aldrig debatterades offentligt är den som binder ihop de andra.",
+        "Polisens kameror samlar in bilder. Ansiktsigenkänning i realtid kan identifiera personer i dem. Acus uppges koppla polisregister till uppgifter från andra källor. Tillsammans kan funktionerna bilda ett sammanhängande system. Analysplattformen som binder ihop informationen har aldrig debatterats offentligt i riksdagen.",
     },
 
     notWhat: {
-      title: "Det här är inte ett påstående om att polisen begått brott",
+      title: "Vi påstår inte att polisen har brutit mot lagen",
       body: [
-        "Vi påstår inte att Polismyndigheten har brutit mot lagen. Vi vet inte det. Det är möjligt att Acus är helt lagligt upphandlat, korrekt reglerat och noggrant granskat.",
-        "Problemet är att ingen utomstående kan avgöra det. Ett system av den här räckvidden borde tåla en offentlig beskrivning av vad det gör, vem som levererar det, hur det upphandlades och var datan finns. Det är den beskrivningen som saknas.",
+        "Offentliga handlingar visar inte att Polismyndigheten har brutit mot lagen. Acus kan vara lagligt upphandlat, korrekt reglerat och noggrant granskat.",
+        "Allmänheten kan inte bedöma det utan en beskrivning av vad systemet gör, vem som levererar det, hur det upphandlades och var datan lagras. Någon sådan beskrivning har inte publicerats.",
         "Om svaren är oproblematiska är det svårt att förstå varför de inte ges.",
       ],
     },
@@ -138,8 +137,8 @@ const sv: Dict = {
     },
 
     share: {
-      title: "Sprid frågan vidare",
-      lead: "Dela den offentliga frågan, kopiera en direktlänk eller ladda ner en färdig bild. Sidan har ingen namninsamling och samlar inte in dina uppgifter.",
+      title: "Dela frågorna",
+      lead: "Dela sidan, kopiera länken eller ladda ner en kampanjbild. Sidan har ingen namninsamling och samlar inte in personuppgifter.",
       shareLabel: "Dela",
       copyLabel: "Kopiera länk",
       copiedLabel: "Länken är kopierad",
@@ -166,13 +165,13 @@ const sv: Dict = {
 
   known: {
     meta: {
-      title: "Vad vi vet — och vad vi inte vet",
+      title: "Vad vi vet. Vad vi inte vet.",
       description:
         "En sida som skiljer det som är rapporterat och dokumenterat från det som fortfarande är okänt om polisens användning av Palantirs analysplattform Acus.",
     },
     hero: {
-      title: "Vad vi vet — och vad vi inte vet",
-      lead: "Först kommer påståenden som stöds av publicerad journalistik och offentliga riksdagsdokument. Därefter, i ett separat register, frågorna som ställts och inte besvarats.",
+      title: "Vad vi vet. Vad vi inte vet.",
+      lead: "Sidan skiljer uppgifter som stöds av publicerad journalistik och riksdagens handlingar från frågor som fortfarande saknar svar.",
     },
 
     knownBlock: {
@@ -218,7 +217,7 @@ const sv: Dict = {
     ],
 
     unknownBlock: {
-      title: "Det här vet vi fortfarande inte",
+      title: "Det här är fortfarande okänt",
     },
     unknownItems: [
       {
@@ -226,7 +225,7 @@ const sv: Dict = {
         cite: ["fraga-167"],
       },
       {
-        text: "Var den analyserade datan lagras — i Sverige, inom EU, eller i Palantirs molntjänster utanför unionen. Frågan ställdes ordagrant och lämnades obesvarad.",
+        text: "Var den analyserade datan lagras: i Sverige, inom EU eller i Palantirs molntjänster utanför unionen. Frågan ställdes ordagrant och lämnades obesvarad.",
         cite: ["fraga-167"],
       },
       {
@@ -242,7 +241,7 @@ const sv: Dict = {
         text: "Vilka spärrar som finns mot att uppgifter från olika register kombineras på sätt som inte var avsedda när de samlades in.",
       },
       {
-        text: "Om någon tillsynsmyndighet har granskat systemet i drift — inte regelverket omkring det, utan systemet.",
+        text: "Om någon tillsynsmyndighet har granskat Acus i drift och inte bara regelverket omkring systemet.",
       },
       {
         text: "Hur en enskild person kan få veta om hen förekommer i systemet, och vad hen kan göra åt det.",
@@ -254,7 +253,7 @@ const sv: Dict = {
       title: "Hur vi hanterar det vi inte kan verifiera",
       body: [
         "Uppgifterna i det första registret kommer från publicerad journalistik och från offentliga riksdagsdokument. Vi har inte oberoende verifierat journalistiken och påstår inte att vi har det. Där en uppgift kommer från rapportering skriver vi ut det.",
-        "Riksdagsdokumenten är primärkällor och länkas direkt. Läs dem gärna själv — ministerns svar är starkare i original än i vår sammanfattning.",
+        "Riksdagsdokumenten är primärkällor och länkas direkt. Originalen återger ministerns svar mer fullständigt än våra sammanfattningar.",
         "Rättelser som stöds av offentliga uttalanden eller allmänna handlingar publiceras öppet.",
       ],
     },
@@ -264,11 +263,11 @@ const sv: Dict = {
     meta: {
       title: "Tidslinje",
       description:
-        "Från granskningen 2025 till lagen om ansiktsigenkänning i realtid den 1 juli 2026 — och de frågor som ställdes däremellan utan att besvaras.",
+        "Från granskningen 2025 till lagen om ansiktsigenkänning i realtid som trädde i kraft den 1 juli 2026, inklusive frågorna som riksdagen ställde utan att få svar.",
     },
     hero: {
       title: "Vad som hände, och i vilken ordning",
-      lead: "Ordningen är hela poängen. Frågan om vad staten redan har ställdes innan riksdagen beslutade om vad staten skulle få därutöver. Den var obesvarad då. Den är obesvarad nu.",
+      lead: "Riksdagen frågade vilka system polisen redan använde innan den godkände ansiktsigenkänning i realtid. De tidigare frågorna om Acus är fortfarande obesvarade.",
     },
     chapters: [
       {
@@ -308,7 +307,7 @@ const sv: Dict = {
         kind: "reporting",
         kindLabel: "Rapportering",
         title: "Arbetet med Acus inleds",
-        body: "Enligt Dagens ETC:s granskning har Polismyndigheten arbetat med den svenska versionen av Palantirs Gotham i minst fem år. Exakt startdatum är inte bekräftat av någon myndighet — frågan ställdes senare i riksdagen och besvarades inte.",
+        body: "Enligt Dagens ETC:s granskning har Polismyndigheten arbetat med den svenska versionen av Palantirs Gotham i minst fem år. Ingen myndighet har bekräftat något startdatum. Riksdagen frågade senare efter det men fick inget svar.",
         cite: ["etc-granskning", "realtid"],
         aside:
           "Årtalet är en följd av formuleringen ”minst fem år” i granskningen, inte ett bekräftat datum.",
@@ -337,7 +336,7 @@ const sv: Dict = {
         dateLabel: "19 november 2025",
         kind: "parliament",
         kindLabel: "Riksdagen",
-        title: "Ministern svarar — utan att svara",
+        title: "Ministern berör inte tidpunkt eller lagringsplats",
         body: "Strömmer hänvisar till att Polismyndigheten själv avgör vilka IT-tjänster den upphandlar och använder i sin verksamhet, att verksamheten omfattas av omfattande regelverk och tillsyn, och att frågor om upphandlingen bör ställas till myndigheten. Frågorna om tidpunkt och lagringsplats berörs inte.",
         cite: ["fraga-167"],
         emphasis: "turning-point",
@@ -386,7 +385,7 @@ const sv: Dict = {
         kind: "law",
         kindLabel: "Lagstiftning",
         title: "Riksdagen röstar igenom lagen",
-        body: "Polisen, och i vissa fall Säkerhetspolisen, ska få använda ansiktsigenkänning i realtid när det är absolut nödvändigt för att lokalisera eller identifiera vissa personer — bland annat vid misstänkt människohandel, vid överhängande risk för allvarlig brottslighet, och vid skälig misstanke om brott med minst fyra års fängelse i straffskalan. Användningen kräver tillstånd av åklagare eller domstol.",
+        body: "Polisen, och i vissa fall Säkerhetspolisen, ska få använda ansiktsigenkänning i realtid när det är absolut nödvändigt för att lokalisera eller identifiera vissa personer. Det gäller bland annat misstänkta offer för människohandel, en överhängande risk för allvarlig brottslighet och skälig misstanke om brott med minst fyra års fängelse i straffskalan. Användningen kräver tillstånd av åklagare eller domstol.",
         cite: ["beslut", "juu28"],
       },
       {
@@ -404,16 +403,16 @@ const sv: Dict = {
         kind: "politics",
         kindLabel: "Läget",
         title: "Frågorna från november 2025 är fortfarande obesvarade",
-        body: "Hur länge Acus har använts, var datan lagras, hur systemet upphandlades och varför ingen svensk eller europeisk leverantör valdes — inget av detta har besvarats offentligt. Under tiden har Moderaterna lovat att fördubbla målet för polisens kameraövervakning till 10 000 kameror till utgången av 2029.",
+        body: "Det finns inga offentliga svar på hur länge Acus har använts, var datan lagras, hur systemet upphandlades eller varför ingen svensk eller europeisk leverantör valdes. Samtidigt har Moderaterna lovat att fördubbla målet för polisens kameraövervakning till 10 000 kameror till utgången av 2029.",
         cite: ["m-kameror"],
         emphasis: "current",
       },
     ],
     closing: {
-      title: "Sätt ihop det",
+      title: "Det offentliga underlaget visar nu",
       body: [
-        "Ett analyssystem vars omfattning ingen vill beskriva. En lag som ger polisen förmågan att identifiera personer i realtid. Ett vallöfte om att fördubbla antalet kameror som matar systemet med bilder.",
-        "Riksdagen har debatterat den mittersta delen ordentligt. Den första delen — den som avgör vad som händer med informationen efter att någon identifierats — har aldrig varit föremål för ett offentligt beslut.",
+        "Polisen uppges använda ett analyssystem vars omfattning inte har offentliggjorts. Riksdagen har godkänt ansiktsigenkänning i realtid, och Moderaterna har lovat att fördubbla polisens kameramål.",
+        "Riksdagen debatterade ansiktsigenkänningen. Den har inte offentligt granskat analysplattformen som kan avgöra vad som händer med informationen efter att en person identifierats.",
       ],
     },
   },
@@ -426,15 +425,15 @@ const sv: Dict = {
     },
     hero: {
       title: "Vad är Acus, egentligen?",
-      lead: "Kort svar: vi vet inte säkert, och det är ett problem i sig. Här är vad som är rapporterat, vad Palantirs plattform generellt gör, och var gränsen går mellan de två.",
+      lead: "Det offentliga underlaget visar inte exakt vad Acus gör. Sidan skiljer publicerad rapportering om Acus från allmän information om Palantirs plattform.",
     },
     sections: [
       {
-        title: "Det Palantir säljer är inte en databas",
+        title: "Så skiljer sig Palantirs plattform från en databas",
         body: [
           "Palantir Technologies är ett amerikanskt mjukvaruföretag som bland annat levererar plattformen Gotham till polis-, underrättelse- och försvarsmyndigheter. Företaget bygger normalt inte nya register. Det bygger ett lager ovanpå de register en myndighet redan har.",
-          "Värdet ligger i sammankopplingen. Uppgifter som samlats in för olika ändamål, i olika system, med olika rättslig grund, förs samman till en gemensam modell där personer, telefonnummer, fordon, adresser och händelser blir sökbara objekt med relationer till varandra.",
-          "Det är därför frågan ”är det bara en databas?” missar målet. En databas lagrar det någon lagt in. En plattform av det här slaget skapar nya samband som inte fanns i något av ursprungsregistren.",
+          "Plattformen för samman uppgifter som samlats in för olika ändamål, lagras i olika system och omfattas av olika rättsliga regler. Personer, telefonnummer, fordon, adresser och händelser kan sedan sökas tillsammans och kopplas till varandra.",
+          "En databas lagrar poster. En plattform av det här slaget kan synliggöra samband mellan flera källregister som inte finns i något enskilt register.",
         ],
       },
       {
@@ -442,29 +441,29 @@ const sv: Dict = {
         body: [
           "Om en utredare i ett system kan slå upp ett telefonnummer, i ett annat se vem som betalat en faktura och i ett tredje se en fordonsrörelse, krävs arbete, tid och beslut för att sätta ihop bilden. Varje steg lämnar spår och kan ifrågasättas.",
           "När sammankopplingen redan är gjord försvinner de stegen. Enligt Dagens ETC:s granskning ska en utredare på sekunder kunna få fram en detaljerad profil av en svensk medborgare.",
-          "Sekunderna är inte problemet. Problemet är att den friktion som fanns däremellan också var en form av kontroll.",
+          "Den hastigheten tar också bort steg i processen. Separata sökningar, beslut och loggar kan göra det möjligt att upptäcka eller ifrågasätta en felaktig koppling.",
         ],
       },
       {
-        title: "Skillnaden mellan ”verktyg” och ”AI” är inte semantik",
+        title: "Därför spelar den tekniska skillnaden roll",
         body: [
           "I beskrivningarna av Acus växlar orden: analysverktyg, underrättelseplattform, AI-program. Det spelar roll vilket det är.",
-          "Om systemet bara visar uppgifter som en människa efterfrågat är det ett sökverktyg. Om det rangordnar, poängsätter eller föreslår vilka personer som är intressanta har det gått över till att påverka myndighetsbeslut — och då aktualiseras helt andra krav på transparens, konsekvensanalys och möjlighet för den enskilde att få ett beslut prövat.",
-          "Det var i grunden detta Petter Löbergs interpellation försökte reda ut. Frågan om icke-transparenta algoritmer ställdes uttryckligen. Den fick inget preciserat svar.",
+          "Om systemet bara visar uppgifter som en människa efterfrågat är det ett sökverktyg. Om det rangordnar, poängsätter eller föreslår vilka personer som är intressanta kan det påverka myndighetsbeslut. Då aktualiseras andra krav på transparens, konsekvensanalys och möjlighet för den enskilde att få ett beslut prövat.",
+          "Petter Löbergs interpellation frågade uttryckligen om icke-transparenta algoritmer. Regeringen gav inget preciserat svar.",
         ],
       },
       {
-        title: "Varför inbäddad leverantörspersonal är ovanligt",
+        title: "Därför spelar leverantörspersonal på plats roll",
         body: [
-          "Att en myndighet köper mjukvara är trivialt. Att leverantörens anställda sitter inne i myndighetens lokaler och bygger och driver systemet är något annat — det innebär att kompetensen om hur systemet faktiskt fungerar delvis ligger hos leverantören, inte hos staten.",
+          "Myndigheter köper ofta mjukvara. Enligt rapporteringen arbetar Palantirs anställda också inne i polishuset med att bygga och driva Acus. Det kan innebära att en del av kunskapen om systemet ligger hos leverantören i stället för hos staten.",
           "Enligt rapporteringen är villkoren dessutom ovanligt strikta: personalen ska inte bära företagets logotyp, ska använda omärkta väskor och får inte berätta om sitt arbete ens för sin partner.",
-          "Sekretess kring polisens metoder är normalt och ofta befogat. Sekretess kring vilket företag som levererar en central del av infrastrukturen är en annan sak. Det första skyddar utredningar. Det andra skyddar mest en avtalsrelation från insyn.",
+          "Sekretess kring polisens metoder kan skydda utredningar. Sekretess kring identiteten och rollen hos en central leverantör begränsar också insynen i avtalet och statens beroende av leverantören.",
         ],
       },
       {
-        title: "Beroendefrågan",
+        title: "Beroendet av en utländsk leverantör",
         body: [
-          "Om en amerikansk leverantör bygger och driver systemet uppstår en fråga som inte handlar om integritet utan om suveränitet: vad händer om relationen upphör, om exportvillkor ändras, eller om amerikansk lagstiftning ger amerikanska myndigheter anspråk på data som hanteras av ett amerikanskt bolag?",
+          "Att en amerikansk leverantör bygger och driver systemet väcker också frågor om statens kontroll. Vad händer om relationen upphör, exportvillkoren ändras eller amerikansk lag ger amerikanska myndigheter anspråk på data som hanteras av ett amerikanskt bolag?",
           "Det var interpellationens fjärde fråga. Också den saknar offentligt svar.",
         ],
       },
@@ -496,7 +495,7 @@ const sv: Dict = {
       title: "Vad den här sidan inte är",
       body: [
         "Avsnitten om vad Palantirs plattform generellt gör bygger på företagets egna produktbeskrivningar och på offentlig dokumentation från andra länder där systemet använts. De beskriver inte nödvändigtvis den svenska installationen.",
-        "Det är fullt möjligt att Acus är kraftigt avgränsat jämfört med vad plattformen kan göra. Det vore i så fall bra att få veta.",
+        "Acus kan vara betydligt mer begränsat än den bredare plattformen. Ingen offentlig beskrivning visar om det är så.",
         "En fördjupad genomgång av Palantirs produktportfölj, av vilka spärrar företaget uppger att det bygger in, och av vilka svenska och europeiska leverantörer som hade kunnat leverera motsvarande funktion pågår. Den publiceras här när den är färdig och källbelagd.",
       ],
     },
@@ -509,14 +508,14 @@ const sv: Dict = {
         "De konkreta frågor som ställts till regeringen om polisens användning av Palantir, vad som faktiskt svarades, och vad som fortfarande utreds.",
     },
     hero: {
-      title: "Ställda. Inte besvarade.",
-      lead: "Varje fråga nedan har ställts formellt, i riksdagen, av en ledamot som dessutom sitter i Polismyndighetens insynsråd. Vi återger vad som frågades och vad som svarades, och låter läsaren bedöma avståndet däremellan.",
+      title: "Frågorna saknar fortfarande svar",
+      lead: "En riksdagsledamot som sitter i Polismyndighetens insynsråd ställde samtliga frågor nedan. Vi återger frågorna och regeringens svar.",
     },
     openQuestions: [
       {
         id: "duration",
         question: "Hur länge har Acus använts, och vem beslutade om det?",
-        why: "Ett system som varit i drift i fem år har hunnit forma hur polisen arbetar. Om ingen kan säga när det började kan ingen heller säga vilket beslut som låg till grund för det.",
+        why: "Ett system som använts i fem år kan forma hur polisen arbetar. Utan ett bekräftat startdatum går det inte att identifiera beslutet som godkände användningen.",
         askedLabel: "Ställd",
         asked: "Skriftlig fråga 2025/26:167, 6 november 2025, och interpellation 2025/26:301, 23 januari 2026.",
         responseLabel: "Svaret",
@@ -529,7 +528,7 @@ const sv: Dict = {
       {
         id: "storage",
         question:
-          "Var lagras datan — i Sverige, inom EU, eller i Palantirs moln utanför unionen?",
+          "Var lagras datan: i Sverige, inom EU eller i Palantirs moln utanför unionen?",
         why: "Svaret avgör vilken lagstiftning som gäller för uppgifterna, vem som i praktiken kan komma åt dem, och vad som händer med dem om relationen till leverantören förändras.",
         askedLabel: "Ställd",
         asked: "Skriftlig fråga 2025/26:167, 6 november 2025.",
@@ -585,7 +584,7 @@ const sv: Dict = {
     ],
 
     researchBlock: {
-      title: "Det vi håller på att ta reda på",
+      title: "Det vi fortfarande undersöker",
       lead: "Vi publicerar forskningsagendan öppet och arbetar enbart med allmänna handlingar, publicerad journalistik och dokumentation som kan granskas.",
     },
     research: [
@@ -601,7 +600,7 @@ const sv: Dict = {
       {
         title: "Datasammanslagning i praktiken",
         question:
-          "Hur hanterar plattformen register som inte följer gemensamma standarder — och vad händer med felmarginalen när uppgifter från olika källor kopplas ihop automatiskt?",
+          "Hur hanterar plattformen register som inte följer gemensamma standarder? Vad händer med felmarginalen när uppgifter från olika källor kopplas ihop automatiskt?",
         status: "in-progress",
         statusLabel: "Under arbete",
         detail:
@@ -623,7 +622,7 @@ const sv: Dict = {
         status: "open",
         statusLabel: "Öppen",
         detail:
-          "Poängen är inte att peka ut en favorit. Poängen är att om det fanns realistiska alternativ blir frågan varför de inte valdes en fråga som förtjänar ett svar.",
+          "Om det fanns realistiska alternativ bör det offentliga underlaget förklara varför de inte valdes.",
       },
       {
         title: "Kostnaden",
@@ -638,8 +637,8 @@ const sv: Dict = {
     foia: {
       title: "Så fungerar en begäran om allmän handling",
       body: [
-        "Offentlighetsprincipen ger var och en rätt att begära ut allmänna handlingar hos svenska myndigheter. Du behöver inte uppge vem du är eller varför du frågar. Myndigheten ska svara skyndsamt, och om den avslår din begäran ska den ange på vilken sekretessgrund — ett beslut som går att överklaga till kammarrätten.",
-        "Ett avslag är inte ett nederlag. Ett skriftligt avslag med angiven sekretessgrund är i sig information: det visar vad myndigheten anser sig behöva skydda och med vilket lagstöd. Flera avslag som pekar åt olika håll är ännu mer informativa.",
+        "Offentlighetsprincipen ger var och en rätt att begära ut allmänna handlingar hos svenska myndigheter. Du behöver inte uppge vem du är eller varför du frågar. Myndigheten ska svara skyndsamt. Om den avslår din begäran ska den ange sekretessgrunden, och beslutet kan överklagas till kammarrätten.",
+        "Ett skriftligt avslag blir också en del av det offentliga underlaget. Det visar vad myndigheten anser sig behöva skydda och vilket lagstöd den använder. Flera avslag kan dessutom visa om olika myndigheter tillämpar olika sekretessgrunder.",
         "Vi kommer att publicera våra egna begäranden och de svar vi får, oavsett utfall.",
       ],
     },
@@ -653,7 +652,7 @@ const sv: Dict = {
     },
     hero: {
       title: "Om den här sidan",
-      lead: "En sida med ett enda syfte: att hålla en obesvarad fråga öppen tills den besvaras.",
+      lead: "Sidan följer de obesvarade frågorna om Acus och länkar varje påstående till det offentliga underlaget.",
     },
     sections: [
       {
@@ -746,7 +745,7 @@ const sv: Dict = {
     backHome: "Till startsidan",
     notFoundTitle: "Sidan finns inte",
     notFoundBody:
-      "Länken leder ingenstans. Till skillnad från de flesta frågor på den här sidan går den här att svara på: sidan finns inte.",
+      "Sidan på den här adressen finns inte. Använd menyn för att gå tillbaka till kampanjen.",
   },
 };
 

@@ -6,16 +6,23 @@ import { SectionHead } from "./ui";
 function PressCard({
   source,
   lang,
-  variant,
+  position,
 }: {
   source: PressSource;
   lang: Lang;
-  variant: "grid" | "compact";
+  position: number;
 }) {
+  const imageSizes =
+    position === 0
+      ? "(max-width: 620px) calc(100vw - 40px), (max-width: 1023px) 90vw, (max-width: 1100px) 58vw, 660px"
+      : position === 1
+        ? "(max-width: 620px) calc(100vw - 40px), (max-width: 1023px) 44vw, (max-width: 1100px) 42vw, 470px"
+        : "(max-width: 620px) calc(100vw - 40px), (max-width: 1023px) 44vw, (max-width: 1100px) 32vw, 380px";
+
   return (
     <a
       href={source.url}
-      className={`press-card press-card--${variant}`}
+      className="press-card"
       data-source={source.id}
     >
       <span className="press-card__media">
@@ -24,11 +31,7 @@ function PressCard({
           alt={source.imageAlt[lang]}
           width={1500}
           height={938}
-          sizes={
-            variant === "compact"
-              ? "(max-width: 680px) 120px, 220px"
-              : "(max-width: 680px) calc(100vw - 40px), (max-width: 1100px) 42vw, 320px"
-          }
+          sizes={imageSizes}
         />
         <span className="press-card__credit">{source.imageCredit}</span>
       </span>
@@ -58,22 +61,20 @@ function PressCard({
 export default function PressSection({
   block,
   lang,
-  variant = "grid",
 }: {
   block: Block;
   lang: Lang;
-  variant?: "grid" | "compact";
 }) {
   return (
-    <div className={`press-section press-section--${variant}`}>
+    <div className="press-section">
       <SectionHead block={block} />
-      <div className={variant === "compact" ? "press-list" : "press-grid"}>
-        {pressSources.map((source) => (
+      <div className="press-grid">
+        {pressSources.map((source, index) => (
           <PressCard
             key={source.id}
             source={source}
             lang={lang}
-            variant={variant}
+            position={index}
           />
         ))}
       </div>

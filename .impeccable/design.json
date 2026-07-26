@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-25T22:30:00.000Z",
+  "generatedAt": "2026-07-26T00:00:00.000Z",
   "title": "Design System: Vem svarar för Acus?",
   "extensions": {
     "colorMeta": {
@@ -19,7 +19,7 @@
       "label": { "displayName": "Record Metadata", "purpose": "Dates, sources, statuses, and compact navigation labels." }
     },
     "layoutMeta": {
-      "grid": "12 columns above 840px; one reading column below",
+      "grid": "One reading column on phones, selective two-column registers on tablets, and 12 columns above 840px",
       "gutter": "clamp(24px, 3vw, 40px)",
       "spacingScale": ["4px", "8px", "12px", "16px", "24px", "32px", "48px", "64px", "96px"],
       "radiusScale": { "control": "0px", "frame": "0px", "artwork": "0px" },
@@ -33,10 +33,13 @@
       { "name": "reveal", "value": "520ms cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "One-time fade-and-rise reading cue; disabled for reduced motion." }
     ],
     "breakpoints": [
+      { "name": "phone", "value": "620px" },
       { "name": "question-exchange", "value": "700px" },
-      { "name": "stat-columns", "value": "1080px" },
       { "name": "content-columns", "value": "840px" },
-      { "name": "navigation", "value": "940px" }
+      { "name": "navigation", "value": "940px" },
+      { "name": "record-map", "value": "960px" },
+      { "name": "press-art-direction", "value": "1024px" },
+      { "name": "stat-columns", "value": "1081px" }
     ]
   },
   "components": [
@@ -111,15 +114,16 @@
   "narrative": {
     "northStar": "The Public Record, Reframed",
     "overview": "A calm evidentiary campaign presented as one bounded editorial publication. Warm paper, old-style serif headlines, structural hairlines, source-level metadata and broad artwork fields make the unanswered questions feel civic, legible and difficult to ignore.",
-    "keyCharacteristics": ["Editorial rather than party-political.", "A bounded paper canvas sits inside a restrained atmospheric field.", "The home hero centers one large serif question above a wide 9:5 campaign artwork stage.", "A recurring 12-column evidence grid establishes recognizable alignment after the centered opening.", "Evidence figures and sources remain verifiable public-record registers rather than dashboards.", "A large Night Record footer turns the campaign question into the final statement.", "Press coverage uses static photographic records with approved SVG marks and complete copy."],
+    "keyCharacteristics": ["Editorial rather than party-political.", "A bounded paper canvas sits inside a restrained atmospheric field.", "The home hero centers one large serif question above a wide 9:5 campaign artwork stage.", "Every section-page hero pairs its thesis with a reserved 4:5 campaign-artwork field.", "A recurring 12-column evidence grid establishes recognizable alignment after the centered opening.", "Evidence figures and sources remain verifiable public-record registers rather than dashboards.", "A large Night Record footer turns the campaign question into the final statement.", "Press coverage uses static photographic records with approved SVG marks and complete copy."],
     "rules": [
       { "name": "The Calm Signal Rule", "body": "Stronger blue communicates action or unresolved state without performing alarm. It may be used for links and focus, but never as decorative noise.", "section": "colors" },
       { "name": "The Evidence Hierarchy Rule", "body": "A claim is sans; the evidence that locates it is mono. Do not reverse this relationship.", "section": "typography" },
       { "name": "The Line-Not-Shadow Rule", "body": "Separate information with a hairline or a tonal surface. Do not add shadows to cards, lists, buttons, or notices.", "section": "elevation" },
       { "name": "The Plain Heading Rule", "body": "Page and section headings stand on their own. Do not add eyebrow labels, decorative section numbers, or ornamental arrows.", "section": "typography" }
-      ,{ "name": "The Shared Axis Rule", "body": "Narrow prose may retain a readable measure, but it sits asymmetrically inside the evidence grid rather than floating between full-width sections.", "section": "layout" }
+      ,{ "name": "The Shared Axis Rule", "body": "Narrow prose may retain a readable measure, but it sits asymmetrically inside the evidence grid rather than floating between full-width sections.", "section": "layout" },
+      { "name": "The Adaptive Reading Rule", "body": "Phones use one reading column, tablets introduce only the columns their content can support, and all viewport edges respect device safe areas.", "section": "layout" }
     ],
-    "dos": ["Do use warm hairlines, measured whitespace, and a maximum content width of 1180px to make long material easy to verify.", "Do center only the home opening; align route heroes, section rails, evidence fields, and press introductions to the shared 12-column grid.", "Do use the 4pt component spacing scale, square structural edges, and role-based section padding.", "Do preserve the 9:5 Home slot, 4:5 Questions slot, 3:2 Acus slot, and both share-export ratios when replacing placeholders.", "Do use the stronger teal consistently for actions, focus, unanswered questions, and the current political state.", "Do show every press article with a photograph, approved SVG publisher mark, complete description, and direct external link.", "Do keep Home's press register compact and About's press archive complete.", "Do let headlines and summaries wrap to their full length at every viewport.", "Do keep compact controls at least 44px.", "Do honour reduced motion: reveal content must be visible without animation and instantly readable for reduced-motion users."],
-    "donts": ["Don't make it look like party-political propaganda.", "Don't add social-justice-warrior signalling, moralising iconography, or outrage-first visual treatment.", "Don't use sensational tabloid styling.", "Don't use the visual language of a SaaS technology company.", "Don't invite whistleblowing, leaked information, source submissions, or private contact anywhere on the site.", "Don't turn press coverage into a carousel or moving rail.", "Don't use eyebrow labels, decorative 01/02/03 numbering, ornamental arrows, or text truncation.", "Don't stack two full section paddings between adjacent modules.", "Don't default unrelated content to equal-width compartments.", "Don't add campaign-artwork placeholders to Known, Timeline, or About, and don't round structural record rows."]
+    "dos": ["Do use warm hairlines, measured whitespace, and a maximum content width of 1180px to make long material easy to verify.", "Do center only the home opening; align route heroes, section rails, evidence fields, and press introductions to the shared 12-column grid.", "Do use one reading column on phones, selective two-column registers on tablets, and the complete publication grid only when the content supports it.", "Do respect safe-area insets at every viewport edge and keep interactive controls at least 44px.", "Do use the 4pt component spacing scale, square structural edges, and role-based section padding.", "Do preserve the 9:5 Home slot, 4:5 section-page hero slots, 3:2 Acus explainer slot, and both share-export ratios when replacing placeholders.", "Do use the stronger teal consistently for actions, focus, unanswered questions, and the current political state.", "Do show every press article with a photograph, approved SVG publisher mark, complete description, and direct external link.", "Do use the same photographic press grid on Home and About so coverage reads as one system.", "Do let headlines, summaries, publisher marks, and dates wrap without collision at every viewport.", "Do honour reduced motion: reveal content must be visible without animation and instantly readable for reduced-motion users."],
+    "donts": ["Don't make it look like party-political propaganda.", "Don't add social-justice-warrior signalling, moralising iconography, or outrage-first visual treatment.", "Don't use sensational tabloid styling.", "Don't use the visual language of a SaaS technology company.", "Don't invite whistleblowing, leaked information, source submissions, or private contact anywhere on the site.", "Don't turn press coverage into a carousel or moving rail.", "Don't use eyebrow labels, decorative 01/02/03 numbering, ornamental arrows, or text truncation.", "Don't stack two full section paddings between adjacent modules.", "Don't default unrelated content to equal-width compartments.", "Don't add placeholders beyond the defined hero, Acus explainer, and social-export slots, and don't round structural record rows."]
   }
 }

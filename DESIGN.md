@@ -264,11 +264,14 @@ The publication is flat by default. Depth comes from alternating paper grounds, 
 
 The desktop shell uses a recurring 12-column grid with a fluid 24–40px gutter. It collapses to one reading column below 840px.
 
+The responsive system is content-driven: one reading column on phones, selective two-column registers on tablets, and the complete 12-column publication grid on desktop. All viewport edges respect device safe areas, including landscape notches and the mobile home indicator.
+
 ### Core compositions
 
 - **Thesis:** A large page title occupies columns 1–7 and its lead occupies columns 9–12 on the same lower baseline. Standard route heroes share this structure; content does not earn a different grid merely by being on a different route.
 - **Evidence register:** Section title and context occupy columns 1–4; claims, questions, or prose occupy columns 5–12.
 - **Interruption:** A decisive element such as the Strömmer portrait, scope statement, or Night Record panel spans the shell or deliberately breaks the normal alignment.
+- **Night Record:** Keep the argument in columns 1–4 and place its explanation and three evidence records in columns 5–12. Stack unequal records vertically so dates, claims, and citations remain compact and no column is padded to match another.
 
 ### Spacing
 
@@ -314,15 +317,15 @@ The desktop shell uses a recurring 12-column grid with a fluid 24–40px gutter.
 
 ### Navigation
 
-- **Style:** A 68px sticky, translucent header with a hairline bottom border. The brand mark is a 7px signal-blue square, used once at the site level.
-- **Responsive behavior:** Desktop links appear from 940px; below that, the menu expands through a grid-row transition. The language and theme controls remain compact mono icon buttons.
+- **Style:** A 60px sticky, translucent header with a hairline bottom border. The narrow-phone masthead expands to 88px for its second utility row. The brand mark is a 7px signal-blue square, used once at the site level.
+- **Responsive behavior:** Desktop links appear from 940px; below that, the menu expands through a grid-row transition. The language switch shows the destination flag and language code. On narrow phones, the utility controls move to a second masthead row so the campaign name never collides with them.
 - **State and ergonomics:** Every utility control is at least 44px square. The current desktop route gets a signal-blue underline; the mobile route gets a colour and weight change.
 
 ### Route Heroes
 
 - **Standard:** Every section page uses the same thesis composition: title in columns 1–7 at the upper edge and its explanatory lead in columns 1–6 at the lower edge.
 - **Rhythm:** The desktop composition keeps a fluid 500–560px internal height so each route opens with the same deliberate title-to-description interval. Mobile removes the forced height and stacks naturally.
-- **Media:** Real page-owned artwork may occupy columns 8–12 across both rows. Questions uses this field for its poster; evidence-heavy pages leave it open rather than inventing decorative placeholders.
+- **Media:** Every section-page hero reserves columns 8–12 for a portrait campaign artwork. Until final artwork is supplied, a localized 4:5 placeholder preserves the intended composition and export size.
 - **Type:** Route display copy uses the established display step with an 11ch maximum so ordinary phrases form deliberate lines instead of spanning the page.
 
 ### Press Cards
@@ -330,8 +333,9 @@ The desktop shell uses a recurring 12-column grid with a fluid 24–40px gutter.
 - **Shape:** Auto-height records with restrained 8px frame corners; never force text into a square.
 - **Media:** The article photograph uses a consistent 16:9 crop; apply only a faint blue wash so it remains recognisable, and retain its visible photo credit.
 - **Publisher:** Use the approved SVG wordmark above the article title and date.
-- **Home:** Render every journalism source in a compact static register after the campaign argument. Thumbnails support scanning without turning press coverage into the first act.
+- **Home:** Render every journalism source in the same photographic grid used by About, after the campaign argument. Shared imagery, publisher marks, metadata, complete summaries, and article links make both press sections read as one system.
 - **About:** Render the complete photographic archive as an art-directed 7/5 lead row followed by three equal records, with title, description, publication language, date, SVG publisher mark, and photo credit.
+- **Responsive behavior:** Use one card per row through 620px, a two-column tablet grid with the lead story spanning both columns through 1023px, and the complete 7/5 plus three-card arrangement above it. Publisher and date metadata may wrap rather than collide.
 - **Copy:** Titles and summaries remain complete at every viewport; the whole card links out, with a plain underlined article label and no arrow.
 
 ### Share Panel
@@ -345,9 +349,9 @@ The desktop shell uses a recurring 12-column grid with a fluid 24–40px gutter.
 
 - **Home key artwork:** Wide 9:5 at 1800 × 1000px. It spans the home reading field beneath the centered campaign question and compact deck at every viewport.
 - **Acus explainer:** Landscape 3:2 at 1800 × 1200px. It sits in the eight-column evidence field above the reported data map.
-- **Questions poster:** Portrait 4:5 at 1600 × 2000px. It occupies columns 8–12 beside the page argument and stacks below the lead on mobile.
+- **Section-page posters:** Known, Timeline, Acus, Questions, and About each reserve a portrait 4:5 field at 1600 × 2000px. It occupies columns 8–12 beside the page argument and stacks below the lead on mobile.
 - **Placeholder treatment:** Use one square hairline frame, an atmospheric preview surface, and a centered localized label with export dimensions. No icon, dashed border, or uppercase tracked placeholder copy.
-- **Restraint:** Do not add campaign placeholders to Known, Timeline, or About. Their registers, chronology, and real press photography already provide the visual structure.
+- **Restraint:** Keep these placeholders in the route heroes. Do not scatter additional decorative image slots through the evidence registers.
 
 ### Evidence Registers
 
@@ -405,4 +409,4 @@ The desktop shell uses a recurring 12-column grid with a fluid 24–40px gutter.
 - **Don't** use eyebrow labels, decorative 01/02/03 numbering, or arrows as default interface decoration.
 - **Don't** stack two full section paddings between adjacent modules or use empty space as a substitute for composition.
 - **Don't** default unrelated content to equal-width compartments.
-- **Don't** add image placeholders to every page or interrupt evidence registers with decorative artwork.
+- **Don't** add placeholders beyond the defined hero, Acus explainer, and social-export slots or interrupt evidence registers with decorative artwork.

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import CampaignImageSlot from "@/components/campaign-image-slot";
 import PressSection from "@/components/press-section";
 import Reveal from "@/components/reveal";
 import { PageHero, Prose, Section } from "@/components/ui";
@@ -30,7 +31,17 @@ export default async function AboutPage({
 
   return (
     <>
-      <PageHero block={about.hero} variant="about" />
+      <PageHero
+        block={about.hero}
+        variant="about"
+        media={
+          <CampaignImageSlot
+            kind="about"
+            lang={lang}
+            className="page-hero__art"
+          />
+        }
+      />
 
       <Section>
         <div className="about-register">

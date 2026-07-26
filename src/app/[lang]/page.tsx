@@ -124,7 +124,7 @@ export default async function HomePage({
               }
               width={860}
               height={573}
-              sizes="(max-width: 800px) calc(100vw - 40px), 42vw"
+              sizes="(max-width: 819px) calc(100vw - 40px), (max-width: 1100px) 42vw, 430px"
             />
           </figure>
         </Reveal>
@@ -164,21 +164,21 @@ export default async function HomePage({
           <Reveal className="editorial-grid__rail">
             <SectionHead block={home.convergence} />
           </Reveal>
-          <Reveal className="editorial-grid__body">
+          <Reveal className="editorial-grid__body convergence__body">
             <p className="convergence__closing">
               {home.convergence.closing}
             </p>
+            <div className="steps">
+              {home.convergence.steps.map((step) => (
+                <Reveal key={step.title} className="step">
+                  <p className="step__label">{step.label}</p>
+                  <h3 className="step__title">{step.title}</h3>
+                  <p className="step__body">{step.body}</p>
+                  <Cites ids={step.cite} label={ui.sources} />
+                </Reveal>
+              ))}
+            </div>
           </Reveal>
-        </div>
-        <div className="steps">
-          {home.convergence.steps.map((step) => (
-            <Reveal key={step.title} className="step">
-              <p className="step__label">{step.label}</p>
-              <h3 className="step__title">{step.title}</h3>
-              <p className="step__body">{step.body}</p>
-              <Cites ids={step.cite} label={ui.sources} />
-            </Reveal>
-          ))}
         </div>
       </Section>
 
@@ -192,7 +192,7 @@ export default async function HomePage({
           </div>
         </Reveal>
         <Reveal className="home-press">
-          <PressSection block={home.pressBlock} lang={lang} variant="compact" />
+          <PressSection block={home.pressBlock} lang={lang} />
         </Reveal>
       </Section>
 

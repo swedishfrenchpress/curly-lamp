@@ -3,7 +3,11 @@ import type { Lang } from "@/content/types";
 export type CampaignImageKind =
   | "home"
   | "acus"
+  | "acus-hero"
+  | "about"
+  | "known"
   | "questions"
+  | "timeline"
   | "share-landscape"
   | "share-square";
 
@@ -34,6 +38,33 @@ const SPECS: Record<
       en: "Acus explanatory illustration",
     },
   },
+  "acus-hero": {
+    width: 1600,
+    height: 2000,
+    ratio: "4:5",
+    label: {
+      sv: "Kampanjmotiv om Acus",
+      en: "Acus campaign poster",
+    },
+  },
+  about: {
+    width: 1600,
+    height: 2000,
+    ratio: "4:5",
+    label: {
+      sv: "Kampanjmotiv om projektet",
+      en: "About the campaign poster",
+    },
+  },
+  known: {
+    width: 1600,
+    height: 2000,
+    ratio: "4:5",
+    label: {
+      sv: "Kampanjmotiv för det vi vet",
+      en: "What we know campaign poster",
+    },
+  },
   questions: {
     width: 1600,
     height: 2000,
@@ -41,6 +72,15 @@ const SPECS: Record<
     label: {
       sv: "Affischmotiv för frågorna",
       en: "Questions campaign poster",
+    },
+  },
+  timeline: {
+    width: 1600,
+    height: 2000,
+    ratio: "4:5",
+    label: {
+      sv: "Kampanjmotiv för tidslinjen",
+      en: "Timeline campaign poster",
     },
   },
   "share-landscape": {

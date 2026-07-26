@@ -72,11 +72,16 @@ export default function SiteHeader({ dict }: { dict: Dict }) {
           <div className="site-nav__tools">
             <Link
               href={swapLang(pathname, next)}
-              className="icon-btn"
+              className="icon-btn lang-switch"
               hrefLang={next}
               lang={next}
+              aria-label={dict.nav.langSwitch}
+              title={dict.nav.langSwitch}
             >
-              {next === "en" ? "EN" : "SV"}
+              <span className="lang-switch__flag" aria-hidden="true">
+                {next === "en" ? "🇺🇸" : "🇸🇪"}
+              </span>
+              <span>{next === "en" ? "EN" : "SV"}</span>
             </Link>
             <ThemeToggle label={dict.nav.themeToggle} />
             <button

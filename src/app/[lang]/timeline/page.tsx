@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import CampaignImageSlot from "@/components/campaign-image-slot";
 import Reveal from "@/components/reveal";
 import { Cites, PageHero, Prose, Section } from "@/components/ui";
 import { getDict, isLang } from "@/content";
@@ -29,7 +30,17 @@ export default async function TimelinePage({
 
   return (
     <>
-      <PageHero block={timeline.hero} variant="timeline" />
+      <PageHero
+        block={timeline.hero}
+        variant="timeline"
+        media={
+          <CampaignImageSlot
+            kind="timeline"
+            lang={lang}
+            className="page-hero__art"
+          />
+        }
+      />
 
       <Section size="tight">
         <ol className="timeline">
