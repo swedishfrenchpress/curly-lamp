@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-26T00:00:00.000Z",
+  "generatedAt": "2026-07-26T20:50:55.824Z",
   "title": "Design System: Vem svarar för Acus?",
   "extensions": {
     "colorMeta": {
@@ -121,7 +121,8 @@
         "timeline docket",
         "closing statement",
         "interruption"
-      ]
+      ],
+      "colorScheme": "only light — declared at the root so no browser applies its own dark treatment to the reading ground."
     },
     "shadows": [
       {
@@ -261,7 +262,7 @@
     {
       "name": "Section Artwork Placeholder",
       "kind": "custom",
-      "description": "A localized neutral-gray frame that reserves a section page's final campaign artwork aspect ratio and displays its recommended export dimensions.",
+      "description": "The unsupplied state of a campaign artwork slot: a localized neutral frame holding the intended aspect ratio and export dimensions. The same wrapper shows the artwork once a file exists, so filling a slot never rewrites a layout.",
       "html": "<figure class=\"ds-art-slot\"><figcaption><span>Questions campaign poster</span><strong>1600 × 2000 px</strong><small>4:5</small></figcaption></figure>",
       "css": ".ds-art-slot { display:grid; place-items:center; aspect-ratio:4/5; min-width:0; margin:0; overflow:hidden; border:1px solid var(--hair, #d5c8bb); border-radius:0; background:var(--image-placeholder, #d8cdbf); color:var(--image-placeholder-ink, #493f39); } .ds-art-slot figcaption { display:grid; justify-items:center; gap:4px; padding:24px; text-align:center; text-wrap:balance; } .ds-art-slot span { font-family:var(--font-sans, 'Geist Sans', ui-sans-serif, system-ui, sans-serif); font-size:.9375rem; line-height:1.45; } .ds-art-slot strong { font-family:var(--font-mono, 'Geist Mono', ui-monospace, monospace); font-size:.8125rem; font-weight:500; line-height:1.4; } .ds-art-slot small { font-family:var(--font-sans, 'Geist Sans', ui-sans-serif, system-ui, sans-serif); font-size:.75rem; line-height:1.4; }"
     },
@@ -297,12 +298,22 @@
     "rules": [
       {
         "name": "The Calm Signal Rule",
-        "body": "Stronger blue communicates action or unresolved state without performing alarm. It may be used for links and focus, but never as decorative noise.",
+        "body": "Stronger teal communicates action or unresolved state without performing alarm. It may be used for links and focus, but never as decorative noise.",
         "section": "colors"
+      },
+      {
+        "name": "The Plain Heading Rule",
+        "body": "Page and section headings stand on their own. Do not add eyebrow labels, decorative section numbers, or ornamental arrows.",
+        "section": "typography"
       },
       {
         "name": "The Evidence Hierarchy Rule",
         "body": "A claim is sans; the evidence that locates it is mono. Do not reverse this relationship.",
+        "section": "typography"
+      },
+      {
+        "name": "The Long Compound Rule",
+        "body": "Swedish sets the minimum width, not English. Compounds such as \"Ansiktsigenkänning\", \"Analysplattformen\", and \"interpellationsdebatt\" are single unbreakable words that can exceed a column sized against English. Any track holding a heading must clear the longest word it will ever receive; headings additionally carry `hyphens: auto` and `overflow-wrap: break-word` so no future word can collide with an adjacent column. Check Swedish before declaring a layout done.",
         "section": "typography"
       },
       {
@@ -311,75 +322,81 @@
         "section": "elevation"
       },
       {
-        "name": "The Plain Heading Rule",
-        "body": "Page and section headings stand on their own. Do not add eyebrow labels, decorative section numbers, or ornamental arrows.",
-        "section": "typography"
-      },
-      {
-        "name": "The Shared Axis Rule",
-        "body": "Narrow prose may retain a readable measure, but it sits asymmetrically inside the evidence grid rather than floating between full-width sections.",
-        "section": "layout"
-      },
-      {
-        "name": "The Adaptive Reading Rule",
-        "body": "Phones use one reading column, tablets introduce only the columns their content can support, and all viewport edges respect device safe areas.",
-        "section": "layout"
-      },
-      {
-        "name": "The One Action Rule",
-        "body": "Sharing offers exactly one control: copy the short summary and the canonical link together, then confirm in a toast. Per-network buttons are absent by decision, not omission — LinkedIn ignores every prefill parameter, so a network button can only hand over an empty composer. Masthead and hero share controls are jump links to that panel, never second copy controls.",
-        "section": "components"
-      },
-      {
         "name": "The Earned Hairline Rule",
         "body": "A hairline or a tonal surface — not both, and never a rule that restates a separation something else already made. A rule is not earned when it sits at a ground change (the band or panel edge is the division), when it opens or closes a group the ground already bounds, or when the items it divides already carry ~64px of interval and their own left-hand marker. Chronology entries and the share panel are separated by spacing; chapters, the press transition, and the compact panel records keep their rules. When a rule is removed, close the interval it occupied — otherwise the gap reads as a hole rather than a separation.",
         "section": "elevation"
       },
       {
-        "name": "The Long Compound Rule",
-        "body": "Swedish sets the minimum width, not English. Compounds such as \"Ansiktsigenkänning\", \"Analysplattformen\", and \"interpellationsdebatt\" are single unbreakable words that can exceed a column sized against English. Any track holding a heading must clear the longest word it will ever receive; headings additionally carry `hyphens: auto` and `overflow-wrap: break-word` so no future word can collide with an adjacent column. Check Swedish before declaring a layout done.",
-        "section": "typography"
+        "name": "The Adaptive Reading Rule",
+        "body": "Phones use one reading column, tablets introduce only the columns their content can actually support, and every viewport edge respects device safe areas.",
+        "section": "layout"
       },
       {
         "name": "The Tablet Is Not a Wide Phone Rule",
-        "body": "768, 810, 820 and 834 are the four widths most tablets open at, and all four sit below the 840px twelve-column threshold. A register earns the tablet two-column tier when both tracks stay wide enough for their content — the route hero and the research record do; anything with a serif title rail does not, because a ~200px track cannot hold “Analysplattformen”. Where a register stays on one column there, the prose still carries its own measure: a block that fills the shell at 834px runs to 85ch.",
+        "body": "768, 810, 820 and 834 are the four widths most tablets open at, and all four sit below the 840px twelve-column threshold. A register earns the tablet two-column tier when both tracks stay wide enough for their content — the route hero and the research record do; anything with a serif title rail does not, because a ~200px track cannot hold \"Analysplattformen\". Where a register stays on one column there, the prose still carries its own measure: a block that fills the shell at 834px runs to 85ch.",
         "section": "layout"
       },
       {
         "name": "The Height Is A Breakpoint Too Rule",
-        "body": "A phone held sideways is 844px wide and 390px tall. Any forced height, pinned element, or opening interval gated on width alone will be applied to it. Gate them on min-height as well.",
+        "body": "A phone held sideways is 844px wide and 390px tall. Any forced height, pinned element, or opening interval gated on width alone will be applied to it. Gate them on `min-height` as well.",
         "section": "layout"
       },
       {
         "name": "Hover Is A Capability, Not A Default",
-        "body": "Hover styling sits behind @media (hover: hover); on touch a tap otherwise leaves the control in its hover state until something else is touched. Controls that change on hover carry an :active equivalent so a press still acknowledges itself.",
+        "body": "Hover styling sits behind `@media (hover: hover)`; on touch a tap otherwise leaves the control in its hover state until something else is touched. Controls that change on hover carry an `:active` equivalent so a press still acknowledges itself.",
+        "section": "layout"
+      },
+      {
+        "name": "The Shared Axis Rule",
+        "body": "Narrow prose may retain a 68ch measure, but it sits asymmetrically inside the evidence grid. Do not center a narrow column between full-width sections without a visual bridge.",
+        "section": "layout"
+      },
+      {
+        "name": "The Unspent Signal Rule",
+        "body": "The civic teal never appears in this field. It is the campaign's one semantic colour — it marks an unanswered question and the unresolved present — and this chapter is the first thing a reader meets after the hero. A teal seen as ornament here is a teal that no longer means anything by the time it reaches `OBESVARAD`. Only the atmospheric hues, which carry no meaning, are free to be atmosphere.",
+        "section": "components"
+      },
+      {
+        "name": "The Nothing Invisible Is Focusable Rule",
+        "body": "Anything hidden by collapse, transparency, or transform stays hidden from the keyboard too. The closed menu panel collapses to `0fr` rather than `display: none`, so it carries `inert` — otherwise its links remain tab stops a reader cannot see, and a phone is this campaign's primary viewport. The same rule governs reveal blocks: focus can outrun the observer that raises them, so a reveal shows itself immediately and without a fade when focus lands inside it. A focus ring at `opacity: 0` is a lost reader.",
+        "section": "components"
+      },
+      {
+        "name": "The One Action Rule",
+        "body": "Sharing offers exactly one control: copy the short summary and the canonical link together, then confirm in a toast. Per-network buttons are absent by decision, not by omission.",
         "section": "components"
       }
     ],
     "dos": [
-      "Do use warm hairlines, measured whitespace, and a maximum content width of 1180px to make long material easy to verify.",
-      "Do center only the home opening; align route heroes, section rails, evidence fields, and press introductions to the shared 12-column grid.",
-      "Do use one reading column on phones, selective two-column registers on tablets, and the complete publication grid only when the content supports it.",
-      "Do respect safe-area insets at every viewport edge and keep interactive controls at least 44px.",
-      "Do use the 4pt component spacing scale, square structural edges, and role-based section padding.",
-      "Do preserve the supplied 9:5 Home artwork, 4:5 section-page hero slots, 3:2 Acus explainer slot, and both share-export ratios when replacing placeholders.",
-      "Do use the stronger teal consistently for actions, focus, unanswered questions, and the current political state.",
-      "Do show every press article with a photograph, approved SVG publisher mark, complete description, and direct external link.",
-      "Do use the same photographic press grid on Home and About so coverage reads as one system.",
-      "Do let headlines, summaries, publisher marks, and dates wrap without collision at every viewport.",
-      "Do honour reduced motion: reveal content must be visible without animation and instantly readable for reduced-motion users."
+      "Do use hairlines, measured whitespace, and a maximum content width of 1180px to make long material easy to verify.",
+      "Do use the stronger blue consistently for actions, focus, unanswered questions, and the current political state.",
+      "Do use mono for factual indexing—dates, publishers, source labels, status, and short controls.",
+      "Do keep prose within 68ch (and leads within 60–62ch) with readable 1.55–1.62 line heights.",
+      "Do honour reduced motion: reveal content must be visible without animation and instantly readable for reduced-motion users.",
+      "Do show every press article as a photograph, approved SVG publisher mark, short description, and direct external link.",
+      "Do let headlines and summaries wrap to their full length rather than clipping or truncating them.",
+      "Do let external evidence links navigate in the current tab so link behavior is predictable.",
+      "Do keep interactive controls at least 44px in their compact dimension.",
+      "Do align route heroes, section rails, evidence rows, and press introductions to the shared 12-column grid.",
+      "Do preserve complete press summaries on mobile; reduce thumbnail dominance instead of hiding copy.",
+      "Do preserve each campaign artwork wrapper and aspect ratio when replacing a placeholder with final artwork.",
+      "Do show a supplied export as itself. A placeholder standing over a file that exists tells the reader the campaign is unfinished.",
+      "Do declare the light scheme at the root, and keep the four figures as one bounded field sharing a single frame rather than four separate objects.",
+      "Do let a grid row equalize card heights, and take slack at the bottom of the card so citations share a baseline."
     ],
     "donts": [
-      "Don't make it look like party-political propaganda.",
+      "Don't make it look like party-political propaganda; the system invites scrutiny and lets evidence carry the claim.",
       "Don't add social-justice-warrior signalling, moralising iconography, or outrage-first visual treatment.",
-      "Don't use sensational tabloid styling.",
-      "Don't use the visual language of a SaaS technology company.",
+      "Don't use sensational tabloid styling: no explosive headlines, alarm colours, alarm graphics, or attention-grabbing metrics.",
+      "Don't use the visual language of a SaaS technology company: no floating or shadowed cards, gradient text, glassmorphism panels, or decorative monospace. The four figures are a bounded field inside one hairline frame, which is why they are not a metric dashboard; a card that detaches from that frame becomes one.",
+      "Don't spend the civic teal on decoration. It means \"unanswered\" and nothing else, and it cannot mean that if the reader has already met it as ornament.",
+      "Don't force a card or record height to hold an alignment a grid row already holds.",
       "Don't invite whistleblowing, leaked information, source submissions, or private contact anywhere on the site.",
-      "Don't turn press coverage into a carousel or moving rail.",
-      "Don't use eyebrow labels, decorative 01/02/03 numbering, ornamental arrows, or text truncation.",
-      "Don't stack two full section paddings between adjacent modules.",
+      "Don't turn press coverage into a carousel or moving rail; all coverage must remain visible and browsable at once.",
+      "Don't use eyebrow labels, decorative 01/02/03 numbering, or arrows as default interface decoration.",
+      "Don't stack two full section paddings between adjacent modules or use empty space as a substitute for composition.",
       "Don't default unrelated content to equal-width compartments.",
-      "Don't add placeholders beyond the defined hero, Acus explainer, and social-export slots, and don't round structural record rows."
+      "Don't add placeholders beyond the defined hero, Acus explainer, and social-export slots or interrupt evidence registers with decorative artwork."
     ]
   }
 }

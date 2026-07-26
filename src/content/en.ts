@@ -675,7 +675,7 @@ const en: Dict = {
     backHome: "Back to the start",
     notFoundTitle: "Page not found",
     notFoundBody:
-      "The page at this address does not exist. Use the menu to return to the campaign.",
+      "The page at this address does not exist. The links below lead back to the campaign.",
   },
 };
 

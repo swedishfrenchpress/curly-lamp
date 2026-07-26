@@ -219,7 +219,7 @@ The publication uses warm paper, midnight ink, and civic teal. Gold, rose, and v
 
 **The Calm Signal Rule.** Stronger teal communicates action or unresolved state without performing alarm. It may be used for links and focus, but never as decorative noise.
 
-**Light Only.** The site does not follow OS dark preference and has no theme switch. Reading ground stays warm paper.
+**Light Only.** The site does not follow OS dark preference and has no theme switch. Reading ground stays warm paper. Declaring nothing does not achieve this — a page that states no colour scheme is a page browsers may darken on their own, which tone-inverts the whole evidence system — so the root declares `color-scheme: only light` and the contract is enforced rather than assumed.
 
 ## Typography
 
@@ -265,6 +265,8 @@ The publication is flat by default. Depth comes from alternating paper grounds, 
 The desktop shell uses a recurring 12-column grid with a fluid 24–40px gutter. It collapses to one reading column below 840px.
 
 The responsive system is content-driven: one reading column on phones, selective two-column registers on tablets, and the complete 12-column publication grid on desktop. All viewport edges respect device safe areas, including landscape notches and the mobile home indicator — anything that bleeds past the shell uses the shell's own inset, never a bare `--page-x`, or it stops short of the true edge on a notched phone held sideways.
+
+**The Adaptive Reading Rule.** Phones use one reading column, tablets introduce only the columns their content can actually support, and every viewport edge respects device safe areas.
 
 **The Tablet Is Not a Wide Phone Rule.** 768, 810, 820 and 834 are the four widths most tablets open at, and all four sit below the 840px twelve-column threshold. A register earns the tablet two-column tier when both tracks stay wide enough for their content — the route hero and the research record do; anything with a serif title rail does not, because a ~200px track cannot hold "Analysplattformen". Where a register stays on one column there, the prose still carries its own measure: a block that fills the shell at 834px runs to 85ch.
 
@@ -312,9 +314,12 @@ The responsive system is content-driven: one reading column on phones, selective
 
 ### Four Numbers
 
-- **Structure:** Treat the figures as four horizontal evidence records, not a 2×2 metric dashboard. The introduction occupies columns 1–3; records occupy columns 4–12.
-- **Record axis:** Within each record, the value occupies its first three columns and the label, qualification, and citations occupy the remaining six.
-- **Rhythm:** Every record owns one 32px vertical interval and one bottom hairline. Do not use vertical dividers or flush text against a column boundary.
+- **Structure:** The four figures are a bounded field of four cards sharing one outer hairline frame, divided by 1px gutters rather than sitting as separate objects. The introduction is a full-width rail above the field, not a column beside it. One column below 581px, two through 1080px, four above it.
+- **Card axis:** Each card reads top to bottom: value, label, qualification, citations. The value sits at the top edge and the citations at the bottom edge.
+- **Rhythm:** The number and the sentence that explains it are the tightest pair in the card — one fixed 24–40px interval, never elastic. All remaining slack is taken below the qualification, so the source lines land on one baseline across the row however unequal the notes above them are. Never force a card height: the grid row already equalizes the cards, and a `min-height` on top of that only opens dead air at the narrower tiers and pushes each label away from its own number.
+- **Accent:** Each card's left edge carries a 6px dithered gradient slice of the ambient gold/rose/violet field, a different two-stop pairing per card so the four read as a family rather than a repeat.
+
+**The Unspent Signal Rule.** The civic teal never appears in this field. It is the campaign's one semantic colour — it marks an unanswered question and the unresolved present — and this chapter is the first thing a reader meets after the hero. A teal seen as ornament here is a teal that no longer means anything by the time it reaches `OBESVARAD`. Only the atmospheric hues, which carry no meaning, are free to be atmosphere.
 
 ### Pull Quote
 
@@ -328,17 +333,19 @@ The responsive system is content-driven: one reading column on phones, selective
 - **Responsive behavior:** Desktop links appear from 940px; below that, the menu expands through a grid-row transition. The language switch shows the destination flag and language code. The utility controls move to a second masthead row only where they genuinely collide with the campaign name — measured against the longer English masthead, the pair needs about 324px inside the shell, so every phone from 360px up keeps the single 60px bar. Compact the name and the control gaps before splitting the row; sticky height is the most expensive space on a phone.
 - **State and ergonomics:** Every utility control is at least 44px square, and the campaign name is a 44px target in its own right — it is the only route home on any viewport. The current desktop route gets a signal-blue underline; the mobile route gets a colour and weight change.
 
+**The Nothing Invisible Is Focusable Rule.** Anything hidden by collapse, transparency, or transform stays hidden from the keyboard too. The closed menu panel collapses to `0fr` rather than `display: none`, so it carries `inert` — otherwise its links remain tab stops a reader cannot see, and a phone is this campaign's primary viewport. The same rule governs reveal blocks: focus can outrun the observer that raises them, so a reveal shows itself immediately and without a fade when focus lands inside it. A focus ring at `opacity: 0` is a lost reader.
+
 ### Route Heroes
 
 - **Standard:** Every section page uses the same thesis composition: title in columns 1–7 at the upper edge and its explanatory lead in columns 1–6 at the lower edge.
 - **Tablet:** From 700px the hero keeps the two-column thesis on two tracks rather than twelve — title and lead in the first, artwork in the second at up to 300px. Tablet portrait is 768–834px, so the twelve-column version would give the title a track too narrow to hold a Swedish compound, and stacking gives the page a centred poster under a left-aligned title. The full 12-column grid resumes at 840px.
 - **Rhythm:** The desktop composition keeps a fluid 500–560px internal height so each route opens with the same deliberate title-to-description interval. That floor is tied to viewport height as well as width: below 620px tall — a phone held sideways — the hero is content-height, and its opening padding tightens. Mobile removes the forced height and stacks naturally, with the artwork on the page's left axis rather than centred.
 - **Media:** Every section-page hero reserves columns 8–12 for a portrait campaign artwork. Until final artwork is supplied, a localized 4:5 placeholder preserves the intended composition and export size.
-- **Type:** Route display copy uses the established display step with an 11ch maximum so ordinary phrases form deliberate lines instead of spanning the page. On the two-track tablet composition the track is the measure instead; the 11ch cap is narrower than the track there and breaks phrases into stranded single words.
+- **Type:** Route display copy uses the established display step with a maximum measure so ordinary phrases form deliberate lines instead of spanning the page. The cap is 15ch from 840px and 11ch below 700px; measured across all four routes in both languages, 15ch lands every title on two or three balanced lines, while 11ch was narrower than the longest title needs and broke "Frågorna saknar fortfarande svar" into four steps ending on a stranded word — the exact stack the cap exists to prevent. On the two-track tablet composition the track is the measure instead, so the cap is removed entirely there. A cap that strands single words is doing the opposite of its job; check the longest Swedish title before changing the number.
 
 ### Press Cards
 
-- **Shape:** Auto-height records with restrained 8px frame corners; never force text into a square.
+- **Shape:** Square auto-height records (0px), consistent with every other content frame in the publication; never force text into a fixed height.
 - **Media:** The article photograph uses a consistent 16:9 crop; apply only a faint blue wash so it remains recognisable, and retain its visible photo credit.
 - **Publisher:** Use the approved SVG wordmark above the article title and date.
 - **Home:** Render every journalism source in an art-directed 7/5 lead row followed by three equal records, after the campaign argument, with title, description, publication language, date, SVG publisher mark, and photo credit.
@@ -347,13 +354,15 @@ The responsive system is content-driven: one reading column on phones, selective
 
 ### Share Panel
 
-- **One action.** A single primary control copies the campaign's short summary and the canonical link together. Per-network buttons are deliberately absent: LinkedIn ignores every prefill parameter, so a network button can only hand over an empty composer, and one clipboard the reader pastes anywhere beats a row of choices.
+- **Control.** A single primary control copies the campaign's short summary and the canonical link together. Per-network buttons are deliberately absent: LinkedIn ignores every prefill parameter, so a network button can only hand over an empty composer, and one clipboard the reader pastes anywhere beats a row of choices.
 - **Confirmation:** A toast confirms the copy and names what landed on the clipboard. It is portalled to `<body>` — every mount site sits inside a reveal wrapper, and a transformed ancestor would re-anchor a fixed element to that section instead of the viewport.
 - **Reach:** Sharing is reachable from the masthead on every route at every scroll depth, from the hero, and from a compact terminal block at the foot of each section page. The full kit remains the destination at the foot of the home page. The masthead and hero controls are jump links to that panel, not second copy controls, and carry the navigation label rather than the action label.
-- **Assets:** Preview the three campaign exports as labeled gray frames: 1200 × 630, 1080 × 1080 and 1080 × 1920. The frame is chosen by the asset's `kind`, never by list position.
+- **Assets:** Show the three campaign exports themselves — 1200 × 630, 1080 × 1080 and 1080 × 1920 — each filling a hairline frame at its true ratio. The frame is chosen by the asset's `kind`, never by list position. The reader is about to post one of these; they must be able to see which. The labelled placeholder frame is only for artwork that genuinely does not exist yet, and a supplied export must never be left behind one.
 - **Layout:** The introduction and control occupy their own rows. The three asset previews then share one full-width row, each at its true ratio with the 9:16 story capped, stretched to a common height so the download rows sit on one baseline. Below 1024px the columns are too narrow for a name and a format to share a line, so each download row sets the name over the format; a wrapped name against an unwrapped format puts the three rules at three different heights.
-- **Phone layout:** On one column the same frames become three poster-sized empty fields — the 9:16 story alone stands 622px tall — and the kit that carries the campaign's stated conversion arrives as roughly 1150px of scroll. Below 700px each export becomes one record instead: the frame at its true ratio in a fixed 96px track, name and format beside it, the story capped exactly as the wide row caps it. The frame's caption is dropped there because the row already carries the same label and dimensions; the figure keeps its accessible name.
+- **Phone layout:** On one column three full-width posters — the 9:16 story alone stands 622px tall — turn the kit that carries the campaign's stated conversion into roughly 1150px of scroll. Below 700px each export becomes one record instead: the frame at its true ratio in a fixed 96px track, name and format beside it, the story capped exactly as the wide row caps it. The figure keeps its accessible name at every width, and the download row beside it carries the label and format, so the frame never repeats them.
 - **Privacy:** Sharing is entirely local to the browser. Do not add a petition, form, analytics event, or contact route.
+
+**The One Action Rule.** Sharing offers exactly one control: copy the short summary and the canonical link together, then confirm in a toast. Per-network buttons are absent by decision, not by omission.
 
 ### Toast
 
@@ -367,8 +376,9 @@ The responsive system is content-driven: one reading column on phones, selective
 - **Home key artwork:** The supplied wide 9:5 artwork at 1800 × 1000px spans the home reading field beneath the centered campaign question and compact deck at every viewport. Preserve the complete composition without cropping.
 - **Acus explainer:** Landscape 3:2 at 1800 × 1200px. It sits in the eight-column evidence field above the reported data map.
 - **Section-page posters:** Known, Timeline, Acus, and Questions each reserve a portrait 4:5 field at 1600 × 2000px. It occupies columns 8–12 beside the page argument and stacks below the lead on mobile.
-- **Placeholder treatment:** For artwork that has not yet been supplied, use one square hairline frame, a neutral preview surface, and a centered localized label with export dimensions. No icon, dashed border, or uppercase tracked placeholder copy.
-- **Restraint:** Keep remaining placeholders in the route heroes, Acus explainer, and social exports. Do not scatter additional decorative image slots through the evidence registers.
+- **Social exports:** The six share images are supplied and shipped. They render as artwork in the share panel, not as frames.
+- **Placeholder treatment:** For artwork that has not yet been supplied, use one square hairline frame, a neutral preview surface, and a centered localized label with export dimensions. No icon, dashed border, or uppercase tracked placeholder copy. One wrapper carries both states — filling a slot is supplying a file, not rewriting a layout — so every responsive rule for a slot survives the swap.
+- **Restraint:** The only remaining placeholder is the Acus 3:2 explainer. Do not scatter additional decorative image slots through the evidence registers, and do not leave a placeholder standing over an export that exists.
 
 ### Evidence Registers
 
@@ -387,6 +397,7 @@ The responsive system is content-driven: one reading column on phones, selective
 ### Panels and Notices
 
 - **Panel:** Deep blue, bordered sections collect related evidence. Internal steps are divided by panel hairlines rather than raised cards; the step group carries no outer frame, since the panel ground already bounds it. Reserve a title column wide enough for the longest single word in either language — Swedish compounds such as "Ansiktsigenkänning" run ~200px at the panel's serif step, and a narrower track lets them overrun the body column.
+- **Step titles:** The panel's step titles take the serif title role and its leading (~1.15), not the body's. They wrap in a ~210px track, and at prose leading the two lines of a compound drift far enough apart to read as two entries rather than one title.
 - **Notice:** Use a full hairline border and a signal-blue wash; coloured side stripes are prohibited.
 
 ### Footer
@@ -412,13 +423,18 @@ The responsive system is content-driven: one reading column on phones, selective
 - **Do** align route heroes, section rails, evidence rows, and press introductions to the shared 12-column grid.
 - **Do** preserve complete press summaries on mobile; reduce thumbnail dominance instead of hiding copy.
 - **Do** preserve each campaign artwork wrapper and aspect ratio when replacing a placeholder with final artwork.
+- **Do** show a supplied export as itself. A placeholder standing over a file that exists tells the reader the campaign is unfinished.
+- **Do** declare the light scheme at the root, and keep the four figures as one bounded field sharing a single frame rather than four separate objects.
+- **Do** let a grid row equalize card heights, and take slack at the bottom of the card so citations share a baseline.
 
 ### Don't:
 
 - **Don't** make it look like party-political propaganda; the system invites scrutiny and lets evidence carry the claim.
 - **Don't** add social-justice-warrior signalling, moralising iconography, or outrage-first visual treatment.
 - **Don't** use sensational tabloid styling: no explosive headlines, alarm colours, alarm graphics, or attention-grabbing metrics.
-- **Don't** use the visual language of a SaaS technology company: no dashboard cards, floating shadows, gradient text, glassmorphism panels, or decorative monospace.
+- **Don't** use the visual language of a SaaS technology company: no floating or shadowed cards, gradient text, glassmorphism panels, or decorative monospace. The four figures are a bounded field inside one hairline frame, which is why they are not a metric dashboard; a card that detaches from that frame becomes one.
+- **Don't** spend the civic teal on decoration. It means "unanswered" and nothing else, and it cannot mean that if the reader has already met it as ornament.
+- **Don't** force a card or record height to hold an alignment a grid row already holds.
 - **Don't** invite whistleblowing, leaked information, source submissions, or private contact anywhere on the site.
 - **Don't** turn press coverage into a carousel or moving rail; all coverage must remain visible and browsable at once.
 - **Don't** use eyebrow labels, decorative 01/02/03 numbering, or arrows as default interface decoration.

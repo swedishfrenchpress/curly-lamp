@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Lang } from "@/content/types";
 
 export type CampaignImageKind =
@@ -93,13 +94,26 @@ const SPECS: Record<
   },
 };
 
+/**
+ * One wrapper for both states of a campaign artwork slot. With `src` it shows
+ * the artwork; without it, the labelled frame that reserves the same ratio and
+ * export size until the artwork is supplied. Keeping both in one component is
+ * what lets a slot be filled by adding a file — every responsive rule targets
+ * `.campaign-image-slot--<kind>`, so the story cap and the phone track survive
+ * the swap untouched.
+ *
+ * The figure keeps its accessible name in both states, and the image is
+ * `alt=""` so a screen reader announces the slot once rather than twice.
+ */
 export default function CampaignImageSlot({
   kind,
   lang,
+  src,
   className = "",
 }: {
   kind: CampaignImageKind;
   lang: Lang;
+  src?: string;
   className?: string;
 }) {
   const spec = SPECS[kind];
@@ -109,13 +123,23 @@ export default function CampaignImageSlot({
       className={`campaign-image-slot campaign-image-slot--${kind} ${className}`.trim()}
       aria-label={`${spec.label[lang]}, ${spec.width} × ${spec.height} pixels`}
     >
-      <figcaption className="campaign-image-slot__label">
-        <span>{spec.label[lang]}</span>
-        <strong>
-          {spec.width} × {spec.height} px
-        </strong>
-        <small>{spec.ratio}</small>
-      </figcaption>
+      {src ? (
+        <Image
+          src={src}
+          alt=""
+          width={spec.width}
+          height={spec.height}
+          className="campaign-image-slot__image"
+        />
+      ) : (
+        <figcaption className="campaign-image-slot__label">
+          <span>{spec.label[lang]}</span>
+          <strong>
+            {spec.width} × {spec.height} px
+          </strong>
+          <small>{spec.ratio}</small>
+        </figcaption>
+      )}
     </figure>
   );
 }
