@@ -1,0 +1,25 @@
+<!-- 1080x1920. Instagram overlays roughly the top and bottom 250px with its own
+     UI, so every element is confined to y = 320..1600. In particular the domain
+     line sits at y=1560, not near the foot of the canvas where the reply bar
+     and caption chrome would cover it. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920" role="img" aria-labelledby="title desc">
+  <title id="title">Vem svarar för Acus?</title>
+  <desc id="desc">Stående kampanjbild med den obesvarade frågan om polisens analysplattform Acus.</desc>
+  <rect width="1080" height="1920" fill="#f5efe6"/>
+  <rect x="84" y="320" width="10" height="1280" fill="#1e6578"/>
+  <text x="154" y="560" fill="#101829" font-family="Baskerville, Georgia, serif" font-size="104" letter-spacing="-1">
+    <tspan x="154" dy="0">Vem svarar</tspan>
+    <tspan x="154" dy="118">för Acus?</tspan>
+  </text>
+  <line x1="154" y1="820" x2="936" y2="820" stroke="#d5c8bb"/>
+  <text x="154" y="940" fill="#3d3632" font-family="Geist, Helvetica, sans-serif" font-size="46">
+    <tspan x="154" dy="0">Vad gör systemet?</tspan>
+    <tspan x="154" dy="100">Var lagras datan?</tspan>
+    <tspan x="154" dy="100">Vem har granskat det?</tspan>
+  </text>
+  <text x="154" y="1420" fill="#725f54" font-family="Geist, Helvetica, sans-serif" font-size="32">
+    <tspan x="154" dy="0">Frågorna är ställda i riksdagen.</tspan>
+    <tspan x="154" dy="46">De är fortfarande obesvarade.</tspan>
+  </text>
+  <text id="domain" x="936" y="1560" fill="#1e6578" font-family="Geist, Helvetica, sans-serif" font-size="30" text-anchor="end">vemsvararforacus.se</text>
+</svg>

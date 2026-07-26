@@ -42,6 +42,17 @@ export default function SiteHeader({ dict }: { dict: Dict }) {
 
   const isCurrent = (href: string) => pathname === href;
 
+  /**
+   * The share panel is an anchor on the home page, not a route, so off-home it
+   * needs the full path. This is the only always-visible route to sharing —
+   * without it the panel sits seven sections down with nothing pointing at it.
+   */
+  const homeHref = path(dict.lang, "home");
+  const shareHref =
+    pathname === homeHref
+      ? dict.nav.shareLink.hash
+      : `${homeHref}${dict.nav.shareLink.hash}`;
+
   return (
     <header className="site-header">
       <div className="shell">
@@ -68,6 +79,9 @@ export default function SiteHeader({ dict }: { dict: Dict }) {
           </ul>
 
           <div className="site-nav__tools">
+            <Link href={shareHref} className="icon-btn site-nav__share">
+              {dict.nav.shareLink.label}
+            </Link>
             <Link
               href={swapLang(pathname, next)}
               className="icon-btn lang-switch"
@@ -109,6 +123,13 @@ export default function SiteHeader({ dict }: { dict: Dict }) {
                   </li>
                 );
               })}
+              {/* The tools-cluster share link hides below 940px with the rest
+                  of the desktop nav, so the panel carries it there. */}
+              <li>
+                <Link href={shareHref} onClick={close}>
+                  {dict.nav.shareLink.label}
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

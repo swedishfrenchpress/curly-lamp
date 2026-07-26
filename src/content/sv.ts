@@ -36,6 +36,7 @@ const sv: Dict = {
     skipToContent: "Hoppa till innehåll",
     menu: "Meny",
     close: "Stäng",
+    shareLink: { label: "Dela", hash: "#share" },
   },
 
   home: {
@@ -133,30 +134,45 @@ const sv: Dict = {
       title: "I pressen",
       lead: "Läs redaktionernas egen rapportering om Acus, Palantir och svensk polis.",
     },
+  },
 
-    share: {
-      title: "Dela frågorna",
-      lead: "Dela sidan, kopiera länken eller ladda ner en kampanjbild. Sidan har ingen namninsamling och samlar inte in personuppgifter.",
-      shareLabel: "Dela",
-      copyLabel: "Kopiera länk",
-      copiedLabel: "Länken är kopierad",
-      errorLabel: "Länken kunde inte kopieras. Kopiera den från webbläsaren i stället.",
-      downloadLabel: "Ladda ner kampanjbilder",
-      shareText:
-        "Vem svarar för Acus? Riksdagen har frågat om polisens analysplattform, men grundläggande frågor är fortfarande obesvarade.",
-      assets: [
-        {
-          href: "/share/vem-svarar-acus-landscape-sv.png",
-          label: "Liggande bild",
-          meta: "PNG · 1200 × 630",
-        },
-        {
-          href: "/share/vem-svarar-acus-square-sv.png",
-          label: "Kvadratisk bild",
-          meta: "PNG · 1080 × 1080",
-        },
-      ],
+  share: {
+    title: "Dela frågorna",
+    lead: "Kopiera länken och en kort sammanfattning, eller ladda ner en kampanjbild. Sidan har ingen namninsamling och samlar inte in personuppgifter.",
+    shareLabel: "Kopiera länk",
+    copiedLabel: "Länk och text kopierade. Klistra in där du vill dela.",
+    errorLabel:
+      "Kunde inte kopiera. Kopiera länken från webbläsarens adressfält i stället.",
+    downloadLabel: "Ladda ner kampanjbilder",
+    shareText:
+      "Vem svarar för Acus? Riksdagen har frågat om polisens analysplattform, men grundläggande frågor är fortfarande obesvarade.",
+
+    cta: {
+      title: "Dela den här sidan",
+      lead: "Sidan har ingen namninsamling och samlar inte in personuppgifter. Det som finns att sprida är länken och kampanjbilderna.",
+      assetsLabel: "Kampanjbilder och nedladdningar",
     },
+
+    assets: [
+      {
+        kind: "landscape",
+        href: "/share/vem-svarar-acus-landscape-sv.png",
+        label: "Liggande bild",
+        meta: "PNG · 1200 × 630",
+      },
+      {
+        kind: "square",
+        href: "/share/vem-svarar-acus-square-sv.png",
+        label: "Kvadratisk bild",
+        meta: "PNG · 1080 × 1080",
+      },
+      {
+        kind: "story",
+        href: "/share/vem-svarar-acus-story-sv.png",
+        label: "Story-bild",
+        meta: "PNG · 1080 × 1920",
+      },
+    ],
   },
 
   known: {

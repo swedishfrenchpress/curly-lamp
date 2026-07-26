@@ -31,6 +31,7 @@ const en: Dict = {
     skipToContent: "Skip to content",
     menu: "Menu",
     close: "Close",
+    shareLink: { label: "Share", hash: "#share" },
   },
 
   home: {
@@ -128,30 +129,45 @@ const en: Dict = {
       title: "In the press",
       lead: "Read the newsrooms' own reporting on Acus, Palantir, and the Swedish police.",
     },
+  },
 
-    share: {
-      title: "Share the questions",
-      lead: "Share the page, copy its link or download a campaign image. The site has no petition and collects no personal data.",
-      shareLabel: "Share",
-      copyLabel: "Copy link",
-      copiedLabel: "Link copied",
-      errorLabel: "The link could not be copied. Copy it from your browser instead.",
-      downloadLabel: "Download campaign images",
-      shareText:
-        "Who answers for Acus? The Swedish police's analysis platform has been questioned in parliament, but basic questions remain unanswered.",
-      assets: [
-        {
-          href: "/share/who-answers-acus-landscape-en.png",
-          label: "Landscape image",
-          meta: "PNG · 1200 × 630",
-        },
-        {
-          href: "/share/who-answers-acus-square-en.png",
-          label: "Square image",
-          meta: "PNG · 1080 × 1080",
-        },
-      ],
+  share: {
+    title: "Share the questions",
+    lead: "Copy the link and a short summary, or download a campaign image. The site has no petition and collects no personal data.",
+    shareLabel: "Copy link",
+    copiedLabel: "Link and text copied. Paste it wherever you want to share.",
+    errorLabel:
+      "Couldn't copy. Copy the link from your browser's address bar instead.",
+    downloadLabel: "Download campaign images",
+    shareText:
+      "Who answers for Acus? The Swedish police's analysis platform has been questioned in parliament, but basic questions remain unanswered.",
+
+    cta: {
+      title: "Share this page",
+      lead: "The site has no petition and collects no personal data. What there is to pass on is the link and the campaign images.",
+      assetsLabel: "Campaign images and downloads",
     },
+
+    assets: [
+      {
+        kind: "landscape",
+        href: "/share/who-answers-acus-landscape-en.png",
+        label: "Landscape image",
+        meta: "PNG · 1200 × 630",
+      },
+      {
+        kind: "square",
+        href: "/share/who-answers-acus-square-en.png",
+        label: "Square image",
+        meta: "PNG · 1080 × 1080",
+      },
+      {
+        kind: "story",
+        href: "/share/who-answers-acus-story-en.png",
+        label: "Story image",
+        meta: "PNG · 1080 × 1920",
+      },
+    ],
   },
 
   known: {

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import CampaignImageSlot from "@/components/campaign-image-slot";
 import Reveal from "@/components/reveal";
 import DataFlow from "@/components/data-flow";
+import ShareCta from "@/components/share-cta";
 import {
   PageHero,
   Prose,
@@ -30,7 +31,7 @@ export default async function AcusPage({
 }) {
   const { lang } = await params;
   if (!isLang(lang)) notFound();
-  const { acus, ui } = getDict(lang);
+  const { acus, share, ui } = getDict(lang);
 
   return (
     <>
@@ -83,6 +84,13 @@ export default async function AcusPage({
             flow={acus.dataFlow}
             sourcesLabel={ui.sources}
           />
+        </Reveal>
+      </Section>
+
+      {/* No variant: the data map above is already a band. */}
+      <Section size="tight" className="route-share">
+        <Reveal>
+          <ShareCta block={share} lang={lang} />
         </Reveal>
       </Section>
     </>

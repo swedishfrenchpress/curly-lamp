@@ -156,6 +156,10 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  /* The default iOS tap flash is a blue-grey rectangle that belongs to no part
+     of this palette. Kept — a tap should acknowledge itself — but tinted from
+     the campaign's own signal. */
+  -webkit-tap-highlight-color: color-mix(in srgb, var(--flag) 14%, transparent);
 }
 
 :focus-visible {
@@ -348,7 +352,16 @@ a {
   background: var(--ink);
   color: var(--on-ink);
 }
-.btn--primary:hover {
+/* Hover belongs to devices that have one. Ungated, a tap on a phone leaves the
+   control sitting in its hover state until something else is touched, which
+   reads as "still selected" on a page of document actions. Touch gets `:active`
+   instead — feedback for the duration of the press, then gone. */
+@media (hover: hover) {
+  .btn--primary:hover {
+    background: var(--ink-hover);
+  }
+}
+.btn--primary:active {
   background: var(--ink-hover);
 }
 .btn--ghost {
@@ -356,7 +369,13 @@ a {
   color: var(--ink);
   background: transparent;
 }
-.btn--ghost:hover {
+@media (hover: hover) {
+  .btn--ghost:hover {
+    background: var(--wash);
+    border-color: var(--ghost);
+  }
+}
+.btn--ghost:active {
   background: var(--wash);
   border-color: var(--ghost);
 }
@@ -366,7 +385,12 @@ a {
   border-bottom: 1px solid var(--ghost);
   transition: border-color 140ms ease;
 }
-.text-link:hover {
+@media (hover: hover) {
+  .text-link:hover {
+    border-color: var(--ink);
+  }
+}
+.text-link:active {
   border-color: var(--ink);
 }
 
@@ -393,9 +417,12 @@ a {
   height: 68px;
 }
 
+/* The only route home on every viewport — the nav items and the footer columns
+   are all section routes. It has to be a real target, not a 26px line of text. */
 .site-nav__brand {
   display: inline-flex;
-  align-items: baseline;
+  align-items: center;
+  min-height: 44px;
   font-weight: 600;
   font-size: 0.9375rem;
   letter-spacing: -0.015em;
@@ -421,6 +448,19 @@ a {
   }
 }
 
+/* Follows the desktop nav: below 940px the mobile panel carries the share
+   link instead, so the masthead never grows a third row of controls.
+   Scoped to the tools cluster to outrank `.icon-btn`, which is redeclared
+   later in this file and would otherwise win on source order alone. */
+.site-nav__tools .site-nav__share {
+  display: none;
+}
+@media (min-width: 940px) {
+  .site-nav__tools .site-nav__share {
+    display: inline-flex;
+  }
+}
+
 .site-nav__link {
   display: inline-flex;
   align-items: center;
@@ -431,8 +471,10 @@ a {
   transition: color 140ms ease, border-color 140ms ease;
   white-space: nowrap;
 }
-.site-nav__link:hover {
-  color: var(--ink);
+@media (hover: hover) {
+  .site-nav__link:hover {
+    color: var(--ink);
+  }
 }
 .site-nav__link[aria-current="page"] {
   color: var(--ink);
@@ -464,9 +506,15 @@ a {
   border-radius: var(--radius-control);
   transition: color 140ms ease, border-color 140ms ease, background-color 140ms ease;
 }
-.icon-btn:hover {
+@media (hover: hover) {
+  .icon-btn:hover {
+    color: var(--ink);
+    border-color: var(--ghost);
+    background: var(--wash);
+  }
+}
+.icon-btn:active {
   color: var(--ink);
-  border-color: var(--ghost);
   background: var(--wash);
 }
 
@@ -547,6 +595,10 @@ a {
   flex-wrap: wrap;
   gap: 12px;
   margin-top: var(--space-6);
+}
+/* The home hero is the one centered composition on the site. */
+.hero--home .hero__actions {
+  justify-content: center;
 }
 @media (min-width: 840px) {
   .home-hero__grid,
@@ -641,6 +693,9 @@ a {
 .campaign-image-slot--share-square {
   aspect-ratio: 1;
 }
+.campaign-image-slot--share-story {
+  aspect-ratio: 9 / 16;
+}
 .campaign-image-slot__label {
   display: grid;
   justify-items: center;
@@ -663,11 +718,15 @@ a {
   font-size: 0.75rem;
   line-height: 1.4;
 }
-@media (max-width: 839px) {
-  .home-hero__art,
+/* On one column the poster keeps the page's left axis instead of floating
+   centred beneath a left-aligned title — a narrow column centred between
+   full-width sections reads as an object dropped on the page, not part of it.
+   (The home hero's wide artwork sets its own full-bleed width further down.) */
+@media (max-width: 699px) {
   .page-hero__art {
-    width: min(100%, 420px);
-    margin-inline: auto;
+    width: 100%;
+    max-width: 420px;
+    margin-inline: 0;
   }
 }
 
@@ -811,6 +870,10 @@ a {
   line-height: 1.6;
   color: var(--body);
   margin: 0;
+  /* Between the two-column collapse and the 12-column grid the claim owned the
+     whole shell and ran to 76ch. A claim is the unit the reader has to check
+     line by line; it keeps the reading measure at every width. */
+  max-width: 68ch;
 }
 
 /* --------------------------------------------------------------------------
@@ -845,9 +908,34 @@ a {
   transition: color 140ms ease, border-color 140ms ease;
   white-space: nowrap;
 }
-.cite:hover {
+@media (hover: hover) {
+  .cite:hover {
+    color: var(--ink);
+    border-color: var(--ghost);
+  }
+}
+.cite:active {
   color: var(--ink);
   border-color: var(--ghost);
+}
+
+/* An evidence link is the campaign's method made tappable, and at 20px tall in
+   a wrapped row it was the hardest thing on the page to hit. The target is
+   grown with a transparent expander rather than padding, so the mono line and
+   its hairline underline keep their exact metrics; only the row gap opens, and
+   only far enough that two rows of expanders never overlap. */
+@media (pointer: coarse) {
+  .cites__links {
+    gap: var(--space-4) var(--space-5);
+  }
+  .cite {
+    position: relative;
+  }
+  .cite::after {
+    content: "";
+    position: absolute;
+    inset: -8px -6px;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -1000,17 +1088,18 @@ a {
   line-height: 1.6;
   text-wrap: pretty;
 }
+/* Chapters keep their rule; entries do not. Each entry already owns ~64px of
+   vertical interval and a mono date in its own column, so a hairline per entry
+   restated a division the spacing had already made. */
 .timeline-chapter__entries {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: 1px solid var(--hair);
 }
 .tl-entry {
   display: grid;
   gap: var(--space-3);
   padding-block: var(--space-5);
-  border-bottom: 1px solid var(--hair);
 }
 .tl-entry__content {
   min-width: 0;
@@ -1023,9 +1112,14 @@ a {
   font-size: clamp(1.25rem, 2vw, 1.625rem);
   line-height: 1.25;
 }
+/* Bleeds to the shell edge, so it has to use the same inset the shell does —
+   with a plain --page-x the plane stops short of the true edge on a notched
+   phone held sideways and sits misaligned against every section above it. */
 .timeline-chapter--current {
-  margin-inline: calc(var(--page-x) * -1);
-  padding: var(--space-8) var(--page-x);
+  margin-left: calc(0px - max(var(--page-x), var(--safe-left)));
+  margin-right: calc(0px - max(var(--page-x), var(--safe-right)));
+  padding: var(--space-8) max(var(--page-x), var(--safe-right))
+    var(--space-8) max(var(--page-x), var(--safe-left));
   border-top-color: var(--flag);
   background: var(--flag-wash);
 }
@@ -1033,12 +1127,8 @@ a {
 .timeline-chapter--current .tl-entry__date {
   color: var(--flag);
 }
-.timeline-chapter--current .timeline-chapter__entries {
-  border-top-color: color-mix(in srgb, var(--flag) 35%, transparent);
-}
 .timeline-chapter--current .tl-entry {
   padding-block: var(--space-6);
-  border-bottom-color: color-mix(in srgb, var(--flag) 35%, transparent);
 }
 .timeline-conclusion {
   padding-top: var(--space-7);
@@ -1059,8 +1149,6 @@ a {
     column-gap: var(--grid-gap);
   }
   .timeline-chapter__intro {
-    position: sticky;
-    top: calc(var(--nav-h) + var(--safe-top) + var(--space-6));
     grid-column: 1 / 5;
   }
   .timeline-chapter__entries,
@@ -1085,6 +1173,16 @@ a {
     padding-block: var(--space-8);
   }
 }
+
+/* The chapter context follows its events only where there is a screen to follow
+   them down. Held sideways a phone is 390px tall, and a pinned title plus lead
+   under a sticky masthead would leave a ~150px slot to read the docket through. */
+@media (min-width: 840px) and (min-height: 700px) {
+  .timeline-chapter__intro {
+    position: sticky;
+    top: calc(var(--nav-h) + var(--safe-top) + var(--space-6));
+  }
+}
 .tl-entry__meta {
   min-width: 0;
 }
@@ -1106,8 +1204,10 @@ a {
   border-bottom: 1px solid transparent;
   transition: border-color 140ms ease;
 }
-.tl-entry__title a:hover {
-  border-bottom-color: var(--ghost);
+@media (hover: hover) {
+  .tl-entry__title a:hover {
+    border-bottom-color: var(--ghost);
+  }
 }
 .tl-entry__body {
   margin: var(--space-2) 0 0;
@@ -1130,10 +1230,12 @@ a {
    Convergence steps
    -------------------------------------------------------------------------- */
 
+/* No outer frame: the panel's own ground already bounds this group, so the
+   rules above the first step and below the last only boxed it in twice. The
+   separators between steps stay — three compact records need them. */
 .steps {
   display: flex;
   flex-direction: column;
-  border-block: 1px solid var(--panel-hair);
   margin-top: var(--space-7);
 }
 .step {
@@ -1159,6 +1261,11 @@ a {
   font-weight: 600;
   letter-spacing: -0.015em;
   color: var(--panel-fg);
+  /* Swedish compounds run long and unbreakable — "Ansiktsigenkänning" is one
+     word. Hyphenate where the language allows it, and break as a last resort
+     so a title can never overrun into the body column. */
+  hyphens: auto;
+  overflow-wrap: break-word;
 }
 .step__body {
   margin: 0;
@@ -1198,9 +1305,12 @@ a {
 }
 @media (min-width: 1120px) {
   .step {
+    /* The title track must clear the longest single word in either language.
+       At the panel's 1.65rem serif that is "Ansiktsigenkänning" at ~199px;
+       the previous 148px minimum let it overflow into the body column. */
     grid-template-columns:
       104px
-      minmax(148px, 0.9fr)
+      minmax(210px, 0.9fr)
       minmax(0, 1.8fr);
     column-gap: var(--space-5);
     row-gap: var(--space-4);
@@ -1233,7 +1343,12 @@ a {
   color: var(--panel-muted);
   border-color: var(--panel-hair);
 }
-.section--panel .cite:hover {
+@media (hover: hover) {
+  .section--panel .cite:hover {
+    color: var(--panel-fg);
+  }
+}
+.section--panel .cite:active {
   color: var(--panel-fg);
 }
 .section--panel .cites__label {
@@ -1313,7 +1428,10 @@ a {
   display: grid;
   gap: 12px;
 }
-@media (min-width: 860px) {
+/* A research record is a title and its status against a question — two things,
+   and from tablet width there is room to put them beside each other rather than
+   stacking a two-word title above the line it labels. */
+@media (min-width: 700px) {
   .rcard {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
     gap: 0 40px;
@@ -1344,12 +1462,14 @@ a {
   line-height: 1.6;
   color: var(--ink);
   margin: 0;
+  max-width: 68ch;
 }
 .rcard__detail {
   margin: var(--space-2) 0 0;
   font-size: 0.875rem;
   line-height: 1.6;
   color: var(--muted);
+  max-width: 68ch;
 }
 
 /* --------------------------------------------------------------------------
@@ -1433,8 +1553,14 @@ a {
   color: var(--body);
   transition: border-color 160ms ease, background-color 160ms ease;
 }
-.press-card:hover {
+@media (hover: hover) {
+  .press-card:hover {
+    border-color: var(--ghost);
+  }
+}
+.press-card:active {
   border-color: var(--ghost);
+  background: var(--wash);
 }
 .press-card:focus-visible {
   border-radius: var(--radius-frame);
@@ -1526,6 +1652,7 @@ a {
   color: var(--muted);
   font-size: 0.875rem;
   line-height: 1.55;
+  max-width: 68ch;
   text-wrap: pretty;
   overflow-wrap: anywhere;
 }
@@ -1544,9 +1671,12 @@ a {
   margin-block: var(--section-tight);
 }
 
+/* No opening rule: this follows the dark Night Record panel, so the ground
+   change already announces the section. DESIGN.md's own rule is that the scope
+   statement and press register share one section and one ruled transition —
+   that transition is the one on .home-press below. */
 .scope-statement {
   padding-top: var(--space-6);
-  border-top: 1px solid var(--hair);
 }
 .home-press {
   margin-top: clamp(64px, 8vw, 96px);
@@ -1609,6 +1739,7 @@ a {
   color: var(--muted);
   font-size: 0.9375rem;
   line-height: 1.6;
+  max-width: 68ch;
 }
 .record-map__sources ul {
   list-style: none;
@@ -1674,64 +1805,95 @@ a {
    -------------------------------------------------------------------------- */
 
 .share-panel {
-  border-top: 1px solid var(--hair);
   padding-top: var(--space-5);
 }
-.share-panel__actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px;
+/* One control. The confirmation is a toast rather than an inline status line,
+   so the button row keeps no reserved empty space when nothing has happened. */
+.share-toast {
+  position: fixed;
+  left: 50%;
+  bottom: max(clamp(16px, 4vw, 32px), env(safe-area-inset-bottom, 0px));
+  z-index: 60;
+  max-width: min(calc(100vw - 32px), 38rem);
+  padding: 14px 20px;
+  background: var(--ink);
+  color: var(--on-ink);
+  /* Square, like every other notice — the publication is flat, and a rounded
+     drop-shadowed pill would be the one floating object on the page. */
+  border-radius: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 10px);
+  transition:
+    opacity 180ms ease,
+    transform 260ms cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0s linear 180ms;
 }
-.share-panel__status {
-  min-height: 1.5em;
-  margin: var(--space-3) 0 0;
-  color: var(--faint);
-  font-size: 0.8125rem;
+.share-toast[data-open="true"] {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+  transition-delay: 0s, 0s, 0s;
 }
-.share-panel__downloads {
+.share-toast__text {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+@media (prefers-reduced-motion: reduce) {
+  .share-toast {
+    transform: translate(-50%, 0);
+    transition:
+      opacity 1ms linear,
+      visibility 0s linear 1ms;
+  }
+}
+.share-assets {
   margin-top: var(--space-6);
 }
-.share-panel__download-title {
+.share-assets__title {
   margin: 0 0 8px;
   color: var(--ink);
   font-weight: 600;
 }
-.share-panel__downloads ul {
+.share-assets__list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
   gap: var(--space-5);
 }
-.share-panel__downloads li {
+.share-assets__item {
   min-width: 0;
 }
-.share-panel__asset-preview {
+.share-assets__preview {
   margin-bottom: var(--space-3);
 }
-.share-panel__downloads a {
+/* One rule per download row, not two: `border-block` drew a line above and
+   below each of the three assets. */
+.share-assets__link {
   display: flex;
   justify-content: space-between;
   gap: 24px;
   padding: var(--space-4) 0;
-  border-block: 1px solid var(--hair);
+  border-top: 1px solid var(--hair);
   color: var(--ink);
 }
 @media (min-width: 700px) {
-  .share-panel__downloads ul {
-    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  .share-assets__list {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     align-items: start;
   }
 }
-.share-panel__downloads a span:last-child {
+.share-assets__link span:last-child {
   color: var(--faint);
   font-family: var(--font-mono);
   font-size: 0.75rem;
   white-space: nowrap;
 }
 @media (max-width: 520px) {
-  .share-panel__actions .btn {
+  .share-actions .btn {
     width: 100%;
     justify-content: center;
   }
@@ -1742,15 +1904,53 @@ a {
     grid-template-columns: repeat(8, minmax(0, 1fr));
     column-gap: var(--grid-gap);
   }
-  .share-panel__actions,
-  .share-panel__status {
+  .share-panel .share-actions {
     grid-column: 1 / 5;
   }
-  .share-panel__downloads {
+  .share-panel .share-assets {
     grid-column: 5 / -1;
     grid-row: 1 / 3;
     margin-top: 0;
   }
+}
+
+/* --------------------------------------------------------------------------
+   Share CTA — the compact terminal block reused across routes
+   -------------------------------------------------------------------------- */
+
+.share-cta {
+  border-top: 1px solid var(--hair);
+  padding-top: var(--space-6);
+}
+.share-cta__title {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.4vw, 2.15rem);
+  font-weight: 400;
+  line-height: 1.1;
+}
+.share-cta__lead {
+  max-width: 58ch;
+  margin: var(--space-3) 0 var(--space-5);
+  color: var(--body);
+}
+.share-cta__more {
+  margin: var(--space-5) 0 0;
+}
+/* The route to the full asset kit is a navigation control, not a word inside a
+   sentence, so on touch it gets a control's target rather than a text line's. */
+@media (pointer: coarse) {
+  .share-cta__more .text-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+/* On a route the section band already supplies the separation, so the block
+   does not need its own rule on top of it. */
+.route-share .share-cta {
+  border-top: 0;
+  padding-top: 0;
 }
 
 /* --------------------------------------------------------------------------
@@ -1840,7 +2040,12 @@ a {
   color: var(--panel-muted);
   transition: color 140ms ease;
 }
-.site-footer__col a:hover {
+@media (hover: hover) {
+  .site-footer__col a:hover {
+    color: var(--panel-fg);
+  }
+}
+.site-footer__col a:active {
   color: var(--panel-fg);
 }
 .site-footer__bottom {
@@ -1995,7 +2200,12 @@ body {
   letter-spacing: 0;
 }
 
-.icon-btn:hover {
+@media (hover: hover) {
+  .icon-btn:hover {
+    border-color: var(--hair);
+  }
+}
+.icon-btn:active {
   border-color: var(--hair);
 }
 
@@ -2020,7 +2230,29 @@ body {
   }
 }
 
+/* Compact the masthead before splitting it. Measured against the longer English
+   name, brand plus tools needs ~324px inside the shell at this step, so every
+   phone from 360px up keeps the single 60px bar — 28px of permanent sticky
+   height reclaimed at the top of the screen where it is scarcest. */
 @media (max-width: 520px) {
+  .site-nav__brand {
+    font-size: 0.9375rem;
+  }
+
+  .site-nav__tools {
+    gap: 4px;
+  }
+
+  .lang-switch {
+    gap: 4px;
+    padding-inline: 6px;
+  }
+}
+
+/* Below that the two genuinely collide, so the utility controls take their own
+   row. Two 44px rows, no gap or padding: the second row is paid for out of the
+   slack the old layout wasted, not out of the reader's screen. */
+@media (max-width: 359px) {
   :root {
     --nav-h: 88px;
   }
@@ -2029,10 +2261,9 @@ body {
     min-height: 88px;
     height: auto;
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: 44px 44px;
     align-content: center;
-    gap: 4px;
-    padding-block: 8px;
+    gap: 0;
   }
 
   .site-nav__brand {
@@ -2043,13 +2274,7 @@ body {
   .site-nav__tools {
     grid-column: 1;
     grid-row: 2;
-    gap: 4px;
     justify-self: end;
-  }
-
-  .lang-switch {
-    gap: 4px;
-    padding-inline: 6px;
   }
 }
 
@@ -2202,10 +2427,50 @@ body {
   max-width: 50ch;
 }
 
+/* Tablet portrait — 768, 810, 820 and 834 all land in this band, and all of them
+   used to receive the phone stack: a lonely centred poster under a left-aligned
+   title with ~350px of unused width beside it. Two tracks instead of twelve;
+   the 12-column publication grid still starts where its columns are wide enough
+   to hold a Swedish compound. */
+@media (min-width: 700px) and (max-width: 839px) {
+  .hero--page .page-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(200px, 0.58fr);
+    grid-template-rows: auto 1fr;
+    column-gap: var(--grid-gap);
+    row-gap: var(--space-5);
+    align-items: start;
+  }
+
+  .hero--page .page-hero__grid .display {
+    grid-column: 1;
+    grid-row: 1;
+    /* The 11ch cap shapes deliberate lines against a 12-column title field. In
+       the narrower two-track version it is tighter than the track itself, and
+       "Frågorna saknar fortfarande svar" falls into four steps ending on one
+       stranded word. The track is the measure here; balance does the rest. */
+    max-width: none;
+  }
+
+  .hero--page .page-hero__grid .hero__lead {
+    grid-column: 1;
+    grid-row: 2;
+    max-width: 42ch;
+  }
+
+  .hero--page .page-hero__art {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    width: 100%;
+    max-width: 300px;
+    margin-inline: 0;
+    justify-self: end;
+  }
+}
+
 @media (min-width: 840px) {
   .hero--page .page-hero__grid,
   .hero--questions .page-hero__grid {
-    min-height: clamp(500px, 44vw, 560px);
     grid-template-columns: repeat(12, minmax(0, 1fr));
     grid-template-rows: auto auto 1fr;
     column-gap: var(--grid-gap);
@@ -2238,7 +2503,27 @@ body {
   }
 }
 
-@media (max-width: 839px) {
+/* The fixed title-to-description interval is a desktop rhythm, and it was being
+   applied to any viewport 840px wide — including a phone held sideways, where a
+   500px hero is 1.6 screens of masthead before the first piece of evidence.
+   Tie it to the height it assumes. */
+@media (min-width: 840px) and (min-height: 620px) {
+  .hero--page .page-hero__grid,
+  .hero--questions .page-hero__grid {
+    min-height: clamp(500px, 44vw, 560px);
+  }
+}
+
+/* A phone turned sideways is 390px tall and reads the same document. The
+   opening interval is measured in vw, so it stays generous on a viewport that
+   has no vertical room to spare. */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero--page {
+    padding-block: var(--space-7) var(--space-6);
+  }
+}
+
+@media (max-width: 699px) {
   .hero--page .page-hero__grid {
     display: block;
   }
@@ -2418,9 +2703,20 @@ html:lang(sv) .home-stats .stat:nth-child(2) .stat__value {
   }
 }
 
+/* The forced card height and the long drop to the label are what hold the four
+   figures on a common baseline across a 2- or 4-column row. In one column there
+   is no row to hold, so the same rules only open ~120px of dead air under each
+   number and stretch the chapter to four screens. The record closes up to its
+   own content instead. */
 @media (max-width: 580px) {
   .home-stats .stat {
-    min-height: 300px;
+    min-height: 0;
+    grid-template-rows: auto;
+    padding-block: var(--space-6);
+  }
+
+  .home-stats .stat__label {
+    margin-top: var(--space-5);
   }
 
   .home-stats::after {
@@ -2493,8 +2789,16 @@ html:lang(sv) .home-stats .stat:nth-child(2) .stat__value {
   margin: clamp(64px, 8vw, 104px) auto 0;
 }
 
+/* The inset is a centred-composition device: it holds the questions inside the
+   centred rail above them. On one column the rail is left-aligned, so a 12px
+   inset only breaks the left edge the section head established. */
 .home-questions .q {
-  padding-inline: clamp(0px, 3vw, 32px);
+  padding-inline: 0;
+}
+@media (min-width: 840px) {
+  .home-questions .q {
+    padding-inline: clamp(0px, 3vw, 32px);
+  }
 }
 
 .q__question {
@@ -2509,10 +2813,6 @@ html:lang(sv) .home-stats .stat:nth-child(2) .stat__value {
   font-family: var(--font-serif);
   font-size: 1.65rem;
   font-weight: 400;
-}
-
-.scope-statement {
-  border-top-width: 1px;
 }
 
 @media (min-width: 840px) {
@@ -2554,7 +2854,9 @@ html:lang(sv) .home-stats .stat:nth-child(2) .stat__value {
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: var(--grid-gap);
   align-items: start;
-  margin-bottom: clamp(48px, 6vw, 72px);
+  /* Tightened with the rule that used to sit inside this gap removed —
+     without it the old interval read as a hole rather than a separation. */
+  margin-bottom: clamp(36px, 4vw, 52px);
 }
 
 .home-share .block-head .section-title {
@@ -2568,23 +2870,22 @@ html:lang(sv) .home-stats .stat:nth-child(2) .stat__value {
   margin-top: 8px;
 }
 
+/* `.home-share .editorial-grid` is itself `display: block`, so the panel owns
+   the full shell width here. Keeping the panel block-level lets all three
+   assets sit in one full-width row rather than stacking in a half-width
+   column, which with a 9:16 story asset would run well over 1500px tall. */
 .home-share .share-panel {
   display: block;
-  padding-top: var(--space-6);
-  border-top-width: 1px;
+  padding-top: 0;
 }
 
-.home-share .share-panel__actions {
-  min-height: 48px;
+/* Spacing alone separates the downloads from the action. The serif title is a
+   strong enough entry point that a rule above it was doing nothing. */
+.home-share .share-assets {
+  margin-top: var(--space-7);
 }
 
-.home-share .share-panel__downloads {
-  margin-top: clamp(48px, 6vw, 72px);
-  padding-top: var(--space-5);
-  border-top: 1px solid var(--hair);
-}
-
-.home-share .share-panel__download-title {
+.home-share .share-assets__title {
   margin-bottom: var(--space-5);
   font-family: var(--font-serif);
   font-size: clamp(1.6rem, 2.4vw, 2.15rem);
@@ -2592,24 +2893,104 @@ html:lang(sv) .home-stats .stat:nth-child(2) .stat__value {
   line-height: 1.1;
 }
 
-.home-share .share-panel__downloads ul {
+.home-share .share-assets__list {
   grid-template-columns: minmax(0, 1fr);
   gap: var(--grid-gap);
-  align-items: start;
+  /* Overrides the shared `align-items: start` so the items stretch to a common
+     height — without it `margin-top: auto` on the link cannot bottom-align the
+     three download rows, and they sit at three different heights. */
+  align-items: stretch;
 }
 
 @media (min-width: 701px) {
-  .home-share .share-panel__downloads ul {
-    grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr);
+  .home-share .share-assets__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* Each frame keeps its true ratio at the column width. Only the 9:16 story
+     is capped — at full column width it would stand roughly twice as tall as
+     the other two and drag the whole row down with it. */
+  .home-share .campaign-image-slot--share-story {
+    max-width: 190px;
   }
 }
 
-.home-share .share-panel__asset-preview {
+/* The three-across row only has ~230px per column until the shell reaches its
+   full width, and the name and format need ~250px to share a line. Below that
+   the name broke across two lines while the format kept one, so the three
+   download rules — which are meant to sit on a single baseline — landed at
+   three different heights. Same two-line record as the phone rows until the
+   columns are genuinely wide enough for the spread. */
+@media (min-width: 701px) and (max-width: 1023px) {
+  .home-share .share-assets__link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+}
+
+.home-share .share-assets__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-share .share-assets__preview {
   margin-bottom: var(--space-4);
 }
 
-.home-share .share-panel__downloads a {
+.home-share .share-assets__link {
+  margin-top: auto;
   padding-block: var(--space-4);
+}
+
+/* On one column the same full-width frames become three poster-sized empty
+   fields — the 9:16 story alone stands 622px tall — and the kit that carries
+   the campaign's stated conversion arrives as ~1150px of scroll. A phone reads
+   this as a downloads index, so each export becomes one record: the frame at
+   its true ratio in a fixed left track, the name and format beside it. Nothing
+   is dropped; the frame's caption only repeated the row's own label. */
+@media (max-width: 700px) {
+  .home-share .share-assets__list {
+    gap: 0;
+  }
+
+  .home-share .share-assets__item {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    column-gap: var(--space-5);
+    align-items: center;
+    border-top: 1px solid var(--hair);
+  }
+
+  .home-share .share-assets__preview {
+    width: 100%;
+    margin-block: var(--space-4);
+    justify-self: center;
+  }
+
+  /* Capped exactly as the wide row caps it, and for the same reason: at the
+     track width the 9:16 story would stand twice as tall as the other two. */
+  .home-share .campaign-image-slot--share-story {
+    width: 60px;
+  }
+
+  .home-share .campaign-image-slot__label {
+    display: none;
+  }
+
+  /* Name over format, always two lines. Set side by side they fit for
+     "Liggande bild" and break for "Kvadratisk bild", so the three records
+     would sit on three different rhythms in the same list. */
+  .home-share .share-assets__link {
+    margin-top: 0;
+    min-height: 44px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2px;
+    padding-block: var(--space-2);
+    border-top: 0;
+  }
 }
 
 .press-card,
@@ -2666,5 +3047,14 @@ html:lang(sv) .home-stats .stat:nth-child(2) .stat__value {
 
   .home-share .block-head .lead {
     margin-top: var(--space-5);
+  }
+
+  /* Two chapter-scale paddings meet here. On a wide screen the pair reads as a
+     deliberate change of subject; on a phone it is 160px — nearly half a
+     screen — of nothing between the minister's quote and the questions it
+     failed to answer. The quote closes on the tighter interval and the
+     questions chapter keeps its full opening. */
+  .home-quote {
+    padding-bottom: var(--section-tight);
   }
 }

@@ -36,7 +36,10 @@ src/
     site-header.tsx   nav + language toggle
     site-footer.tsx
     press-section.tsx photographic press grid (Home)
-    share-panel.tsx   native share, copy-link fallback, asset downloads
+    share-panel.tsx   full kit (server): actions + asset downloads
+    share-actions.tsx the only client island — LinkedIn, copy, native share
+    share-assets.tsx  download list (server)
+    share-cta.tsx     compact terminal CTA reused across routes
     data-flow.tsx     reported Acus data relationship
     ui.tsx            Cites, SectionHead, ClaimList, Section, PageHero
     reveal.tsx        one-shot fade-in on first scroll into view
@@ -51,7 +54,17 @@ src/
 ```
 
 Downloadable social images and their editable SVG sources live in
-`public/share/`. OpenGraph and Twitter metadata use the 1200 × 630 PNGs.
+`public/share/`: 1200 × 630, 1080 × 1080 and 1080 × 1920 (Instagram/TikTok
+story) in each language. OpenGraph and Twitter metadata use the 1200 × 630 PNGs
+only — a 9:16 image in `openGraph.images` gets picked as the card by some
+platforms and renders as a tall sliver.
+
+The SVGs are the source of truth; the PNGs are committed build artifacts.
+Re-render them with `npm run assets` (needs `rsvg-convert`, e.g.
+`brew install librsvg`). It is deliberately **not** part of `npm run build`, so
+CI never depends on a Homebrew formula. The domain is isolated in a single
+`<text id="domain">` node per file — it is still undecided (CONTENT.md §4), so
+a change is one line per file plus a re-render.
 
 ## Editing copy
 

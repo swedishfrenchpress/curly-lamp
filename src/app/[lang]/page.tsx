@@ -71,8 +71,23 @@ export default async function HomePage({
         <div className="shell">
           <Reveal immediate className="home-hero__grid">
             <h1 className="display">{home.hero.title}</h1>
+            {/* Read first, share second: most arrivals here came *from* a
+                share and need the argument before they can pass it on. */}
             <div className="home-hero__intro">
               <p className="hero__lead">{home.hero.lead}</p>
+              <div className="hero__actions">
+                <Link
+                  href={path(lang, home.questionsCta.route)}
+                  className="btn btn--primary"
+                >
+                  {home.questionsCta.label}
+                </Link>
+                {/* A jump to the share section, not a second copy control —
+                    hence the nav label rather than the action label. */}
+                <Link href="#share" className="btn btn--ghost">
+                  {dict.nav.shareLink.label}
+                </Link>
+              </div>
             </div>
             <figure className="home-hero__art home-hero__media">
               <Image
@@ -212,14 +227,10 @@ export default async function HomePage({
       >
         <div className="editorial-grid">
           <Reveal className="editorial-grid__rail">
-            <SectionHead block={home.share} />
+            <SectionHead block={dict.share} />
           </Reveal>
           <Reveal className="editorial-grid__body">
-            <SharePanel
-              block={home.share}
-              lang={lang}
-              siteName={dict.site.name}
-            />
+            <SharePanel block={dict.share} lang={lang} />
           </Reveal>
         </div>
       </Section>
