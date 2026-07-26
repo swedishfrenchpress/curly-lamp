@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import CampaignImageSlot from "@/components/campaign-image-slot";
 import Reveal from "@/components/reveal";
 import {
   ClaimList,
@@ -32,7 +33,17 @@ export default async function KnownPage({
 
   return (
     <>
-      <PageHero block={known.hero} variant="known" />
+      <PageHero
+        block={known.hero}
+        variant="known"
+        media={
+          <CampaignImageSlot
+            kind="known"
+            lang={lang}
+            className="page-hero__art"
+          />
+        }
+      />
 
       <Section>
         <div className="known-register">

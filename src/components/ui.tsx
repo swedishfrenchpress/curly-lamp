@@ -13,19 +13,21 @@ export function Cites({ ids, label }: { ids?: SourceId[]; label: string }) {
   return (
     <p className="cites">
       <span className="cites__label">{label}</span>
-      {ids.map((id) => {
-        const source = SOURCES[id];
-        return (
-          <a
-            key={id}
-            href={source.url}
-            className="cite"
-            title={source.title}
-          >
-            {source.publisher}
-          </a>
-        );
-      })}
+      <span className="cites__links">
+        {ids.map((id) => {
+          const source = SOURCES[id];
+          return (
+            <a
+              key={id}
+              href={source.url}
+              className="cite"
+              title={source.title}
+            >
+              {source.publisher}
+            </a>
+          );
+        })}
+      </span>
     </p>
   );
 }
@@ -88,17 +90,20 @@ export function Section({
   size = "default",
   id,
   narrow = false,
+  className = "",
 }: {
   children: ReactNode;
   variant?: "band" | "panel";
   size?: "default" | "tight" | "air";
   id?: string;
   narrow?: boolean;
+  className?: string;
 }) {
   const classes = [
     "section",
     size !== "default" ? `section--${size}` : "",
     variant ? `section--${variant}` : "",
+    className,
   ]
     .filter(Boolean)
     .join(" ");

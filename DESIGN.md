@@ -2,42 +2,87 @@
 name: "Vem svarar för Acus?"
 description: "An evidence-led public record of unanswered questions about Palantir and Swedish policing."
 colors:
-  paper: "#f7fafc"
-  card: "#ffffff"
-  band: "#edf4f7"
-  chalk: "#e3edf2"
-  hair: "#c8d8e0"
-  ghost: "#8aa4b0"
-  faint: "#587482"
-  muted: "#4d6877"
-  body: "#294857"
-  ink: "#0e2d3d"
-  panel: "#0d3044"
-  panel-fg: "#f5fafc"
-  flag: "#126886"
+  paper: "#f5efe6"
+  card: "#fbf8f2"
+  band: "#eee6dc"
+  chalk: "#e6ddd2"
+  hair: "#d5c8bb"
+  ghost: "#77675d"
+  faint: "#725f54"
+  muted: "#5d5048"
+  body: "#3d3632"
+  ink: "#101829"
+  ink-hover: "#263148"
+  on-ink: "#fffaf4"
+  edge: "#1e6578"
+  panel: "#111827"
+  panel-hair: "#384052"
+  panel-fg: "#f8f2e9"
+  panel-muted: "#c9c0b5"
+  flag: "#1e6578"
+  flag-wash: "#dcebea"
+  wash: "#ebe2d8"
+  wash-strong: "#dfd4c8"
+  image-placeholder: "#d8cdbf"
+  image-placeholder-ink: "#493f39"
+  ambient-ground: "#e9e6e6"
+  ambient-night: "#07131a"
+  ambient-gold: "rgba(255, 180, 19, 0.78)"
+  ambient-pink: "rgba(255, 105, 153, 0.46)"
+  ambient-violet: "rgba(188, 143, 224, 0.2)"
+  ambient-shadow: "rgba(74, 43, 31, 0.11)"
+  ambient-night-gold: "rgba(163, 91, 9, 0.42)"
+  ambient-night-pink: "rgba(145, 41, 88, 0.28)"
+  artwork-blue: "#b8d9df"
+  artwork-rose: "#d9aeba"
+  artwork-teal: "#7cb7c7"
+  artwork-gold: "rgba(255, 185, 8, 0.92)"
+  artwork-cyan: "rgba(57, 177, 214, 0.82)"
+  artwork-pink: "rgba(242, 120, 158, 0.72)"
+  artwork-paper: "rgba(245, 239, 230, 0.76)"
+  artwork-ink: "rgba(16, 24, 41, 0.2)"
+  decor-gold: "rgba(255, 181, 0, 0.52)"
+  decor-pink: "rgba(226, 107, 151, 0.32)"
   dark-paper: "#071820"
   dark-card: "#0c222e"
   dark-ink: "#f4f9fb"
   dark-flag: "#67c6e6"
 typography:
   display:
-    fontFamily: "Geist Sans, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(2.5rem, 6.4vw, 5rem)"
-    fontWeight: 600
-    lineHeight: 1.02
-    letterSpacing: "-0.03em"
+    fontFamily: "Baskerville, Libre Baskerville, Georgia, serif"
+    fontSize: "clamp(3.25rem, 6.5vw, 5.65rem)"
+    fontWeight: 400
+    lineHeight: 0.96
+    letterSpacing: "-0.038em"
   headline:
-    fontFamily: "Geist Sans, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(1.75rem, 3.4vw, 2.75rem)"
-    fontWeight: 600
+    fontFamily: "Baskerville, Libre Baskerville, Georgia, serif"
+    fontSize: "clamp(2.25rem, 4.4vw, 3.8rem)"
+    fontWeight: 400
+    lineHeight: 0.99
+    letterSpacing: "-0.035em"
+  home-chapter:
+    fontFamily: "Baskerville, Libre Baskerville, Georgia, serif"
+    fontSize: "clamp(2.5rem, 4vw, 3.35rem)"
+    fontWeight: 400
+    lineHeight: 1.02
+    letterSpacing: "-0.032em"
+  scope:
+    fontFamily: "Baskerville, Libre Baskerville, Georgia, serif"
+    fontSize: "clamp(2.5rem, 4vw, 3.45rem)"
+    fontWeight: 400
+    lineHeight: 1.03
+    letterSpacing: "-0.032em"
+  download-title:
+    fontFamily: "Baskerville, Libre Baskerville, Georgia, serif"
+    fontSize: "clamp(1.6rem, 2.4vw, 2.15rem)"
+    fontWeight: 400
     lineHeight: 1.1
-    letterSpacing: "-0.02em"
   footer-wordmark:
-    fontFamily: "Geist Sans, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(1.375rem, 2.6vw, 2rem)"
-    fontWeight: 600
-    lineHeight: 1.2
-    letterSpacing: "-0.025em"
+    fontFamily: "Baskerville, Libre Baskerville, Georgia, serif"
+    fontSize: "clamp(3rem, 6.4vw, 5.65rem)"
+    fontWeight: 400
+    lineHeight: 0.94
+    letterSpacing: "-0.04em"
   body:
     fontFamily: "Geist Sans, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1rem"
@@ -64,25 +109,30 @@ typography:
     fontWeight: 400
     lineHeight: 1.55
   title:
+    fontFamily: "Baskerville, Libre Baskerville, Georgia, serif"
+    fontSize: "clamp(1.4rem, 2.1vw, 1.85rem)"
+    fontWeight: 400
+    lineHeight: 1.12
+  small-title:
     fontFamily: "Geist Sans, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(1.125rem, 1.6vw, 1.375rem)"
+    fontSize: "1.125rem"
     fontWeight: 600
-    lineHeight: 1.3
+    lineHeight: 1.32
   question:
-    fontFamily: "Geist Sans, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(1.25rem, 2vw, 1.625rem)"
-    fontWeight: 600
-    lineHeight: 1.25
+    fontFamily: "Baskerville, Libre Baskerville, Georgia, serif"
+    fontSize: "clamp(1.65rem, 2.5vw, 2.35rem)"
+    fontWeight: 400
+    lineHeight: 1.08
   stat:
-    fontFamily: "Geist Sans, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(2.25rem, 3.6vw, 3rem)"
-    fontWeight: 600
+    fontFamily: "Baskerville, Libre Baskerville, Georgia, serif"
+    fontSize: "clamp(2.65rem, 3.1vw, 3.35rem)"
+    fontWeight: 400
     lineHeight: 1
   pullquote:
-    fontFamily: "Geist Sans, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(1.5rem, 3.2vw, 2.375rem)"
-    fontWeight: 500
-    lineHeight: 1.24
+    fontFamily: "Baskerville, Libre Baskerville, Georgia, serif"
+    fontSize: "clamp(2rem, 3.5vw, 3.25rem)"
+    fontWeight: 400
+    lineHeight: 1.06
   step-title:
     fontFamily: "Geist Sans, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1.25rem"
@@ -106,7 +156,10 @@ typography:
     lineHeight: 1.5
 rounded:
   focus: "1px"
-  press-card: "4px"
+  control: "0px"
+  utility: "4px"
+  press-card: "0px"
+  artwork: "0px"
 spacing:
   control: "13px 22px"
   shell-x: "clamp(20px, 5vw, 80px)"
@@ -123,7 +176,7 @@ components:
     textColor: "{colors.ink}"
     padding: "{spacing.control}"
   question-flag:
-    backgroundColor: "#dceef4"
+    backgroundColor: "{colors.flag-wash}"
     textColor: "{colors.flag}"
     padding: "5px 10px"
   press-card:
@@ -137,53 +190,53 @@ components:
 
 ## Overview
 
-**Creative North Star: "The Public Record"**
+**Creative North Star: "The Public Record, Reframed"**
 
-This is a calm, evidentiary campaign system: closer to a public hearing wall than a political poster. A recurring 12-column evidence grid, carefully limited type scale, source-level metadata, and structural hairlines make claims easy to locate and check. A North Sea blue palette adds trust and approachability without softening the central questions.
+This is a calm, evidentiary campaign system presented as one bounded editorial publication rather than a political poster or a software product. A warm paper plane, old-style serif chapter type, source-level metadata, and structural hairlines make claims easy to locate and check. Beyond that paper plane, a restrained gold, rose, and violet atmosphere gives the campaign a memorable visual edge without entering the evidence itself.
 
-Light and dark schemes are equal reading modes, while the deep-blue panel is an intentional editorial interruption used to bind related evidence into one argument. On mobile, the same system becomes a single readable column; desktop adds structure, never density.
+The home hero is the sole centered composition: one large public question, one compact explanatory deck, no CTA, and one wide artwork field. The evidence that follows returns to the recurring 12-column grid. Light and dark schemes remain equal reading modes, while the Night Record panel is the decisive editorial interruption used to bind related evidence into one argument.
 
 **Key Characteristics:**
 
 - Documentary, sober, and legible rather than party-political or sensational.
 - Structural lines and whitespace establish order; cards are rows in a record, not floating containers.
-- Asymmetric thesis, evidence-register, and interruption layouts create rhythm without decorative flourishes.
-- One clear sky-blue signal marks an unanswered question, a disputed status, or the current political state.
+- The centered home opening gives way to asymmetric evidence registers and editorial interruptions.
+- One civic teal signal marks an unanswered question, a disputed status, or the current political state.
 - Source labels and dates use mono as indexing metadata, never as decorative "tech" styling.
 - Press coverage uses a static photographic grid with the publisher's SVG mark, complete titles and summaries, and a direct article link.
 
 ## Colors
 
-The palette is a restrained family of blue-tinted neutrals. Deep blue establishes authority, mist surfaces add warmth, and a clearer signal blue identifies unresolved states.
+The publication uses warm paper, midnight ink, and civic teal. Gold, rose, and violet exist only in the atmospheric field, supplied campaign artwork, and remaining artwork placeholders; they never color evidence text or factual status.
 
 ### Primary
 
-- **Civic Signal Blue:** Reserved for open questions, direct actions, focus states, and the current political timeline state.
+- **Civic Signal Teal:** Reserved for open questions, direct actions, focus states, and the current political timeline state.
 
 ### Neutral
 
-- **Mist Paper:** The lightly blue-tinted default reading surface.
-- **Band and Chalk:** Blue-mist alternate section and panel grounds that separate long-form material without card clutter.
-- **Harbour Ink and Body:** Deep blue headings and softened blue-gray prose preserve a clear editorial hierarchy.
-- **Hairline and Metadata Blues:** Structural rules, underlines, citations, and tertiary metadata.
+- **Editorial Paper:** The warm default reading surface and the bounded publication canvas.
+- **Band and Chalk:** Tonal paper surfaces that separate long-form material without card clutter.
+- **Midnight Ink and Body:** Near-navy headings and warm charcoal prose preserve a clear editorial hierarchy.
+- **Hairline and Metadata Neutrals:** Structural rules, underlines, citations, and tertiary metadata.
 - **Night Record:** The fixed deep-blue showcase surface is used for contained editorial arguments in both schemes.
 
-**The Calm Signal Rule.** Stronger blue communicates action or unresolved state without performing alarm. It may be used for links and focus, but never as decorative noise.
+**The Calm Signal Rule.** Stronger teal communicates action or unresolved state without performing alarm. It may be used for links and focus, but never as decorative noise.
 
 **The Scheme Parity Rule.** Respect OS preference by default; the explicit theme switch overrides it. Dark mode changes the reading ground and preserves contrast, but it does not introduce a second visual identity.
 
 ## Typography
 
-**Display Font:** Geist Sans (with system sans fallbacks)
+**Display Font:** Baskerville (with Libre Baskerville and Georgia fallbacks)
 **Body Font:** Geist Sans (with system sans fallbacks)
 **Label/Mono Font:** Geist Mono (with system monospace fallbacks)
 
-**Character:** Geist Sans keeps the argument direct and contemporary; Geist Mono functions like a filing system for dates, sources, statuses, and compact navigation tools. The pair reads as public documentation, not product marketing.
+**Character:** The old-style serif turns public questions into editorial statements without making them sensational. Geist Sans keeps explanatory copy direct and contemporary; Geist Mono functions like a filing system for dates, sources, statuses, and compact navigation tools.
 
 ### Hierarchy
 
 - **Display:** Reserved for page-level questions and major hero statements; balanced wrapping is required.
-- **Route Display:** Standard route heroes reuse the core `clamp(2.5rem, 6.4vw, 5rem)` display step; wider shared columns and compact vertical composition prevent isolated-word stacks.
+- **Route Display:** Standard route heroes reuse the core `clamp(3.25rem, 6.5vw, 5.65rem)` serif display step; wider shared columns and compact vertical composition prevent isolated-word stacks.
 - **Closing Statement:** The footer question deliberately reuses the same display step at full visual authority.
 - **Headline:** Used for section arguments; balanced wrapping, with tight but readable tracking.
 - **Title:** Used for local claims, questions, timeline entries, and cards at roughly 1–1.375rem; keep it semibold and compact.
@@ -197,26 +250,28 @@ The palette is a restrained family of blue-tinted neutrals. Deep blue establishe
 
 ## Elevation
 
-The system is flat by default. Depth comes from alternating blue-tinted grounds, 1px hairlines, and the fixed deep-blue panel—not drop shadows. The only translucent layer is the sticky header, where a restrained blur preserves reading context while scrolling.
+The publication is flat by default. Depth comes from alternating paper grounds, 1px hairlines, and the fixed Night Record panel—not floating card shadows. One soft ambient shadow separates the complete paper canvas from the atmospheric outer field on wide screens; it never appears on an individual content component.
 
 **The Line-Not-Shadow Rule.** Separate information with a hairline or a tonal surface. Do not add shadows to cards, lists, buttons, or notices.
 
 ### Corner radius
 
-- **Control — 4px:** Buttons, utility controls, state flags, compact status labels, and photo credits.
-- **Frame — 8px:** Bounded multi-part surfaces such as press cards, exchanges, data maps, notices, and the Night Record step group.
-- **Artwork — 12px:** Campaign artwork, share-image previews, and the documentary portrait.
-- Full-width sections, the header and footer, chronology rows, evidence registers, source lists, and structural hairlines remain square. The radius system softens touchpoints and imagery; it does not turn the site into a card interface.
+- **Structural — 0px:** Buttons, content frames, press cards, artwork, data maps, notices, the Night Record steps, and evidence registers are square.
+- **Utility — 4px:** Compact theme, language, and status controls may retain a slight radius where it improves touch affordance.
+- Full-width sections, the header and footer, chronology rows, source lists, and structural hairlines always remain square.
 
 ## Layout
 
 The desktop shell uses a recurring 12-column grid with a fluid 24–40px gutter. It collapses to one reading column below 840px.
+
+The responsive system is content-driven: one reading column on phones, selective two-column registers on tablets, and the complete 12-column publication grid on desktop. All viewport edges respect device safe areas, including landscape notches and the mobile home indicator.
 
 ### Core compositions
 
 - **Thesis:** A large page title occupies columns 1–7 and its lead occupies columns 9–12 on the same lower baseline. Standard route heroes share this structure; content does not earn a different grid merely by being on a different route.
 - **Evidence register:** Section title and context occupy columns 1–4; claims, questions, or prose occupy columns 5–12.
 - **Interruption:** A decisive element such as the Strömmer portrait, scope statement, or Night Record panel spans the shell or deliberately breaks the normal alignment.
+- **Night Record:** Keep the argument in columns 1–4 and place its explanation and three evidence records in columns 5–12. Stack unequal records vertically so dates, claims, and citations remain compact and no column is padded to match another.
 
 ### Spacing
 
@@ -232,14 +287,14 @@ The desktop shell uses a recurring 12-column grid with a fluid 24–40px gutter.
 ### Buttons
 
 - **Character:** Direct document actions, never glossy campaign CTAs.
-- **Shape:** A restrained 4px radius softens the control without making it pill-shaped.
+- **Shape:** Square, document-like controls with a 1px border when outlined.
 - **Primary:** Ink ground with on-ink text, 12px 24px padding, and a 44px minimum touch target.
 - **Ghost:** Transparent ground with a hairline border; hover adds a subtle neutral wash.
 - **Hover / Focus:** Colour and border changes take 140ms. Keyboard focus uses a 2px edge-colour outline with 3px offset.
 
 ### Citation Links
 
-- **Style:** Small mono publisher names with a hairline underline, grouped after a source label.
+- **Style:** A small mono source label sits on its own line above a wrapped row of publisher links with hairline underlines.
 - **State:** Hover strengthens text and underline toward ink; links remain named, never numeric brackets.
 
 ### Claim and Question Rows
@@ -257,43 +312,46 @@ The desktop shell uses a recurring 12-column grid with a fluid 24–40px gutter.
 ### Pull Quote
 
 - **Layout:** Pair the minister's quotation with the corresponding documentary portrait in two columns from 820px; stack them into one readable column below that.
-- **Image:** Show the supplied photograph at its natural 3:2 ratio without cropping, inside the 12px artwork radius. A hairline is enough—do not turn it into a floating card.
+- **Image:** Show the supplied photograph at its natural 3:2 ratio without cropping, inside a square hairline frame. Do not turn it into a floating card.
 - **Hierarchy:** The quotation remains the dominant element, with attribution, source context, and citation kept together.
 
 ### Navigation
 
-- **Style:** A 68px sticky, translucent header with a hairline bottom border. The brand mark is a 7px signal-blue square, used once at the site level.
-- **Responsive behavior:** Desktop links appear from 940px; below that, the menu expands through a grid-row transition. The language and theme controls remain compact mono icon buttons.
+- **Style:** A 60px sticky, translucent header with a hairline bottom border and an unadorned campaign title. The narrow-phone masthead expands to 88px for its second utility row.
+- **Responsive behavior:** Desktop links appear from 940px; below that, the menu expands through a grid-row transition. The language switch shows the destination flag and language code. On narrow phones, the utility controls move to a second masthead row so the campaign name never collides with them.
 - **State and ergonomics:** Every utility control is at least 44px square. The current desktop route gets a signal-blue underline; the mobile route gets a colour and weight change.
 
 ### Route Heroes
 
-- **Standard:** Timeline, Acus, Known, and About share one compact hero grid with no forced minimum height. Use role-based top and bottom padding instead.
-- **Type:** Route display copy uses the established display step in a wider seven-column field so ordinary phrases form two or three deliberate lines instead of stacks of isolated words.
-- **Exception:** Questions may reserve columns 8–12 for its poster artwork; the exception is earned by real media, not by arbitrary title alignment.
+- **Standard:** Every section page uses the same thesis composition: title in columns 1–7 at the upper edge and its explanatory lead in columns 1–6 at the lower edge.
+- **Rhythm:** The desktop composition keeps a fluid 500–560px internal height so each route opens with the same deliberate title-to-description interval. Mobile removes the forced height and stacks naturally.
+- **Media:** Every section-page hero reserves columns 8–12 for a portrait campaign artwork. Until final artwork is supplied, a localized 4:5 placeholder preserves the intended composition and export size.
+- **Type:** Route display copy uses the established display step with an 11ch maximum so ordinary phrases form deliberate lines instead of spanning the page.
 
 ### Press Cards
 
 - **Shape:** Auto-height records with restrained 8px frame corners; never force text into a square.
 - **Media:** The article photograph uses a consistent 16:9 crop; apply only a faint blue wash so it remains recognisable, and retain its visible photo credit.
 - **Publisher:** Use the approved SVG wordmark above the article title and date.
-- **Home:** Render every journalism source in a compact static register after the campaign argument. Thumbnails support scanning without turning press coverage into the first act.
+- **Home:** Render every journalism source in the same photographic grid used by About, after the campaign argument. Shared imagery, publisher marks, metadata, complete summaries, and article links make both press sections read as one system.
 - **About:** Render the complete photographic archive as an art-directed 7/5 lead row followed by three equal records, with title, description, publication language, date, SVG publisher mark, and photo credit.
+- **Responsive behavior:** Use one card per row through 620px, a two-column tablet grid with the lead story spanning both columns through 1023px, and the complete 7/5 plus three-card arrangement above it. Publisher and date metadata may wrap rather than collide.
 - **Copy:** Titles and summaries remain complete at every viewport; the whole card links out, with a plain underlined article label and no arrow.
 
 ### Share Panel
 
 - **Action:** The primary action invokes the platform share sheet when available and falls back to copying the canonical campaign link.
 - **Assets:** Preview the two future campaign exports as labeled gray frames: 1200 × 630 and 1080 × 1080. Preserve those dimensions when the final PNGs and source SVGs replace them.
+- **Layout:** The introduction and controls occupy their own rows. Both asset previews then share one full-width row at a 1.7/1 proportion and stack only on narrow screens.
 - **Privacy:** Sharing is entirely local to the browser. Do not add a petition, form, analytics event, or contact route.
 
 ### Campaign Artwork Slots
 
-- **Home key artwork:** Portrait 4:5 at 1600 × 2000px. It occupies columns 8–12 beside the campaign question and stacks after the introduction on mobile.
+- **Home key artwork:** The supplied wide 9:5 artwork at 1800 × 1000px spans the home reading field beneath the centered campaign question and compact deck at every viewport. Preserve the complete composition without cropping.
 - **Acus explainer:** Landscape 3:2 at 1800 × 1200px. It sits in the eight-column evidence field above the reported data map.
-- **Questions poster:** Portrait 4:5 at 1600 × 2000px. It occupies columns 8–12 beside the page argument and stacks below the lead on mobile.
-- **Placeholder treatment:** Use a neutral gray surface, one hairline, the 12px artwork radius, and a centered localized label with export dimensions. No icon, dashed border, decorative cross, or uppercase tracked placeholder copy.
-- **Restraint:** Do not add campaign placeholders to Known, Timeline, or About. Their registers, chronology, and real press photography already provide the visual structure.
+- **Section-page posters:** Known, Timeline, Acus, Questions, and About each reserve a portrait 4:5 field at 1600 × 2000px. It occupies columns 8–12 beside the page argument and stacks below the lead on mobile.
+- **Placeholder treatment:** For artwork that has not yet been supplied, use one square hairline frame, a neutral preview surface, and a centered localized label with export dimensions. No icon, dashed border, or uppercase tracked placeholder copy.
+- **Restraint:** Keep remaining placeholders in the route heroes, Acus explainer, and social exports. Do not scatter additional decorative image slots through the evidence registers.
 
 ### Evidence Registers
 
@@ -351,4 +409,4 @@ The desktop shell uses a recurring 12-column grid with a fluid 24–40px gutter.
 - **Don't** use eyebrow labels, decorative 01/02/03 numbering, or arrows as default interface decoration.
 - **Don't** stack two full section paddings between adjacent modules or use empty space as a substitute for composition.
 - **Don't** default unrelated content to equal-width compartments.
-- **Don't** add image placeholders to every page or interrupt evidence registers with decorative artwork.
+- **Don't** add placeholders beyond the defined hero, Acus explainer, and social-export slots or interrupt evidence registers with decorative artwork.

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import CampaignImageSlot from "@/components/campaign-image-slot";
 import Reveal from "@/components/reveal";
 import PressSection from "@/components/press-section";
 import SharePanel from "@/components/share-panel";
@@ -74,28 +73,26 @@ export default async function HomePage({
             <h1 className="display">{home.hero.title}</h1>
             <div className="home-hero__intro">
               <p className="hero__lead">{home.hero.lead}</p>
-              <div className="hero__actions">
-                <a href={home.hero.primaryCta.href} className="btn btn--primary">
-                  {home.hero.primaryCta.label}
-                </a>
-                <Link
-                  href={path(lang, home.hero.secondaryCta.route)}
-                  className="btn btn--ghost"
-                >
-                  {home.hero.secondaryCta.label}
-                </Link>
-              </div>
             </div>
-            <CampaignImageSlot
-              kind="home"
-              lang={lang}
-              className="home-hero__art"
-            />
+            <figure className="home-hero__art home-hero__media">
+              <Image
+                src="/campaign/home-hero.png"
+                alt={
+                  lang === "sv"
+                    ? "Övervakningskamera mot ett gult raster med en suddig person i bakgrunden"
+                    : "Surveillance camera against a yellow halftone field with a blurred person in the background"
+                }
+                width={1800}
+                height={1000}
+                sizes="(max-width: 1320px) 90vw, 1020px"
+                priority
+              />
+            </figure>
           </Reveal>
         </div>
       </div>
 
-      <Section variant="band">
+      <Section variant="band" className="home-stats">
         <div className="editorial-grid stats-layout">
           <Reveal className="editorial-grid__rail">
             <SectionHead block={home.statsBlock} />
@@ -115,7 +112,7 @@ export default async function HomePage({
 
       {/* The minister's own words, unedited. No commentary around them —
           the gap between the question and the answer is self-evident. */}
-      <Section size="air">
+      <Section size="air" className="home-quote">
         <Reveal className="pullquote">
           <div className="pullquote__copy">
             <blockquote className="pullquote__text">
@@ -135,13 +132,13 @@ export default async function HomePage({
               }
               width={860}
               height={573}
-              sizes="(max-width: 800px) calc(100vw - 40px), 42vw"
+              sizes="(max-width: 819px) calc(100vw - 40px), (max-width: 1100px) 42vw, 430px"
             />
           </figure>
         </Reveal>
       </Section>
 
-      <Section variant="band">
+      <Section variant="band" className="home-questions">
         <div className="editorial-grid">
           <Reveal className="editorial-grid__rail">
             <SectionHead block={home.questionsBlock} />
@@ -170,30 +167,30 @@ export default async function HomePage({
 
       {/* Three policy threads on one dark panel, because the argument is that
           they are one thing. Separating them visually would concede the point. */}
-      <Section variant="panel" size="air">
+      <Section variant="panel" size="air" className="home-convergence">
         <div className="editorial-grid">
           <Reveal className="editorial-grid__rail">
             <SectionHead block={home.convergence} />
           </Reveal>
-          <Reveal className="editorial-grid__body">
+          <Reveal className="editorial-grid__body convergence__body">
             <p className="convergence__closing">
               {home.convergence.closing}
             </p>
+            <div className="steps">
+              {home.convergence.steps.map((step) => (
+                <Reveal key={step.title} className="step">
+                  <p className="step__label">{step.label}</p>
+                  <h3 className="step__title">{step.title}</h3>
+                  <p className="step__body">{step.body}</p>
+                  <Cites ids={step.cite} label={ui.sources} />
+                </Reveal>
+              ))}
+            </div>
           </Reveal>
-        </div>
-        <div className="steps">
-          {home.convergence.steps.map((step) => (
-            <Reveal key={step.title} className="step">
-              <p className="step__label">{step.label}</p>
-              <h3 className="step__title">{step.title}</h3>
-              <p className="step__body">{step.body}</p>
-              <Cites ids={step.cite} label={ui.sources} />
-            </Reveal>
-          ))}
         </div>
       </Section>
 
-      <Section size="tight">
+      <Section size="tight" className="home-record">
         <Reveal className="scope-statement editorial-grid">
           <div className="editorial-grid__rail">
             <SectionHead block={home.notWhat} />
@@ -203,11 +200,16 @@ export default async function HomePage({
           </div>
         </Reveal>
         <Reveal className="home-press">
-          <PressSection block={home.pressBlock} lang={lang} variant="compact" />
+          <PressSection block={home.pressBlock} lang={lang} />
         </Reveal>
       </Section>
 
-      <Section id="share" variant="band" size="tight">
+      <Section
+        id="share"
+        variant="band"
+        size="tight"
+        className="home-share"
+      >
         <div className="editorial-grid">
           <Reveal className="editorial-grid__rail">
             <SectionHead block={home.share} />

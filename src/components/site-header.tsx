@@ -48,7 +48,6 @@ export default function SiteHeader({ dict }: { dict: Dict }) {
       <div className="shell">
         <nav className="site-nav" aria-label={dict.nav.label}>
           <Link href={path(dict.lang, "home")} className="site-nav__brand">
-            <span className="site-nav__dot" aria-hidden="true" />
             <span>{dict.site.name}</span>
           </Link>
 
@@ -72,11 +71,16 @@ export default function SiteHeader({ dict }: { dict: Dict }) {
           <div className="site-nav__tools">
             <Link
               href={swapLang(pathname, next)}
-              className="icon-btn"
+              className="icon-btn lang-switch"
               hrefLang={next}
               lang={next}
+              aria-label={dict.nav.langSwitch}
+              title={dict.nav.langSwitch}
             >
-              {next === "en" ? "EN" : "SV"}
+              <span className="lang-switch__flag" aria-hidden="true">
+                {next === "en" ? "🇺🇸" : "🇸🇪"}
+              </span>
+              <span>{next === "en" ? "EN" : "SV"}</span>
             </Link>
             <ThemeToggle label={dict.nav.themeToggle} />
             <button

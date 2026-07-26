@@ -33,7 +33,17 @@ export default async function AcusPage({
 
   return (
     <>
-      <PageHero block={acus.hero} variant="acus" />
+      <PageHero
+        block={acus.hero}
+        variant="acus"
+        media={
+          <CampaignImageSlot
+            kind="acus-hero"
+            lang={lang}
+            className="page-hero__art"
+          />
+        }
+      />
 
       <Section>
         <div className="article-register">
