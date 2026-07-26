@@ -5,7 +5,7 @@ import type { Dict } from "./types";
  * to Swedish voters, journalists and riksdagsledamöter. The English dictionary
  * is a faithful translation of this one, not a separate argument.
  *
- * Copy rules, applied throughout and stated publicly on /about:
+ * Copy rules, applied throughout:
  *  - Reporting is attributed ("enligt Dagens ETC:s granskning"), never asserted.
  *  - The government's own words do the work. We do not characterise them.
  *  - Where we do not know something, we say we do not know it. The gaps are
@@ -31,7 +31,6 @@ const sv: Dict = {
       { route: "timeline", label: "Tidslinje" },
       { route: "acus", label: "Vad är Acus?" },
       { route: "questions", label: "Frågorna" },
-      { route: "about", label: "Om sidan" },
     ],
     langSwitch: "Byt till engelska",
     skipToContent: "Hoppa till innehåll",
@@ -143,8 +142,6 @@ const sv: Dict = {
       copiedLabel: "Länken är kopierad",
       errorLabel: "Länken kunde inte kopieras. Kopiera den från webbläsaren i stället.",
       downloadLabel: "Ladda ner kampanjbilder",
-      sourceLabel: "Se alla källor",
-      sourceRoute: "about",
       shareText:
         "Vem svarar för Acus? Riksdagen har frågat om polisens analysplattform, men grundläggande frågor är fortfarande obesvarade.",
       assets: [
@@ -489,15 +486,6 @@ const sv: Dict = {
         "Detta är en karta över det rapporterade datasambandet, inte ett tekniskt schema över den svenska installationen.",
       cite: ["realtid", "gp"],
     },
-
-    caveat: {
-      title: "Vad den här sidan inte är",
-      body: [
-        "Avsnitten om vad Palantirs plattform generellt gör bygger på företagets egna produktbeskrivningar och på offentlig dokumentation från andra länder där systemet använts. De beskriver inte nödvändigtvis den svenska installationen.",
-        "Acus kan vara betydligt mer begränsat än den bredare plattformen. Ingen offentlig beskrivning visar om det är så.",
-        "En fördjupad genomgång av Palantirs produktportfölj, av vilka spärrar företaget uppger att det bygger in, och av vilka svenska och europeiska leverantörer som hade kunnat leverera motsvarande funktion pågår. Den publiceras här när den är färdig och källbelagd.",
-      ],
-    },
   },
 
   questions: {
@@ -643,70 +631,11 @@ const sv: Dict = {
     },
   },
 
-  about: {
-    meta: {
-      title: "Om sidan",
-      description:
-        "Vem som står bakom den här sidan, hur vi arbetar med källor, och hur du rättar oss.",
-    },
-    hero: {
-      title: "Om den här sidan",
-      lead: "Sidan följer de obesvarade frågorna om Acus och länkar varje påstående till det offentliga underlaget.",
-    },
-    sections: [
-      {
-        title: "Vad det här är",
-        body: [
-          "Vem svarar för Acus? är en fristående kampanj om öppenhet kring Polismyndighetens användning av analysplattformar från Palantir Technologies.",
-          "Vi driver inte kravet att systemet ska avvecklas. Vi driver kravet att det ska beskrivas: hur länge det använts, var datan lagras, hur det upphandlades, vad det gör och vem som har granskat det.",
-          "Om svaren visar sig vara oproblematiska är kampanjen över. Det vore ett bra utfall.",
-        ],
-      },
-      {
-        title: "Hur vi arbetar med källor",
-        body: [
-          "Publicerad journalistik attribueras till den redaktion som gjort arbetet. Vi skriver ”enligt granskningen”, inte ”det är bekräftat”, eftersom vi inte har verifierat den självständigt.",
-          "Riksdagens och regeringens dokument är primärkällor och länkas direkt, så att du kan läsa vad som faktiskt sades i stället för vår sammanfattning av det.",
-          "Där vi inte vet något skriver vi att vi inte vet det. Citat kontrolleras mot det länkade originalet före publicering.",
-        ],
-      },
-      {
-        title: "Rättelser",
-        body: [
-          "Rättelser publiceras öppet i stället för att göras i det tysta. Det gäller särskilt rättelser som lämnas genom offentliga uttalanden eller allmänna handlingar från Polismyndigheten eller Regeringskansliet.",
-          "Ett svar på någon av frågorna på den här sidan publicerar vi i sin helhet, i original.",
-        ],
-      },
-    ],
-
-    pressBlock: {
-      title: "I pressen",
-      lead: "Alla journalistiska artiklar som kampanjen hänvisar till, samlade på ett ställe.",
-    },
-
-    sourcesBlock: {
-      title: "Allt vi bygger på",
-      lead: "Journalistiken finns samlad ovan. Nedan listas varje offentlig källa och opinionskälla som kampanjen använder, med direktlänkar till originalen.",
-    },
-    kindLabels: {
-      primary: "Primärkälla",
-      reporting: "Journalistik",
-      advocacy: "Opinion",
-    },
-    kindNotes: {
-      primary: "Offentliga handlingar från riksdagen, regeringen eller en part själv.",
-      reporting:
-        "Journalistiskt arbete. Uppgifter härifrån attribueras alltid i löpande text.",
-      advocacy:
-        "Skrivet från en position. Redovisas för fullständighetens skull, används aldrig som ensam grund för ett påstående.",
-    },
-  },
-
   footer: {
     wordmark: "Vem svarar för Acus?",
     line: "Frågorna ställdes i november 2025. De är fortfarande obesvarade.",
     credit: "Ett initiativ från",
-    creditLink: { label: "NOTA Sverige", href: "https://nota.eu" },
+    creditLink: { label: "NOTA Sverige", href: "https://www.notechforapartheid.se/" },
     columns: [
       {
         title: "Läs",
@@ -718,10 +647,7 @@ const sv: Dict = {
       },
       {
         title: "Fördjupa",
-        items: [
-          { route: "questions", label: "Frågorna" },
-          { route: "about", label: "Om sidan" },
-        ],
+        items: [{ route: "questions", label: "Frågorna" }],
       },
     ],
     legal:

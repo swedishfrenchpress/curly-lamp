@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import CampaignImageSlot from "@/components/campaign-image-slot";
 import Reveal from "@/components/reveal";
 import { Cites, PageHero, Prose, Section } from "@/components/ui";
 import { getDict, isLang } from "@/content";
@@ -34,11 +34,20 @@ export default async function TimelinePage({
         block={timeline.hero}
         variant="timeline"
         media={
-          <CampaignImageSlot
-            kind="timeline"
-            lang={lang}
-            className="page-hero__art"
-          />
+          <figure className="campaign-image-slot campaign-image-slot--timeline page-hero__art">
+            <Image
+              src="/campaign/timeline-hero.jpg"
+              alt={
+                lang === "sv"
+                  ? "En rastrerad kalendersida med ett datum inringat för hand"
+                  : "A halftone-textured calendar page with one date circled by hand"
+              }
+              fill
+              style={{ objectFit: "cover" }}
+              sizes="(max-width: 839px) 90vw, 420px"
+              priority
+            />
+          </figure>
         }
       />
 

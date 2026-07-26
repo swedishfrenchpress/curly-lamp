@@ -10,9 +10,8 @@ footer only.
 
 Next.js 16 (App Router) · React 19 · Tailwind 4 · TypeScript · static export.
 
-No database, no analytics, no cookies, no third-party scripts. The only thing
-written to a visitor's browser is their light/dark preference. This is stated
-publicly on the About page and should stay true — see `src/app/[lang]/about/page.tsx`.
+No database, no analytics, no cookies, no third-party scripts, and nothing is
+written to a visitor's browser.
 
 ```bash
 npm install
@@ -36,7 +35,7 @@ src/
   components/
     site-header.tsx   nav + language toggle
     site-footer.tsx
-    press-section.tsx full About grid + compact Home register
+    press-section.tsx photographic press grid (Home)
     share-panel.tsx   native share, copy-link fallback, asset downloads
     data-flow.tsx     reported Acus data relationship
     ui.tsx            Cites, SectionHead, ClaimList, Section, PageHero
@@ -49,7 +48,6 @@ src/
     [lang]/timeline/
     [lang]/acus/          plain-language explainer
     [lang]/questions/     the five unanswered questions + open research + FOIA
-    [lang]/about/         method, press coverage, corrections, full source list
 ```
 
 Downloadable social images and their editable SVG sources live in

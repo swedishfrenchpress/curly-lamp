@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import CampaignImageSlot from "@/components/campaign-image-slot";
 import Reveal from "@/components/reveal";
@@ -37,11 +38,20 @@ export default async function AcusPage({
         block={acus.hero}
         variant="acus"
         media={
-          <CampaignImageSlot
-            kind="acus-hero"
-            lang={lang}
-            className="page-hero__art"
-          />
+          <figure className="campaign-image-slot campaign-image-slot--acus-hero page-hero__art">
+            <Image
+              src="/campaign/acus-hero.jpg"
+              alt={
+                lang === "sv"
+                  ? "En rastrerad bild av ett ansikte med flera rektangulära telefonramar överlagda, var och en med ett annat inzoomat utsnitt av samma ansikte"
+                  : "A halftone image of a face with several rectangular phone-shaped frames overlaid on it, each showing a different zoomed-in crop of the same face"
+              }
+              fill
+              style={{ objectFit: "cover" }}
+              sizes="(max-width: 839px) 90vw, 420px"
+              priority
+            />
+          </figure>
         }
       />
 
@@ -73,20 +83,6 @@ export default async function AcusPage({
             flow={acus.dataFlow}
             sourcesLabel={ui.sources}
           />
-        </Reveal>
-      </Section>
-
-      {/* Load-bearing disclaimer: the sections above describe the platform in
-          general, not the Swedish installation. Burying this would make the
-          page do exactly what we accuse the government of. */}
-      <Section size="tight">
-        <Reveal className="editorial-grid">
-          <div className="editorial-grid__rail">
-            <SectionHead block={acus.caveat} />
-          </div>
-          <div className="editorial-grid__body">
-            <Prose body={acus.caveat.body} />
-          </div>
         </Reveal>
       </Section>
     </>

@@ -121,7 +121,7 @@ export function PageHero({
   media,
 }: {
   block: Block;
-  variant?: "default" | "known" | "timeline" | "acus" | "questions" | "about";
+  variant?: "default" | "known" | "timeline" | "acus" | "questions";
   media?: ReactNode;
 }) {
   return (

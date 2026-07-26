@@ -1,7 +1,7 @@
 /**
  * Every factual claim on this site points at one of these.
  *
- * The rule (stated publicly on /about): we do not assert anything as
+ * The rule: we do not assert anything as
  * independently verified that we have not independently verified. Reporting is
  * attributed to the outlet that did it. Parliamentary documents are primary and
  * are linked directly, because the minister's non-answers are stronger read in
@@ -212,10 +212,6 @@ export const SOURCES = {
 export type SourceId = keyof typeof SOURCES;
 
 export const sourceList: Source[] = Object.values(SOURCES);
-
-export function sourcesOfKind(kind: SourceKind): Source[] {
-  return sourceList.filter((s) => s.kind === kind);
-}
 
 export type PressSource = Source &
   Required<

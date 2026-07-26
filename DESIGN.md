@@ -329,8 +329,7 @@ The responsive system is content-driven: one reading column on phones, selective
 - **Shape:** Auto-height records with restrained 8px frame corners; never force text into a square.
 - **Media:** The article photograph uses a consistent 16:9 crop; apply only a faint blue wash so it remains recognisable, and retain its visible photo credit.
 - **Publisher:** Use the approved SVG wordmark above the article title and date.
-- **Home:** Render every journalism source in the same photographic grid used by About, after the campaign argument. Shared imagery, publisher marks, metadata, complete summaries, and article links make both press sections read as one system.
-- **About:** Render the complete photographic archive as an art-directed 7/5 lead row followed by three equal records, with title, description, publication language, date, SVG publisher mark, and photo credit.
+- **Home:** Render every journalism source in an art-directed 7/5 lead row followed by three equal records, after the campaign argument, with title, description, publication language, date, SVG publisher mark, and photo credit.
 - **Responsive behavior:** Use one card per row through 620px, a two-column tablet grid with the lead story spanning both columns through 1023px, and the complete 7/5 plus three-card arrangement above it. Publisher and date metadata may wrap rather than collide.
 - **Copy:** Titles and summaries remain complete at every viewport; the whole card links out, with a plain underlined article label and no arrow.
 
@@ -345,17 +344,15 @@ The responsive system is content-driven: one reading column on phones, selective
 
 - **Home key artwork:** The supplied wide 9:5 artwork at 1800 × 1000px spans the home reading field beneath the centered campaign question and compact deck at every viewport. Preserve the complete composition without cropping.
 - **Acus explainer:** Landscape 3:2 at 1800 × 1200px. It sits in the eight-column evidence field above the reported data map.
-- **Section-page posters:** Known, Timeline, Acus, Questions, and About each reserve a portrait 4:5 field at 1600 × 2000px. It occupies columns 8–12 beside the page argument and stacks below the lead on mobile.
+- **Section-page posters:** Known, Timeline, Acus, and Questions each reserve a portrait 4:5 field at 1600 × 2000px. It occupies columns 8–12 beside the page argument and stacks below the lead on mobile.
 - **Placeholder treatment:** For artwork that has not yet been supplied, use one square hairline frame, a neutral preview surface, and a centered localized label with export dimensions. No icon, dashed border, or uppercase tracked placeholder copy.
 - **Restraint:** Keep remaining placeholders in the route heroes, Acus explainer, and social exports. Do not scatter additional decorative image slots through the evidence registers.
 
 ### Evidence Registers
 
 - **Known and unknown:** Present supported claims first and unanswered questions second, as two stacked registers. Never align them in parallel rows that imply one-to-one correspondence.
-- **Narrative registers:** Acus, About, methodology, and closing sections reuse the four-column title rail and eight-column reading field rather than centered narrow stacks.
+- **Narrative registers:** Acus, methodology, and closing sections reuse the four-column title rail and eight-column reading field rather than centered narrow stacks.
 - **Acus data map:** Show reported data sources, the reported analysis layer, and the investigator-facing result as one bordered 3/4/5-stage record. Every stage retains 32px inset padding; markers never touch the frame. The caption has its own tonal shelf and states explicitly that this is not a technical diagram of the Swedish installation.
-- **About:** Use a title/body register on wide screens so method and corrections use the available width without becoming a card grid.
-- **Source directory:** Present source groups as a bibliography: group context in columns 1–3, then publisher in columns 4–5, title in columns 6–10, and date in columns 11–12. Keep complete titles and flat hairline rows; never revert to cards or a single undifferentiated list.
 
 ### Timeline Docket
 

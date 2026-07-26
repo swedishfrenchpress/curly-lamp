@@ -9,7 +9,7 @@ export function langStaticParams() {
 
 type MetaKey = Extract<
   keyof Dict,
-  "home" | "known" | "timeline" | "acus" | "questions" | "about"
+  "home" | "known" | "timeline" | "acus" | "questions"
 >;
 
 /**

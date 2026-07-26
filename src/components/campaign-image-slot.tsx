@@ -3,7 +3,6 @@ import type { Lang } from "@/content/types";
 export type CampaignImageKind =
   | "acus"
   | "acus-hero"
-  | "about"
   | "known"
   | "questions"
   | "timeline"
@@ -35,15 +34,6 @@ const SPECS: Record<
     label: {
       sv: "Kampanjmotiv om Acus",
       en: "Acus campaign poster",
-    },
-  },
-  about: {
-    width: 1600,
-    height: 2000,
-    ratio: "4:5",
-    label: {
-      sv: "Kampanjmotiv om projektet",
-      en: "About the campaign poster",
     },
   },
   known: {

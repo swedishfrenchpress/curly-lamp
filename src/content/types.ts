@@ -16,7 +16,6 @@ export const ROUTES = {
   timeline: "timeline",
   acus: "acus",
   questions: "questions",
-  about: "about",
 } as const;
 
 export type RouteKey = keyof typeof ROUTES;
@@ -108,8 +107,6 @@ export type ShareBlock = Block & {
   copiedLabel: string;
   errorLabel: string;
   downloadLabel: string;
-  sourceLabel: string;
-  sourceRoute: RouteKey;
   shareText: string;
   assets: ShareAsset[];
 };
@@ -192,7 +189,6 @@ export type Dict = {
       note: string;
       cite: SourceId[];
     };
-    caveat: Block;
   };
 
   questions: {
@@ -202,16 +198,6 @@ export type Dict = {
     researchBlock: Block;
     research: ResearchItem[];
     foia: Block;
-  };
-
-  about: {
-    meta: { title: string; description: string };
-    hero: Block;
-    sections: Block[];
-    pressBlock: Block;
-    sourcesBlock: Block;
-    kindLabels: Record<"primary" | "reporting" | "advocacy", string>;
-    kindNotes: Record<"primary" | "reporting" | "advocacy", string>;
   };
 
   footer: {

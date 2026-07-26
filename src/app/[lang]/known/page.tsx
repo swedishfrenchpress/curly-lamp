@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import CampaignImageSlot from "@/components/campaign-image-slot";
 import Reveal from "@/components/reveal";
 import {
   ClaimList,
@@ -37,11 +37,20 @@ export default async function KnownPage({
         block={known.hero}
         variant="known"
         media={
-          <CampaignImageSlot
-            kind="known"
-            lang={lang}
-            className="page-hero__art"
-          />
+          <figure className="campaign-image-slot campaign-image-slot--known page-hero__art">
+            <Image
+              src="/campaign/known-hero.jpg"
+              alt={
+                lang === "sv"
+                  ? "En rastrerad bild av ett ansikte med en hand upplyft mot munnen, i orange, grönt och krämvitt"
+                  : "A halftone image of a face with a hand raised near the mouth, in orange, green, and cream tones"
+              }
+              fill
+              style={{ objectFit: "cover" }}
+              sizes="(max-width: 839px) 90vw, 420px"
+              priority
+            />
+          </figure>
         }
       />
 

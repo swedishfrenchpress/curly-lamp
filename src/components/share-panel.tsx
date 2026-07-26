@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 import CampaignImageSlot, {
   type CampaignImageKind,
@@ -81,12 +80,6 @@ export default function SharePanel({
         <button type="button" className="btn btn--ghost" onClick={copy}>
           {block.copyLabel}
         </button>
-        <Link
-          href={path(lang, block.sourceRoute)}
-          className="share-panel__source"
-        >
-          {block.sourceLabel}
-        </Link>
       </div>
 
       <p className="share-panel__status" aria-live="polite">

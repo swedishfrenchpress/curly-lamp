@@ -26,7 +26,6 @@ const en: Dict = {
       { route: "timeline", label: "Timeline" },
       { route: "acus", label: "What is Acus?" },
       { route: "questions", label: "The questions" },
-      { route: "about", label: "About" },
     ],
     langSwitch: "Switch to Swedish",
     skipToContent: "Skip to content",
@@ -138,8 +137,6 @@ const en: Dict = {
       copiedLabel: "Link copied",
       errorLabel: "The link could not be copied. Copy it from your browser instead.",
       downloadLabel: "Download campaign images",
-      sourceLabel: "View every source",
-      sourceRoute: "about",
       shareText:
         "Who answers for Acus? The Swedish police's analysis platform has been questioned in parliament, but basic questions remain unanswered.",
       assets: [
@@ -484,15 +481,6 @@ const en: Dict = {
         "This is a map of the reported data relationship, not a technical diagram of the Swedish installation.",
       cite: ["realtid", "gp"],
     },
-
-    caveat: {
-      title: "What this page is not",
-      body: [
-        "The sections on what Palantir's platform generally does draw on the company's own product descriptions and on public documentation from other countries where the system has been used. They do not necessarily describe the Swedish installation.",
-        "Acus may be much more restricted than the broader platform. No public description confirms whether that is the case.",
-        "A deeper review of Palantir's product portfolio, of the safeguards the company says it builds in, and of which Swedish and European suppliers could have delivered comparable capability is under way. It will be published here when it is finished and sourced.",
-      ],
-    },
   },
 
   questions: {
@@ -639,71 +627,11 @@ const en: Dict = {
     },
   },
 
-  about: {
-    meta: {
-      title: "About",
-      description:
-        "Who is behind this site, how we handle sources, and how to correct us.",
-    },
-    hero: {
-      title: "About this site",
-      lead: "This site tracks the unanswered questions about Acus and links each claim to the public record.",
-    },
-    sections: [
-      {
-        title: "What this is",
-        body: [
-          "Who Answers for Acus? is a standalone campaign for transparency about the Swedish Police Authority's use of analysis platforms from Palantir Technologies.",
-          "We are not campaigning for the system to be shut down. We are campaigning for it to be described: how long it has run, where the data is stored, how it was procured, what it does, and who has examined it.",
-          "If the answers turn out to be unremarkable, the campaign is over. That would be a good outcome.",
-        ],
-      },
-      {
-        title: "How we handle sources",
-        body: [
-          "Published journalism is attributed to the newsroom that did the work. We write “according to the investigation”, not “it is confirmed”, because we have not verified it independently.",
-          "Parliamentary and government documents are primary sources and are linked directly, so you can read what was actually said rather than our summary of it.",
-          "Where we do not know something, we write that we do not know it. Quotations are checked against the linked original before publication.",
-        ],
-      },
-      {
-        title: "Corrections",
-        body: [
-          "Corrections are published openly rather than made silently. This applies especially to corrections supplied through public statements or official records by the Police Authority or the Government Offices.",
-          "Any answer to any of the questions on this site will be published in full, in the original.",
-        ],
-      },
-    ],
-
-    pressBlock: {
-      title: "In the press",
-      lead: "Every piece of journalism cited by the campaign, collected in one place.",
-    },
-
-    sourcesBlock: {
-      title: "Everything we rely on",
-      lead: "Journalism is collected above. Below are every public and advocacy source used by the campaign, with direct links to the originals.",
-    },
-    kindLabels: {
-      primary: "Primary source",
-      reporting: "Journalism",
-      advocacy: "Advocacy",
-    },
-    kindNotes: {
-      primary:
-        "Public documents from parliament, the government, or a party's own publication.",
-      reporting:
-        "Journalistic work. Claims taken from here are always attributed in the text.",
-      advocacy:
-        "Written from a position. Listed for completeness, never the sole basis for a claim.",
-    },
-  },
-
   footer: {
     wordmark: "Who Answers for Acus?",
     line: "The questions were asked in November 2025. They are still unanswered.",
     credit: "An initiative by",
-    creditLink: { label: "NOTA Sverige", href: "https://nota.eu" },
+    creditLink: { label: "NOTA Sverige", href: "https://www.notechforapartheid.se/" },
     columns: [
       {
         title: "Read",
@@ -715,10 +643,7 @@ const en: Dict = {
       },
       {
         title: "Explore",
-        items: [
-          { route: "questions", label: "The questions" },
-          { route: "about", label: "About" },
-        ],
+        items: [{ route: "questions", label: "The questions" }],
       },
     ],
     legal:

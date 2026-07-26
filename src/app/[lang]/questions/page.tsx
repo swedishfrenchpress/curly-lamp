@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import CampaignImageSlot from "@/components/campaign-image-slot";
 import Reveal from "@/components/reveal";
 import { Cites, PageHero, Prose, Section, SectionHead } from "@/components/ui";
 import { getDict, isLang } from "@/content";
@@ -31,11 +31,20 @@ export default async function QuestionsPage({
         block={questions.hero}
         variant="questions"
         media={
-          <CampaignImageSlot
-            kind="questions"
-            lang={lang}
-            className="page-hero__art"
-          />
+          <figure className="campaign-image-slot campaign-image-slot--questions page-hero__art">
+            <Image
+              src="/campaign/questions-hero.jpg"
+              alt={
+                lang === "sv"
+                  ? "En rastrerad bild av en apparat med en liten rund indikatorlampa, inramad av överlappande paneler i mörkröda och krämvita toner"
+                  : "A halftone image of a device with a small circular indicator light, framed by overlapping panels in dark maroon and cream tones"
+              }
+              fill
+              style={{ objectFit: "cover" }}
+              sizes="(max-width: 839px) 90vw, 420px"
+              priority
+            />
+          </figure>
         }
       />
 

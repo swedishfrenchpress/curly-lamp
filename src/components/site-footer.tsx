@@ -16,6 +16,8 @@ export default function SiteFooter({ dict }: { dict: Dict }) {
                 <a
                   href={dict.footer.creditLink.href}
                   className="text-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {dict.footer.creditLink.label}
                 </a>
