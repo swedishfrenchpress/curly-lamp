@@ -7,7 +7,8 @@ export type CampaignImageKind =
   | "questions"
   | "timeline"
   | "share-landscape"
-  | "share-square";
+  | "share-square"
+  | "share-story";
 
 const SPECS: Record<
   CampaignImageKind,
@@ -79,6 +80,15 @@ const SPECS: Record<
     label: {
       sv: "Kvadratisk delningsbild",
       en: "Square share image",
+    },
+  },
+  "share-story": {
+    width: 1080,
+    height: 1920,
+    ratio: "9:16",
+    label: {
+      sv: "Story-bild",
+      en: "Story image",
     },
   },
 };

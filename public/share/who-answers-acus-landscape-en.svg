@@ -1,18 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
   <title id="title">Who answers for Acus?</title>
   <desc id="desc">Campaign image with the unanswered questions about the Swedish police analysis platform Acus.</desc>
-  <rect width="1200" height="630" fill="#0d3044"/>
-  <rect x="70" y="70" width="8" height="490" fill="#67c6e6"/>
-  <text x="126" y="175" fill="#f5fafc" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="700" letter-spacing="-2">
+  <rect width="1200" height="630" fill="#f5efe6"/>
+  <rect x="70" y="70" width="8" height="490" fill="#1e6578"/>
+  <text x="126" y="175" fill="#101829" font-family="Baskerville, Georgia, serif" font-size="76" letter-spacing="-1">
     <tspan x="126" dy="0">Who answers</tspan>
-    <tspan x="126" dy="78">for Acus?</tspan>
+    <tspan x="126" dy="82">for Acus?</tspan>
   </text>
-  <line x1="660" y1="118" x2="660" y2="504" stroke="#315b70"/>
-  <text x="714" y="170" fill="#c4d7df" font-family="Arial, Helvetica, sans-serif" font-size="28">
+  <line x1="660" y1="118" x2="660" y2="504" stroke="#d5c8bb"/>
+  <text x="714" y="170" fill="#3d3632" font-family="Geist, Helvetica, sans-serif" font-size="28">
     <tspan x="714" dy="0">What does it do?</tspan>
     <tspan x="714" dy="72">Where is the data stored?</tspan>
     <tspan x="714" dy="72">Who examined the system?</tspan>
   </text>
-  <text x="126" y="530" fill="#9bb8c5" font-family="Arial, Helvetica, sans-serif" font-size="22">The questions were put in parliament. They remain unanswered.</text>
-  <text x="1034" y="560" fill="#67c6e6" font-family="Arial, Helvetica, sans-serif" font-size="22" text-anchor="end">vemsvararforacus.se</text>
+  <text x="126" y="530" fill="#725f54" font-family="Geist, Helvetica, sans-serif" font-size="22">The questions were put in parliament. They remain unanswered.</text>
+  <text id="domain" x="1034" y="560" fill="#1e6578" font-family="Geist, Helvetica, sans-serif" font-size="22" text-anchor="end">vemsvararforacus.se</text>
 </svg>

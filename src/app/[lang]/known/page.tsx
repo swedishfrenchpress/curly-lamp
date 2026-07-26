@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Reveal from "@/components/reveal";
+import ShareCta from "@/components/share-cta";
 import {
   ClaimList,
   PageHero,
@@ -29,7 +30,7 @@ export default async function KnownPage({
 }) {
   const { lang } = await params;
   if (!isLang(lang)) notFound();
-  const { known, ui } = getDict(lang);
+  const { known, share, ui } = getDict(lang);
 
   return (
     <>
@@ -88,6 +89,13 @@ export default async function KnownPage({
           <div className="editorial-grid__body">
             <Prose body={known.method.body} />
           </div>
+        </Reveal>
+      </Section>
+
+      {/* No variant: the method block above is already a band. */}
+      <Section size="tight" className="route-share">
+        <Reveal>
+          <ShareCta block={share} lang={lang} />
         </Reveal>
       </Section>
     </>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Reveal from "@/components/reveal";
+import ShareCta from "@/components/share-cta";
 import { Cites, PageHero, Prose, Section, SectionHead } from "@/components/ui";
 import { getDict, isLang } from "@/content";
 import { langStaticParams, pageMetadata } from "@/lib/page";
@@ -23,7 +24,7 @@ export default async function QuestionsPage({
 }) {
   const { lang } = await params;
   if (!isLang(lang)) notFound();
-  const { questions, ui } = getDict(lang);
+  const { questions, share, ui } = getDict(lang);
 
   return (
     <>
@@ -109,6 +110,12 @@ export default async function QuestionsPage({
           <div className="editorial-grid__body">
             <Prose body={questions.foia.body} />
           </div>
+        </Reveal>
+      </Section>
+
+      <Section variant="band" size="tight" className="route-share">
+        <Reveal>
+          <ShareCta block={share} lang={lang} />
         </Reveal>
       </Section>
     </>

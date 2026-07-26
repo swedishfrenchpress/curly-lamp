@@ -95,20 +95,43 @@ export type ResearchItem = {
   detail: string;
 };
 
+/**
+ * The preview frame is chosen by `kind`, never by array position. An asset list
+ * that grows a third format must not silently render a 1:1 frame over a 9:16
+ * file, which is what an index-based lookup would do.
+ */
+export type ShareAssetKind = "landscape" | "square" | "story";
+
 export type ShareAsset = {
+  kind: ShareAssetKind;
   href: string;
   label: string;
   meta: string;
 };
 
+/**
+ * One action: copy `shareText` and the canonical link together, then confirm in
+ * a toast. Per-network buttons were removed deliberately — LinkedIn ignores
+ * every prefill parameter, so a network button can only ever hand over an empty
+ * composer, and a clipboard the visitor pastes anywhere beats four choices.
+ */
 export type ShareBlock = Block & {
   shareLabel: string;
-  copyLabel: string;
   copiedLabel: string;
   errorLabel: string;
   downloadLabel: string;
+  /** The short message copied above the link. */
   shareText: string;
   assets: ShareAsset[];
+};
+
+/** The full kit plus the compact terminal CTA reused across routes. */
+export type ShareSection = ShareBlock & {
+  cta: {
+    title: string;
+    lead: string;
+    assetsLabel: string;
+  };
 };
 
 export type Dict = {
@@ -130,6 +153,11 @@ export type Dict = {
     skipToContent: string;
     menu: string;
     close: string;
+    /**
+     * Not a `RouteKey` — the share panel is an anchor on the home page, not a
+     * route. Kept separate so `items` stays a clean list of real destinations.
+     */
+    shareLink: { label: string; hash: string };
   };
 
   home: {
@@ -154,8 +182,13 @@ export type Dict = {
     };
     notWhat: Block;
     pressBlock: Block;
-    share: ShareBlock;
   };
+
+  /**
+   * Top level, not under `home`: the compact CTA appears on every route, so
+   * filing this copy under the home page would misdescribe where it is used.
+   */
+  share: ShareSection;
 
   known: {
     meta: { title: string; description: string };

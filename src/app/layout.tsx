@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import { SITE_URL } from "@/content";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -9,7 +10,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vemsvararforacus.se"),
+  // Single source of truth: the copied share link and the OG card must resolve
+  // to the same host, and the domain is still undecided (CONTENT.md §4).
+  metadataBase: new URL(SITE_URL),
   title: "Vem svarar för Acus? / Who Answers for Acus?",
   description:
     "Svensk polis har enligt uppgift använt Palantirs analysplattform i minst fem år. Ingen ansvarig vill förklara hur den fungerar.",

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "assets": "cd public/share && for n in vem-svarar-acus-landscape-sv who-answers-acus-landscape-en; do rsvg-convert -w 1200 -h 630 $n.svg -o $n.png; done && for n in vem-svarar-acus-square-sv who-answers-acus-square-en; do rsvg-convert -w 1080 -h 1080 $n.svg -o $n.png; done && for n in vem-svarar-acus-story-sv who-answers-acus-story-en; do rsvg-convert -w 1080 -h 1920 $n.svg -o $n.png; done"
   },
   "dependencies": {
     "geist": "^1.7.1",
