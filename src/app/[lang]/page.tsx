@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import CampaignImageSlot from "@/components/campaign-image-slot";
 import Reveal from "@/components/reveal";
 import PressSection from "@/components/press-section";
 import SharePanel from "@/components/share-panel";
@@ -75,11 +74,20 @@ export default async function HomePage({
             <div className="home-hero__intro">
               <p className="hero__lead">{home.hero.lead}</p>
             </div>
-            <CampaignImageSlot
-              kind="home"
-              lang={lang}
-              className="home-hero__art"
-            />
+            <figure className="home-hero__art home-hero__media">
+              <Image
+                src="/campaign/home-hero.png"
+                alt={
+                  lang === "sv"
+                    ? "Silhuett av en person vid en bärbar dator framför en orange geometrisk bakgrund"
+                    : "Silhouette of a person at a laptop against an orange geometric background"
+                }
+                width={1800}
+                height={1000}
+                sizes="(max-width: 1320px) 90vw, 1020px"
+                priority
+              />
+            </figure>
           </Reveal>
         </div>
       </div>

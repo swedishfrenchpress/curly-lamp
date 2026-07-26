@@ -738,7 +738,6 @@ a {
   background: var(--image-placeholder);
   color: var(--image-placeholder-ink);
 }
-.campaign-image-slot--home,
 .campaign-image-slot--acus-hero,
 .campaign-image-slot--about,
 .campaign-image-slot--known,
@@ -2545,46 +2544,15 @@ body {
   border-radius: 0;
 }
 
-.campaign-image-slot--home {
-  aspect-ratio: 9 / 5;
-  background:
-    radial-gradient(circle at 48% 7%, rgba(255, 185, 8, 0.92), transparent 25%),
-    radial-gradient(circle at 18% 64%, rgba(57, 177, 214, 0.82), transparent 36%),
-    radial-gradient(circle at 84% 35%, rgba(242, 120, 158, 0.72), transparent 34%),
-    linear-gradient(145deg, #b8d9df 0%, #d9aeba 46%, #7cb7c7 100%);
+.home-hero__media {
+  overflow: hidden;
+  background: var(--chalk);
 }
 
-.campaign-image-slot--home::before {
-  position: absolute;
-  z-index: 0;
-  inset: 14% 12% -18%;
-  border: clamp(24px, 5vw, 64px) solid rgba(245, 239, 230, 0.76);
-  content: "";
-}
-
-.campaign-image-slot--home::after {
-  position: absolute;
-  z-index: 0;
-  bottom: -23%;
-  left: 36%;
-  width: 28%;
-  aspect-ratio: 1;
-  border: clamp(20px, 4vw, 50px) solid rgba(245, 239, 230, 0.76);
-  border-radius: 50%;
-  content: "";
-}
-
-.campaign-image-slot--home .campaign-image-slot__label {
-  z-index: 1;
-  gap: 2px;
-  padding: 14px 18px;
-  border: 1px solid rgba(16, 24, 41, 0.2);
-  background: color-mix(in srgb, var(--paper) 90%, transparent);
-  backdrop-filter: blur(8px);
-}
-
-.campaign-image-slot--home .campaign-image-slot__label span {
-  font-size: 0.8125rem;
+.home-hero__media img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* Number chapter ---------------------------------------------------------- */

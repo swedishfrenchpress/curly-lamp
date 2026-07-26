@@ -1,7 +1,6 @@
 import type { Lang } from "@/content/types";
 
 export type CampaignImageKind =
-  | "home"
   | "acus"
   | "acus-hero"
   | "about"
@@ -20,15 +19,6 @@ const SPECS: Record<
     label: Record<Lang, string>;
   }
 > = {
-  home: {
-    width: 1800,
-    height: 1000,
-    ratio: "9:5",
-    label: {
-      sv: "Huvudmotiv för kampanjen",
-      en: "Primary campaign artwork",
-    },
-  },
   acus: {
     width: 1800,
     height: 1200,

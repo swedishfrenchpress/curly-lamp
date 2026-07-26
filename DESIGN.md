@@ -207,7 +207,7 @@ The home hero is the sole centered composition: one large public question, one c
 
 ## Colors
 
-The publication uses warm paper, midnight ink, and civic teal. Gold, rose, and violet exist only in the atmospheric field and artwork placeholders; they never color evidence text or factual status.
+The publication uses warm paper, midnight ink, and civic teal. Gold, rose, and violet exist only in the atmospheric field, supplied campaign artwork, and remaining artwork placeholders; they never color evidence text or factual status.
 
 ### Primary
 
@@ -347,11 +347,11 @@ The responsive system is content-driven: one reading column on phones, selective
 
 ### Campaign Artwork Slots
 
-- **Home key artwork:** Wide 9:5 at 1800 × 1000px. It spans the home reading field beneath the centered campaign question and compact deck at every viewport.
+- **Home key artwork:** The supplied wide 9:5 artwork at 1800 × 1000px spans the home reading field beneath the centered campaign question and compact deck at every viewport. Preserve the complete composition without cropping.
 - **Acus explainer:** Landscape 3:2 at 1800 × 1200px. It sits in the eight-column evidence field above the reported data map.
 - **Section-page posters:** Known, Timeline, Acus, Questions, and About each reserve a portrait 4:5 field at 1600 × 2000px. It occupies columns 8–12 beside the page argument and stacks below the lead on mobile.
-- **Placeholder treatment:** Use one square hairline frame, an atmospheric preview surface, and a centered localized label with export dimensions. No icon, dashed border, or uppercase tracked placeholder copy.
-- **Restraint:** Keep these placeholders in the route heroes. Do not scatter additional decorative image slots through the evidence registers.
+- **Placeholder treatment:** For artwork that has not yet been supplied, use one square hairline frame, a neutral preview surface, and a centered localized label with export dimensions. No icon, dashed border, or uppercase tracked placeholder copy.
+- **Restraint:** Keep remaining placeholders in the route heroes, Acus explainer, and social exports. Do not scatter additional decorative image slots through the evidence registers.
 
 ### Evidence Registers
 
