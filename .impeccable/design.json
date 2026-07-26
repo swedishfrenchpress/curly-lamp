@@ -71,8 +71,8 @@
       "name": "Citation Link",
       "kind": "custom",
       "description": "Publisher-named evidence link, preserving the distinction between reporting and primary material.",
-      "html": "<p class=\"ds-cite-row\"><span>Sources</span><a href=\"#\">Riksdagen</a><a href=\"#\">Dagens ETC</a></p>",
-      "css": ".ds-cite-row { display:flex; flex-wrap:wrap; gap:8px; align-items:baseline; margin:0; } .ds-cite-row span,.ds-cite-row a { font:.75rem/1.5 Geist Mono,ui-monospace,monospace; } .ds-cite-row span { color:#8aa4b0; font-size:.6875rem; letter-spacing:.1em; text-transform:uppercase; } .ds-cite-row a { color:#587482; border-bottom:1px solid #c8d8e0; text-decoration:none; } .ds-cite-row a:hover { color:#0e2d3d; border-color:#8aa4b0; } .ds-cite-row a:focus-visible { outline:2px solid #0b6685; outline-offset:3px; }"
+      "html": "<p class=\"ds-cite-row\"><span>Sources</span><span class=\"ds-cite-links\"><a href=\"#\">Riksdagen</a><a href=\"#\">Dagens ETC</a></span></p>",
+      "css": ".ds-cite-row { display:grid; justify-items:start; gap:4px; margin:0; } .ds-cite-row>span:first-child,.ds-cite-row a { font:.75rem/1.5 Geist Mono,ui-monospace,monospace; } .ds-cite-row>span:first-child { color:#8aa4b0; font-size:.6875rem; letter-spacing:.1em; text-transform:uppercase; } .ds-cite-links { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px; } .ds-cite-row a { color:#587482; border-bottom:1px solid #c8d8e0; text-decoration:none; } .ds-cite-row a:hover { color:#0e2d3d; border-color:#8aa4b0; } .ds-cite-row a:focus-visible { outline:2px solid #0b6685; outline-offset:3px; }"
     },
     {
       "name": "Record Row",

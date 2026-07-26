@@ -294,7 +294,7 @@ The responsive system is content-driven: one reading column on phones, selective
 
 ### Citation Links
 
-- **Style:** Small mono publisher names with a hairline underline, grouped after a source label.
+- **Style:** A small mono source label sits on its own line above a wrapped row of publisher links with hairline underlines.
 - **State:** Hover strengthens text and underline toward ink; links remain named, never numeric brackets.
 
 ### Claim and Question Rows
@@ -317,7 +317,7 @@ The responsive system is content-driven: one reading column on phones, selective
 
 ### Navigation
 
-- **Style:** A 60px sticky, translucent header with a hairline bottom border. The narrow-phone masthead expands to 88px for its second utility row. The brand mark is a 7px signal-blue square, used once at the site level.
+- **Style:** A 60px sticky, translucent header with a hairline bottom border and an unadorned campaign title. The narrow-phone masthead expands to 88px for its second utility row.
 - **Responsive behavior:** Desktop links appear from 940px; below that, the menu expands through a grid-row transition. The language switch shows the destination flag and language code. On narrow phones, the utility controls move to a second masthead row so the campaign name never collides with them.
 - **State and ergonomics:** Every utility control is at least 44px square. The current desktop route gets a signal-blue underline; the mobile route gets a colour and weight change.
 

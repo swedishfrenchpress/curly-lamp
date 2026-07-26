@@ -48,7 +48,6 @@ export default function SiteHeader({ dict }: { dict: Dict }) {
       <div className="shell">
         <nav className="site-nav" aria-label={dict.nav.label}>
           <Link href={path(dict.lang, "home")} className="site-nav__brand">
-            <span className="site-nav__dot" aria-hidden="true" />
             <span>{dict.site.name}</span>
           </Link>
 

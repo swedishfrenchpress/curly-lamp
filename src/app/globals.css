@@ -469,19 +469,11 @@ a {
 .site-nav__brand {
   display: inline-flex;
   align-items: baseline;
-  gap: var(--space-2);
   font-weight: 600;
   font-size: 0.9375rem;
   letter-spacing: -0.015em;
   color: var(--ink);
   white-space: nowrap;
-}
-.site-nav__dot {
-  width: 7px;
-  height: 7px;
-  background: var(--flag);
-  flex: none;
-  transform: translateY(-1px);
 }
 
 .site-nav__links {
@@ -551,12 +543,18 @@ a {
   background: var(--wash);
 }
 
-/* Theme-toggle glyphs. The button ships both and CSS picks; that keeps the
+/* Theme-toggle icons. The button ships both and CSS picks; that keeps the
    control stateless in React and makes it impossible for the icon to disagree
    with the scheme before hydration. Order matters — the explicit data-theme
    rules must come last so a manual override beats the OS preference. */
+.theme-toggle__sun,
+.theme-toggle__moon {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
 .theme-toggle__sun {
-  display: inline;
+  display: block;
 }
 .theme-toggle__moon {
   display: none;
@@ -566,11 +564,11 @@ a {
     display: none;
   }
   :root:not([data-theme="light"]) .theme-toggle__moon {
-    display: inline;
+    display: block;
   }
 }
 :root[data-theme="light"] .theme-toggle__sun {
-  display: inline;
+  display: block;
 }
 :root[data-theme="light"] .theme-toggle__moon {
   display: none;
@@ -579,7 +577,7 @@ a {
   display: none;
 }
 :root[data-theme="dark"] .theme-toggle__moon {
-  display: inline;
+  display: block;
 }
 
 .nav-toggle {
@@ -931,11 +929,10 @@ a {
    -------------------------------------------------------------------------- */
 
 .cites {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
+  display: grid;
+  justify-items: start;
+  gap: var(--space-1);
   margin-top: var(--space-2);
-  align-items: baseline;
 }
 .cites__label {
   font-family: var(--font-mono);
@@ -943,7 +940,12 @@ a {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ghost);
-  margin-right: 0;
+}
+.cites__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
 }
 .cite {
   font-family: var(--font-mono);
@@ -1915,7 +1917,8 @@ a {
   }
   .record-map figcaption .cites {
     grid-column: 9 / -1;
-    justify-content: flex-end;
+    justify-self: end;
+    justify-items: end;
     margin-top: 0;
   }
 }
@@ -2246,17 +2249,9 @@ body {
 
 .site-nav__brand {
   justify-self: start;
-  gap: 10px;
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: -0.025em;
-}
-
-.site-nav__dot {
-  width: 12px;
-  height: 1px;
-  background: var(--ink);
-  transform: translateY(-4px);
 }
 
 .site-nav__links {

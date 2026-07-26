@@ -79,8 +79,8 @@ export default async function HomePage({
                 src="/campaign/home-hero.png"
                 alt={
                   lang === "sv"
-                    ? "Silhuett av en person vid en bärbar dator framför en orange geometrisk bakgrund"
-                    : "Silhouette of a person at a laptop against an orange geometric background"
+                    ? "Övervakningskamera mot ett gult raster med en suddig person i bakgrunden"
+                    : "Surveillance camera against a yellow halftone field with a blurred person in the background"
                 }
                 width={1800}
                 height={1000}

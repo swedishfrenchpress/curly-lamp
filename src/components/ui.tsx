@@ -13,19 +13,21 @@ export function Cites({ ids, label }: { ids?: SourceId[]; label: string }) {
   return (
     <p className="cites">
       <span className="cites__label">{label}</span>
-      {ids.map((id) => {
-        const source = SOURCES[id];
-        return (
-          <a
-            key={id}
-            href={source.url}
-            className="cite"
-            title={source.title}
-          >
-            {source.publisher}
-          </a>
-        );
-      })}
+      <span className="cites__links">
+        {ids.map((id) => {
+          const source = SOURCES[id];
+          return (
+            <a
+              key={id}
+              href={source.url}
+              className="cite"
+              title={source.title}
+            >
+              {source.publisher}
+            </a>
+          );
+        })}
+      </span>
     </p>
   );
 }
