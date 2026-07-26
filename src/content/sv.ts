@@ -679,7 +679,7 @@ const sv: Dict = {
     backHome: "Till startsidan",
     notFoundTitle: "Sidan finns inte",
     notFoundBody:
-      "Sidan på den här adressen finns inte. Använd menyn för att gå tillbaka till kampanjen.",
+      "Sidan på den här adressen finns inte. Länkarna nedan leder tillbaka till kampanjen.",
   },
 };
 

@@ -112,6 +112,13 @@
 }
 
 html {
+  /* DESIGN.md commits the publication to one reading ground: warm paper, no
+     OS dark preference, no theme switch. Declaring nothing does not achieve
+     that — Chrome's auto dark mode darkens any page that states no scheme,
+     and it is on by default for many Android readers, who then get the whole
+     evidence system tone-inverted: paper to near-black, ink to off-white, the
+     ambient field to mud. `only light` is what actually holds the contract. */
+  color-scheme: only light;
   scroll-behavior: smooth;
   overflow-x: clip;
   /* Anchors must clear the sticky bar. */
@@ -696,6 +703,13 @@ a {
 .campaign-image-slot--share-story {
   aspect-ratio: 9 / 16;
 }
+/* The slot already holds the ratio, so the artwork fills it exactly and the
+   placeholder ground is only ever visible while the file loads. */
+.campaign-image-slot__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .campaign-image-slot__label {
   display: grid;
   justify-items: center;
@@ -1259,6 +1273,9 @@ a {
   margin: 0;
   font-size: 1.25rem;
   font-weight: 600;
+  /* A title, not prose. Without this it inherited the body's 1.6 and a
+     two-line compound read as two separate items. */
+  line-height: 1.3;
   letter-spacing: -0.015em;
   color: var(--panel-fg);
   /* Swedish compounds run long and unbreakable — "Ansiktsigenkänning" is one
@@ -1590,10 +1607,13 @@ a {
   padding: var(--space-1) var(--space-2);
   border-radius: var(--radius-control);
   background: rgba(7, 24, 32, 0.82);
-  color: #f4f9fb;
+  /* The campaign's white. This was a one-off cool near-white outside the
+     palette, on a surface that is already the darkest thing on the page —
+     the warm white is indistinguishable here and belongs to the system. */
+  color: var(--on-ink);
   font-family: var(--font-mono);
   font-size: 0.625rem;
-  line-height: 1.35;
+  line-height: 1.5;
 }
 .press-card__media img {
   width: 100%;
@@ -2100,6 +2120,15 @@ a {
   opacity: 1;
   transform: none;
 }
+/* Tabbing is faster than the observer. Focus can land inside a block that has
+   not been raised yet, and at opacity 0 the focus ring is invisible along with
+   everything around it. Focus raises the block itself, without the fade — a
+   transition here would hide the ring for another half second. */
+.reveal:focus-within {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
@@ -2483,6 +2512,15 @@ body {
     grid-column: 1 / 8;
     grid-row: 1;
     align-self: start;
+    /* The cap exists to shape ordinary phrases into deliberate lines rather
+       than let them span the page — but 11ch is narrower than the longest
+       route title needs, and "Frågorna saknar fortfarande svar" fell into
+       four steps ending on a stranded "svar", the exact stack the cap is
+       meant to prevent. Measured across all four routes in both languages:
+       at 15ch every title lands on two or three balanced lines, and above
+       ~14ch the balanced text is narrower than the cap anyway, so this only
+       bites at the low end of the desktop range, which is where it should. */
+    max-width: 15ch;
   }
 
   .hero--page .page-hero__grid .hero__lead,
@@ -2597,32 +2635,46 @@ body {
   background: var(--hair);
 }
 
+/* Grid already makes every card in a row the same height, so the common
+   baseline the four figures sit on needs no forced height — the label group
+   is simply pushed to the bottom of whatever height the row resolves to.
+   A `min-height` on top of that only bought dead air: at two columns it held
+   a card ~110px taller than its own content and pushed each label away from
+   the number it explains, which is the one pair that should stay tight. */
 .home-stats .stat {
   position: relative;
-  display: grid;
-  min-height: 340px;
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: auto auto 1fr auto;
+  display: flex;
+  flex-direction: column;
   align-items: flex-start;
   padding: clamp(24px, 3vw, 36px);
   border: 0;
   background: var(--card);
 }
 
-/* Each card's left edge echoes the site's ambient gold/pink/violet/teal
-   gradient, with a fine grain dithered through — tiny mask pinholes rather
-   than large dots, so the gradient stays the dominant read and the dither
-   is only a texture on top. A different two-stop slice of the same palette
-   per card so the four bars read as a family, not a repeat. */
+/* Each card's left edge echoes the site's ambient gold/pink/violet field, with
+   a fine grain dithered through — tiny mask pinholes rather than large dots,
+   so the gradient stays the dominant read and the dither is only a texture on
+   top. A different two-stop slice per card, running out through the three
+   hues and back, so the four bars read as a family rather than a repeat.
+
+   The civic teal is deliberately absent. It is the campaign's one semantic
+   colour — it marks an unanswered question and the unresolved present — and
+   spending it as ornament here, fifteen hundred pixels before the reader
+   meets `OBESVARAD`, teaches them to read it as decoration. The atmospheric
+   hues carry no meaning and are the only ones free to be atmosphere. */
+/* A mask reads only the alpha channel, so the opaque stop below is "keep this
+   pixel" and never paints — which is why it can be any opaque value, and is
+   the palette's own ink rather than a literal that would otherwise read as an
+   undocumented colour every time this file is audited. */
 .home-stats .stat::before {
   content: "";
   position: absolute;
   inset: 0 auto 0 0;
   width: 6px;
-  mask-image: radial-gradient(circle, transparent 0.5px, #000 1px);
+  mask-image: radial-gradient(circle, transparent 0.5px, var(--ink) 1px);
   mask-size: 3px 3px;
   mask-repeat: repeat;
-  -webkit-mask-image: radial-gradient(circle, transparent 0.5px, #000 1px);
+  -webkit-mask-image: radial-gradient(circle, transparent 0.5px, var(--ink) 1px);
   -webkit-mask-size: 3px 3px;
   -webkit-mask-repeat: repeat;
 }
@@ -2634,25 +2686,10 @@ body {
   background: linear-gradient(180deg, rgba(255, 105, 153, 0.4), rgba(188, 143, 224, 0.35));
 }
 .home-stats .stat:nth-child(3)::before {
-  background: linear-gradient(
-    180deg,
-    rgba(188, 143, 224, 0.35),
-    color-mix(in srgb, var(--flag) 45%, transparent)
-  );
+  background: linear-gradient(180deg, rgba(188, 143, 224, 0.35), rgba(255, 105, 153, 0.4));
 }
 .home-stats .stat:nth-child(4)::before {
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--flag) 45%, transparent),
-    rgba(255, 180, 19, 0.45)
-  );
-}
-
-.home-stats .stat__value,
-.home-stats .stat__label,
-.home-stats .stat__note,
-.home-stats .stat .cites {
-  grid-column: 1;
+  background: linear-gradient(180deg, rgba(255, 105, 153, 0.4), rgba(255, 180, 19, 0.45));
 }
 
 .home-stats .stat__value {
@@ -2675,8 +2712,11 @@ html:lang(sv) .home-stats .stat:nth-child(2) .stat__value {
   letter-spacing: -0.025em;
 }
 
+/* The number and the sentence that says what it means are the tightest pair
+   in the card, so this interval is fixed rather than elastic. The row's slack
+   is taken further down, by the citations. */
 .home-stats .stat__label {
-  margin-top: clamp(44px, 5vw, 72px);
+  margin-top: clamp(24px, 3vw, 40px);
   font-weight: 500;
 }
 
@@ -2685,8 +2725,12 @@ html:lang(sv) .home-stats .stat:nth-child(2) .stat__value {
   color: var(--faint);
 }
 
+/* `auto` absorbs whatever slack the row has left, so the four source lines
+   sit on one baseline across the row however unequal the notes above them
+   are. The padding is the floor for the card that sets the row height. */
 .home-stats .stat .cites {
-  margin-top: 16px;
+  margin-top: auto;
+  padding-top: var(--space-4);
 }
 
 @media (min-width: 581px) {
@@ -2695,32 +2739,12 @@ html:lang(sv) .home-stats .stat:nth-child(2) .stat__value {
   }
 }
 
-@media (max-width: 1080px) {
-  .home-stats::after {
-    width: 280px;
-    height: 280px;
-    opacity: 0.62;
-  }
-}
-
-/* The forced card height and the long drop to the label are what hold the four
-   figures on a common baseline across a 2- or 4-column row. In one column there
-   is no row to hold, so the same rules only open ~120px of dead air under each
-   number and stretch the chapter to four screens. The record closes up to its
-   own content instead. */
+/* In one column each card is alone in its row, so there is no slack for
+   `margin-top: auto` to take and the label sits at its padding floor — the
+   record closes up to its own content without needing a separate rule. */
 @media (max-width: 580px) {
   .home-stats .stat {
-    min-height: 0;
-    grid-template-rows: auto;
     padding-block: var(--space-6);
-  }
-
-  .home-stats .stat__label {
-    margin-top: var(--space-5);
-  }
-
-  .home-stats::after {
-    display: none;
   }
 }
 
@@ -2813,6 +2837,11 @@ html:lang(sv) .home-stats .stat:nth-child(2) .stat__value {
   font-family: var(--font-serif);
   font-size: 1.65rem;
   font-weight: 400;
+  /* The serif step takes the title role's leading, not the sans step's.
+     "Ansiktsigenkänning i realtid" wraps in the ~210px track, and at the
+     inherited 1.6 the two lines drifted far enough apart to read as two
+     entries in the panel rather than one title. */
+  line-height: 1.15;
 }
 
 @media (min-width: 840px) {

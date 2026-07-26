@@ -23,13 +23,15 @@ export default function LanguageGate() {
       <h1 className="display">
         Vem svarar för Acus?
         <br />
-        <span style={{ color: "var(--faint)" }}>Who Answers for Acus?</span>
+        <span lang="en" style={{ color: "var(--faint)" }}>
+          Who Answers for Acus?
+        </span>
       </h1>
       <p className="hero__actions">
         <Link href="/sv/" className="btn btn--primary" hrefLang="sv">
           Svenska
         </Link>
-        <Link href="/en/" className="btn btn--ghost" hrefLang="en">
+        <Link href="/en/" className="btn btn--ghost" hrefLang="en" lang="en">
           English
         </Link>
       </p>

@@ -107,7 +107,16 @@ export default function SiteHeader({ dict }: { dict: Dict }) {
           </div>
         </nav>
 
-        <div className="site-nav__panel" id="nav-panel" data-open={open}>
+        {/* The panel collapses to 0fr rather than `display: none`, so without
+            `inert` its links stay focusable while invisible and a keyboard or
+            switch user tabbing past MENY falls into five stops they cannot
+            see. `inert` also keeps them out of the accessibility tree. */}
+        <div
+          className="site-nav__panel"
+          id="nav-panel"
+          data-open={open}
+          inert={!open}
+        >
           <div className="site-nav__panel-inner">
             <ul>
               {dict.nav.items.map((item) => {

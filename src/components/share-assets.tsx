@@ -32,9 +32,13 @@ export default function ShareAssets({
       <ul className="share-assets__list">
         {block.assets.map((asset) => (
           <li key={asset.href} className="share-assets__item">
+            {/* The export the reader is about to post, at its true ratio. The
+                download row below already names it and states the format, so
+                the frame does not repeat either. */}
             <CampaignImageSlot
               kind={SLOT_KIND[asset.kind]}
               lang={lang}
+              src={asset.href}
               className="share-assets__preview"
             />
             <a href={asset.href} download className="share-assets__link">
