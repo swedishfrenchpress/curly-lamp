@@ -130,7 +130,6 @@ export type Dict = {
     label: string;
     items: { route: RouteKey; label: string }[];
     langSwitch: string;
-    themeToggle: string;
     skipToContent: string;
     menu: string;
     close: string;

@@ -5,10 +5,7 @@ import "./globals.css";
 
 export const viewport: Viewport = {
   viewportFit: "cover",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f5efe6" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a202b" },
-  ],
+  themeColor: "#f5efe6",
 };
 
 export const metadata: Metadata = {
@@ -31,20 +28,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           "--font-geist-mono": "var(--font-geist-mono)",
         } as React.CSSProperties
       }
-      /* The theme boot script stamps data-theme before hydration; the
-         server/client mismatch on <html> is intentional. */
-      suppressHydrationWarning
     >
       <body>
-        {/* Applies a saved theme before first paint so an explicit choice can't
-            flash the OS scheme. Parser-blocking on purpose. No saved choice
-            means no attribute, and the CSS follows prefers-color-scheme. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              'try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}',
-          }}
-        />
         {/* Reveal animations start at opacity 0 and are raised by an
             IntersectionObserver. With scripting off there is no observer, so
             without this the whole site renders blank. A page about state

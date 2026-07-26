@@ -76,7 +76,7 @@ export default async function HomePage({
             </div>
             <figure className="home-hero__art home-hero__media">
               <Image
-                src="/campaign/home-hero.png"
+                src="/campaign/home-hero.jpg"
                 alt={
                   lang === "sv"
                     ? "Övervakningskamera mot ett gult raster med en suddig person i bakgrunden"

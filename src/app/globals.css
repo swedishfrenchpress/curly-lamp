@@ -6,15 +6,12 @@
  * ---------------------------------------------------------------------------
  * A restrained blue family makes the document feel civic, calm and trustworthy
  * without borrowing the visual language of a police authority or a SaaS brand.
- * Neutrals carry a slight blue cast so light and dark surfaces belong to the
- * same system.
+ * Neutrals carry a slight blue cast so surfaces belong to the same system.
  *
  * The stronger signal blue (--flag) marks unresolved questions and verification
  * states. It is clearer than the surrounding palette without reading as alarm.
  *
- * Scheme follows the OS; a `data-theme="dark|light"` attribute on <html>
- * overrides it. Both dark blocks must stay identical — a media query and an
- * attribute selector cannot share one rule.
+ * Light mode only — the site does not follow OS dark preference.
  */
 :root {
   color-scheme: light;
@@ -33,7 +30,7 @@
   --on-ink: #fffaf4;
   --edge: #1e6578;    /* focus ring, selection */
 
-  /* Always-dark showcase surfaces — these do not flip with the scheme. */
+  /* Dark showcase surfaces used for emphasis panels, not a site-wide scheme. */
   --panel: #111827;
   --panel-hair: #384052;
   --panel-fg: #f8f2e9;
@@ -83,74 +80,6 @@
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
   --font-serif: "Baskerville", "Libre Baskerville", "Georgia", serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-
-    --paper: #0a202b;
-    --card: #102b37;
-    --band: #0d2631;
-    --chalk: #15323e;
-    --hair: #315360;
-    --ghost: #8ca3ad;
-    --faint: #8eabb7;
-    --muted: #aec2ca;
-    --body: #d0dee4;
-    --ink: #f4f9fb;
-    --ink-hover: #dcecf2;
-    --on-ink: #0a202b;
-    --edge: #7dd3fc;
-
-    --panel: #0b2634;
-    --panel-hair: #2b5365;
-    --panel-fg: #f4f9fb;
-    --panel-muted: #afc5ce;
-
-    --flag: #67c6e6;
-    --flag-wash: #12394a;
-
-    --glass: rgba(10, 32, 43, 0.86);
-    --glass-hair: rgba(174, 194, 202, 0.16);
-    --wash: #102d3a;
-    --wash-strong: #173847;
-    --image-placeholder: #34444c;
-    --image-placeholder-ink: #edf3f5;
-  }
-}
-
-:root[data-theme="dark"] {
-  color-scheme: dark;
-
-  --paper: #0a202b;
-  --card: #102b37;
-  --band: #0d2631;
-  --chalk: #15323e;
-  --hair: #315360;
-  --ghost: #8ca3ad;
-  --faint: #8eabb7;
-  --muted: #aec2ca;
-  --body: #d0dee4;
-  --ink: #f4f9fb;
-  --ink-hover: #dcecf2;
-  --on-ink: #0a202b;
-  --edge: #7dd3fc;
-
-  --panel: #0b2634;
-  --panel-hair: #2b5365;
-  --panel-fg: #f4f9fb;
-  --panel-muted: #afc5ce;
-
-  --flag: #67c6e6;
-  --flag-wash: #12394a;
-
-  --glass: rgba(10, 32, 43, 0.86);
-  --glass-hair: rgba(174, 194, 202, 0.16);
-  --wash: #102d3a;
-  --wash-strong: #173847;
-  --image-placeholder: #34444c;
-  --image-placeholder-ink: #edf3f5;
 }
 
 @theme inline {
@@ -345,7 +274,6 @@ a {
   color: var(--ink);
   margin: 0;
   text-wrap: balance;
-  overflow-wrap: anywhere;
 }
 
 .section-title {
@@ -357,7 +285,6 @@ a {
   color: var(--ink);
   margin: 0;
   text-wrap: balance;
-  overflow-wrap: anywhere;
 }
 
 .sub-title {
@@ -541,43 +468,6 @@ a {
   color: var(--ink);
   border-color: var(--ghost);
   background: var(--wash);
-}
-
-/* Theme-toggle icons. The button ships both and CSS picks; that keeps the
-   control stateless in React and makes it impossible for the icon to disagree
-   with the scheme before hydration. Order matters — the explicit data-theme
-   rules must come last so a manual override beats the OS preference. */
-.theme-toggle__sun,
-.theme-toggle__moon {
-  width: 18px;
-  height: 18px;
-  flex: none;
-}
-.theme-toggle__sun {
-  display: block;
-}
-.theme-toggle__moon {
-  display: none;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .theme-toggle__sun {
-    display: none;
-  }
-  :root:not([data-theme="light"]) .theme-toggle__moon {
-    display: block;
-  }
-}
-:root[data-theme="light"] .theme-toggle__sun {
-  display: block;
-}
-:root[data-theme="light"] .theme-toggle__moon {
-  display: none;
-}
-:root[data-theme="dark"] .theme-toggle__sun {
-  display: none;
-}
-:root[data-theme="dark"] .theme-toggle__moon {
-  display: block;
 }
 
 .nav-toggle {
@@ -1749,10 +1639,10 @@ a {
 }
 @media (min-width: 840px) {
   .source-directory__intro .editorial-grid__rail {
-    grid-column: 1 / 4;
+    grid-column: 1 / 5;
   }
   .source-directory__intro .editorial-grid__body {
-    grid-column: 4 / -1;
+    grid-column: 5 / -1;
   }
   .src-group {
     grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -2209,22 +2099,6 @@ body {
     border-inline: 0;
     box-shadow: none;
   }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) body {
-    background:
-      radial-gradient(circle at 50% -8%, rgba(163, 91, 9, 0.42), transparent 28%),
-      radial-gradient(circle at 101% 17%, rgba(145, 41, 88, 0.28), transparent 34%),
-      #07131a;
-  }
-}
-
-:root[data-theme="dark"] body {
-  background:
-    radial-gradient(circle at 50% -8%, rgba(163, 91, 9, 0.42), transparent 28%),
-    radial-gradient(circle at 101% 17%, rgba(145, 41, 88, 0.28), transparent 34%),
-    #07131a;
 }
 
 /* The document shell and the navigation use different inset widths, as in a

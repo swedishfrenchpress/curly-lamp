@@ -34,7 +34,6 @@ const sv: Dict = {
       { route: "about", label: "Om sidan" },
     ],
     langSwitch: "Byt till engelska",
-    themeToggle: "Växla mellan ljust och mörkt läge",
     skipToContent: "Hoppa till innehåll",
     menu: "Meny",
     close: "Stäng",
@@ -676,13 +675,6 @@ const sv: Dict = {
         body: [
           "Rättelser publiceras öppet i stället för att göras i det tysta. Det gäller särskilt rättelser som lämnas genom offentliga uttalanden eller allmänna handlingar från Polismyndigheten eller Regeringskansliet.",
           "Ett svar på någon av frågorna på den här sidan publicerar vi i sin helhet, i original.",
-        ],
-      },
-      {
-        title: "Integritet",
-        body: [
-          "Sidan har ingen webbanalys, inga kakor, inga inbäddade tredjepartsskript och ingen inloggning. Vi sätter inget i din webbläsare utom ditt eventuella val av ljust eller mörkt läge, som stannar lokalt.",
-          "Det vore märkligt att bedriva en kampanj om övervakning och samtidigt kartlägga sina läsare.",
         ],
       },
     ],

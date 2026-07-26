@@ -29,7 +29,6 @@ const en: Dict = {
       { route: "about", label: "About" },
     ],
     langSwitch: "Switch to Swedish",
-    themeToggle: "Toggle light and dark mode",
     skipToContent: "Skip to content",
     menu: "Menu",
     close: "Close",
@@ -672,13 +671,6 @@ const en: Dict = {
         body: [
           "Corrections are published openly rather than made silently. This applies especially to corrections supplied through public statements or official records by the Police Authority or the Government Offices.",
           "Any answer to any of the questions on this site will be published in full, in the original.",
-        ],
-      },
-      {
-        title: "Privacy",
-        body: [
-          "This site runs no analytics, sets no cookies, embeds no third-party scripts and has no login. We put nothing in your browser except your choice of light or dark mode, which stays local.",
-          "It would be strange to run a campaign about surveillance while profiling its readers.",
         ],
       },
     ],

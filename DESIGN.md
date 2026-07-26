@@ -43,10 +43,6 @@ colors:
   artwork-ink: "rgba(16, 24, 41, 0.2)"
   decor-gold: "rgba(255, 181, 0, 0.52)"
   decor-pink: "rgba(226, 107, 151, 0.32)"
-  dark-paper: "#071820"
-  dark-card: "#0c222e"
-  dark-ink: "#f4f9fb"
-  dark-flag: "#67c6e6"
 typography:
   display:
     fontFamily: "Baskerville, Libre Baskerville, Georgia, serif"
@@ -194,7 +190,7 @@ components:
 
 This is a calm, evidentiary campaign system presented as one bounded editorial publication rather than a political poster or a software product. A warm paper plane, old-style serif chapter type, source-level metadata, and structural hairlines make claims easy to locate and check. Beyond that paper plane, a restrained gold, rose, and violet atmosphere gives the campaign a memorable visual edge without entering the evidence itself.
 
-The home hero is the sole centered composition: one large public question, one compact explanatory deck, no CTA, and one wide artwork field. The evidence that follows returns to the recurring 12-column grid. Light and dark schemes remain equal reading modes, while the Night Record panel is the decisive editorial interruption used to bind related evidence into one argument.
+The home hero is the sole centered composition: one large public question, one compact explanatory deck, no CTA, and one wide artwork field. The evidence that follows returns to the recurring 12-column grid. The site is light mode only; the Night Record panel is the decisive editorial interruption used to bind related evidence into one argument.
 
 **Key Characteristics:**
 
@@ -219,11 +215,11 @@ The publication uses warm paper, midnight ink, and civic teal. Gold, rose, and v
 - **Band and Chalk:** Tonal paper surfaces that separate long-form material without card clutter.
 - **Midnight Ink and Body:** Near-navy headings and warm charcoal prose preserve a clear editorial hierarchy.
 - **Hairline and Metadata Neutrals:** Structural rules, underlines, citations, and tertiary metadata.
-- **Night Record:** The fixed deep-blue showcase surface is used for contained editorial arguments in both schemes.
+- **Night Record:** The fixed deep-blue showcase surface is used for contained editorial arguments on the light reading ground.
 
 **The Calm Signal Rule.** Stronger teal communicates action or unresolved state without performing alarm. It may be used for links and focus, but never as decorative noise.
 
-**The Scheme Parity Rule.** Respect OS preference by default; the explicit theme switch overrides it. Dark mode changes the reading ground and preserves contrast, but it does not introduce a second visual identity.
+**Light Only.** The site does not follow OS dark preference and has no theme switch. Reading ground stays warm paper.
 
 ## Typography
 
@@ -257,7 +253,7 @@ The publication is flat by default. Depth comes from alternating paper grounds, 
 ### Corner radius
 
 - **Structural — 0px:** Buttons, content frames, press cards, artwork, data maps, notices, the Night Record steps, and evidence registers are square.
-- **Utility — 4px:** Compact theme, language, and status controls may retain a slight radius where it improves touch affordance.
+- **Utility — 4px:** Compact language and status controls may retain a slight radius where it improves touch affordance.
 - Full-width sections, the header and footer, chronology rows, source lists, and structural hairlines always remain square.
 
 ## Layout

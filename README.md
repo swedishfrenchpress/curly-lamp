@@ -34,14 +34,13 @@ src/
     en.ts         English copy — a translation of sv.ts, not a second argument
     index.ts      dictionary lookup, SITE_UPDATED
   components/
-    site-header.tsx   nav + language toggle + theme toggle
+    site-header.tsx   nav + language toggle
     site-footer.tsx
     press-section.tsx full About grid + compact Home register
     share-panel.tsx   native share, copy-link fallback, asset downloads
     data-flow.tsx     reported Acus data relationship
     ui.tsx            Cites, SectionHead, ClaimList, Section, PageHero
     reveal.tsx        one-shot fade-in on first scroll into view
-    theme-toggle.tsx
   lib/page.ts     shared generateStaticParams + metadata
   app/
     page.tsx              language gate at /  (client redirect + no-JS links)

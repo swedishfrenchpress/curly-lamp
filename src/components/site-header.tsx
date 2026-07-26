@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import ThemeToggle from "./theme-toggle";
 import { otherLang } from "@/content";
 import { path, type Dict, type Lang } from "@/content/types";
 
@@ -82,7 +81,6 @@ export default function SiteHeader({ dict }: { dict: Dict }) {
               </span>
               <span>{next === "en" ? "EN" : "SV"}</span>
             </Link>
-            <ThemeToggle label={dict.nav.themeToggle} />
             <button
               type="button"
               className="icon-btn nav-toggle"
